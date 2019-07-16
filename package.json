@@ -1,7 +1,7 @@
 {
-  "name": "compiler",
+  "name": "gulp-compiler",
   "version": "1.0.0",
-  "description": "Compiler JS",
+  "description": "Gulp Compiler SASS and JS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
