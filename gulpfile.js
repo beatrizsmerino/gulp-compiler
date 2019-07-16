@@ -21,7 +21,7 @@ const gulp                = require('gulp'),
 
 // ROOTS
 // =================================================
-let proyectName = 'compiler/';
+let proyectName = 'gulp-compiler/';
 
 // Root src
 let rootSrc     = 'src/',
