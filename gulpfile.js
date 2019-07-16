@@ -21,7 +21,7 @@ const gulp                = require('gulp'),
 
 // ROOTS
 // =================================================
-let proyectName = 'compiler/';
+let proyectName = 'gulp-compiler/';
 
 // Root src
 let rootSrc     = 'src/',
@@ -34,21 +34,20 @@ let rootDist    = 'dist/',
     rootDistJs  = rootDist + 'js/';
 
 // Root Files
-let rootFiles        = '**/*',
-    rootFilesSass    = '**/*.sass',
-    rootFilesCss     = '**/*.css',
-    rootFilesJs      = '**/*.js';
+let rootFiles     = '**/*',
+    rootFilesSass = '**/*.sass',
+    rootFilesCss  = '**/*.css',
+    rootFilesJs   = '**/*.js';
 
 // Watch
-let WatchFilesCss     = rootDistCss + rootFilesCss,
-    WatchFilesJs      = rootDistJs + rootFilesJs;
+let WatchFilesCss = rootDistCss + rootFilesCss,
+    WatchFilesJs  = rootDistJs + rootFilesJs;
 
 
 // Roots used to concat the files in a specific order.
 let filesJs = [
     rootSrcJs + 'scripts.js',
 ]
-
 
 
 // GULP TASK
@@ -75,17 +74,13 @@ function jsCompile()
 {
     return gulp.src(filesJs)
                .pipe(babel({
-                    'presets':['@babel/preset-env']
-                }))
+                   'presets': ['@babel/preset-env']
+               }))
                .pipe(concat('scripts.min.js'))
                .pipe(uglify())
                .pipe(lineEndingCorrector())
                .pipe(gulp.dest(rootDistJs))
 }
-
-
-
-
 
 
 // WATCH and EXPORTS
@@ -97,7 +92,7 @@ function watch()
         proxy: 'http://localhost/' + proyectName,
         port: 3306,
     });
-
+    
     gulp.watch(rootSrcJs + rootFilesJs, jsCompile);
     gulp.watch(rootSrcSass + rootFilesSass, sassCompile);
     
@@ -109,8 +104,8 @@ function watch()
     ).on('change', reload);
 }
 
-exports.sassCompile            = sassCompile;
-exports.jsCompile              = jsCompile;
+exports.sassCompile = sassCompile;
+exports.jsCompile   = jsCompile;
 
 
 exports.watch = watch;
