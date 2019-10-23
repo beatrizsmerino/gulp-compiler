@@ -19,17 +19,51 @@ Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript
 ### Content
 The *'sass'* and *'js'* compilation tasks pick up the files in the *'src'* folder and generate a new *'dist'* folder with the results.  
 
-#### Remaining a structure like this:
-- src
-  - sass  
-  *styles.sass*
-  - js  
-  *scripts.js*
-- dist
-  - css  
-  *styles.min.css*
-  - js  
-  *scripts.min.js*
+#### Structure:
+```
+gulp-compiler (your-name-proyect)
+    admin/ (backend)
+        assets/
+            src/
+                sass/  
+                    styles.sass
+                js/  
+                    scripts.js
+    assets/ (frontend)
+        src/
+            sass/  
+                styles.sass
+            js/  
+                scripts.js
+```
+
+#### Output:
+```
+gulp-compiler (your-name-proyect)
+    admin/ (backend)
+        assets/
+            src/
+                sass/  
+                    styles.sass
+                js/  
+                    scripts.js
+            dist/ (output)
+                sass/  
+                    styles.min.css
+                js/  
+                    scripts.min.js 
+    assets/ (frontend)
+        src/
+            sass/  
+                styles.sass
+            js/  
+                scripts.js
+        dist/ (output)
+            sass/  
+                styles.min.css
+            js/  
+                scripts.min.js 
+```
 
 #### Necessary files
 - *package.json*  
