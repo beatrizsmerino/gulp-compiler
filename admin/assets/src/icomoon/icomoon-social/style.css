@@ -1,0 +1,179 @@
+@font-face {
+  font-family: 'icomoon-social';
+  src:  url('fonts/icomoon-social.eot?7mnp8b');
+  src:  url('fonts/icomoon-social.eot?7mnp8b#iefix') format('embedded-opentype'),
+    url('fonts/icomoon-social.ttf?7mnp8b') format('truetype'),
+    url('fonts/icomoon-social.woff?7mnp8b') format('woff'),
+    url('fonts/icomoon-social.svg?7mnp8b#icomoon-social') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-social-"], [class*=" icon-social-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon-social' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-social-500px:before {
+  content: "\e900";
+}
+.icon-social-amazon:before {
+  content: "\e901";
+}
+.icon-social-android:before {
+  content: "\e902";
+}
+.icon-social-apple:before {
+  content: "\e903";
+}
+.icon-social-behance:before {
+  content: "\e904";
+}
+.icon-social-blogger:before {
+  content: "\e905";
+}
+.icon-social-deviantart:before {
+  content: "\e906";
+}
+.icon-social-discord:before {
+  content: "\e907";
+}
+.icon-social-dribbble:before {
+  content: "\e908";
+}
+.icon-social-dropbox:before {
+  content: "\e909";
+}
+.icon-social-facebook:before {
+  content: "\e90a";
+}
+.icon-social-flickr:before {
+  content: "\e90b";
+}
+.icon-social-foursquare:before {
+  content: "\e90c";
+}
+.icon-social-github:before {
+  content: "\e90d";
+}
+.icon-social-google:before {
+  content: "\e90e";
+}
+.icon-social-google-plus:before {
+  content: "\e90f";
+}
+.icon-social-instagram:before {
+  content: "\e910";
+}
+.icon-social-joomla:before {
+  content: "\e911";
+}
+.icon-social-lastfm:before {
+  content: "\e912";
+}
+.icon-social-linkedin:before {
+  content: "\e913";
+}
+.icon-social-listly:before {
+  content: "\e914";
+}
+.icon-social-mastodon:before {
+  content: "\e915";
+}
+.icon-social-medium:before {
+  content: "\e916";
+}
+.icon-social-microsoft:before {
+  content: "\e917";
+}
+.icon-social-periscope:before {
+  content: "\e918";
+}
+.icon-social-pinterest:before {
+  content: "\e919";
+}
+.icon-social-pocket:before {
+  content: "\e91a";
+}
+.icon-social-quora:before {
+  content: "\e91b";
+}
+.icon-social-reddit:before {
+  content: "\e91c";
+}
+.icon-social-skype:before {
+  content: "\e91d";
+}
+.icon-social-slack:before {
+  content: "\e91e";
+}
+.icon-social-slideshare:before {
+  content: "\e91f";
+}
+.icon-social-snapchat:before {
+  content: "\e920";
+}
+.icon-social-soundcloud:before {
+  content: "\e921";
+}
+.icon-social-spotify:before {
+  content: "\e922";
+}
+.icon-social-stackoverflow:before {
+  content: "\e923";
+}
+.icon-social-steam:before {
+  content: "\e933";
+}
+.icon-social-stumbleupon:before {
+  content: "\e925";
+}
+.icon-social-swarm:before {
+  content: "\e926";
+}
+.icon-social-telegram:before {
+  content: "\e927";
+}
+.icon-social-trello:before {
+  content: "\e928";
+}
+.icon-social-tumblr:before {
+  content: "\e929";
+}
+.icon-social-twitch:before {
+  content: "\e92a";
+}
+.icon-social-twitter:before {
+  content: "\e92b";
+}
+.icon-social-vimeo:before {
+  content: "\e92c";
+}
+.icon-social-vine:before {
+  content: "\e92d";
+}
+.icon-social-vk:before {
+  content: "\e92e";
+}
+.icon-social-whatsapp:before {
+  content: "\e92f";
+}
+.icon-social-wordpress:before {
+  content: "\e930";
+}
+.icon-social-yahoo:before {
+  content: "\e931";
+}
+.icon-social-youtube:before {
+  content: "\e932";
+}
