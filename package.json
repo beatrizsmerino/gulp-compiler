@@ -28,5 +28,10 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.4.1",
+    "jquery-validation": "^1.19.1",
+    "swiper": "^5.1.0"
+  }
 }
