@@ -419,19 +419,18 @@ gulp.task('front-css', gulp.series(
     front__sassCompile,
     front__cssCompile
 ));
-
 gulp.task('back-css', gulp.series(
     back__sassCompile,
     back__cssCompile
 ));
 
-gulp.task('front-icomoon', gulp.series(
+gulp.task('front-icon', gulp.series(
     front__cssIcomoonMinify,
     front__cssIcomoonCopy,
     front__cssIcomoonSocialMinify,
     front__cssIcomoonSocialCopy
 ));
-gulp.task('back-icomoon', gulp.series(
+gulp.task('back-icon', gulp.series(
     back__cssIcomoonMinify,
     back__cssIcomoonCopy,
     back__cssIcomoonSocialMinify,
