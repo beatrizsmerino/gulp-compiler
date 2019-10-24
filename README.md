@@ -10,7 +10,7 @@
 
 ## Gulp Compiler is a basic code for automate the tasks of your development environment, compile SASS and JS with the task runner Gulp.
 
-![Image of Gulp Compiler](https://github.com/beatrizsmerino/gulp-compiler/blob/feature/documentation/documentation/images/gulp-logo.png)
+![Image of Gulp Compiler](https://github.com/beatrizsmerino/gulp-compiler/blob/feature/documentation/documentation/images/gulp-logo-gulpfile-front-back.png)
 
 
 ## Development interface
@@ -22,47 +22,28 @@ The *'sass'* and *'js'* compilation tasks pick up the files in the *'src'* folde
 #### Structure:
 ```
 gulp-compiler (your-name-proyect)
-    admin/ (backend)
-        assets/
-            src/
-                sass/  
-                    styles.sass
-                js/  
-                    scripts.js
-    assets/ (frontend)
+    assets/
         src/
             sass/  
                 styles.sass
-            js/  
+            js/
                 scripts.js
 ```
 
 #### Output:
 ```
 gulp-compiler (your-name-proyect)
-    admin/ (backend)
-        assets/
-            src/
-                sass/  
-                    styles.sass
-                js/  
-                    scripts.js
-            dist/ (output)
-                sass/  
-                    styles.min.css
-                js/  
-                    scripts.min.js 
-    assets/ (frontend)
+    assets/
         src/
             sass/  
                 styles.sass
-            js/  
+            js/
                 scripts.js
-        dist/ (output)
-            sass/  
+        dist/
+            css/
                 styles.min.css
-            js/  
-                scripts.min.js 
+            js/
+                scripts.min.js
 ```
 
 #### Necessary files
@@ -96,6 +77,14 @@ You can start the following tasks using the command console while in the project
 `gulp`  
 `gulp sassCompile`  
 `gulp jsCompile`
+
+
+## Another version
+There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
+
+- This version separate the frontend and backend.
+- It has more tasks as minify images and icons.  
+- Use gulp series(): Combines task functions and / or composed operations into larger operations that will be executed one after another, in sequential order.  
 
 
 ## Continue...
