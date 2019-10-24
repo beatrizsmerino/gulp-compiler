@@ -22,28 +22,75 @@ The *'sass'* and *'js'* compilation tasks pick up the files in the *'src'* folde
 #### Structure:
 ```
 gulp-compiler (your-name-proyect)
-    assets/
+    admin/ (backend)
+        assets/
+            src/
+                sass/  
+                    abstracts/
+                    bases/
+                    components/
+                    layouts/
+                    pages/
+                    vendors/
+                    themes/
+                    styles.sass
+                js/  
+                    abstracts/
+                    bases/
+                    components/
+                    layouts/
+                    pages/
+                    vendors/
+                    themes/
+                    scripts.js
+    assets/ (frontend)
         src/
-            sass/  
-                styles.sass
-            js/
-                scripts.js
+              sass/  
+                    abstracts/
+                    bases/
+                    components/
+                    layouts/
+                    pages/
+                    vendors/
+                    themes/
+                    styles.sass
+              js/  
+                    abstracts/
+                    bases/
+                    components/
+                    layouts/
+                    pages/
+                    vendors/
+                    themes/
+                    scripts.js
 ```
 
 #### Output:
 ```
 gulp-compiler (your-name-proyect)
-    assets/
+    admin/ (backend)
+        assets/
+            src/
+                sass/  
+                    styles.sass
+                js/  
+                    scripts.js
+            dist/ (output)
+                sass/  
+                    styles.min.css
+                js/  
+                    scripts.min.js 
+    assets/ (frontend)
         src/
             sass/  
                 styles.sass
-            js/
+            js/  
                 scripts.js
-        dist/
-            css/
+        dist/ (output)
+            sass/  
                 styles.min.css
-            js/
-                scripts.min.js
+            js/  
+                scripts.min.js 
 ```
 
 #### Necessary files
@@ -73,18 +120,38 @@ After installing everything you need, you must launch the command, for download 
 
 
 ### Tasks availables:
-You can start the following tasks using the command console while in the project folder.
+You can start the following tasks using the command console while in the project folder.  
 `gulp`  
-`gulp sassCompile`  
-`gulp jsCompile`
 
+**FRONT**  
+`gulp front`  
+`gulp front-css`  
+`gulp front-js`  
+`gulp front-icon`  
+`gulp front-img`  
+`gulp front__cssIcomoonMinify`  
+`gulp front__cssIcomoonCopy`  
+`gulp front__cssIcomoonSocialMinify`  
+`gulp front__cssIcomoonSocialCopy`  
+`gulp front__sassCompile`  
+`gulp front__cssCompile`  
+`gulp front__jsCompile`  
+`gulp front__imageMinify`  
 
-## Another version
-There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
-
-- This version separate the frontend and backend.
-- It has more tasks as minify images and icons.  
-- Use gulp series(): Combines task functions and / or composed operations into larger operations that will be executed one after another, in sequential order.  
+**BACK**  
+`gulp back`  
+`gulp back-css`  
+`gulp back-js`  
+`gulp back-icon`  
+`gulp back-img`  
+`gulp back__cssIcomoonMinify`  
+`gulp back__cssIcomoonCopy`  
+`gulp back__cssIcomoonSocialMinify`  
+`gulp back__cssIcomoonSocialCopy`  
+`gulp back__sassCompile`  
+`gulp back__cssCompile`  
+`gulp back__jsCompile`  
+`gulp back__imageMinify`  
 
 
 ## Continue...
