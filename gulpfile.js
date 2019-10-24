@@ -21,7 +21,7 @@ const gulp                = require('gulp'),
 
 // ROOTS
 // =================================================
-var proyectName  = "/gulp-compiler/",
+var proyectName  = "gulp-compiler/",
     proyectFront = '',
     proyectBack  = 'admin/';
 
