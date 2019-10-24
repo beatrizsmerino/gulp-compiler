@@ -408,6 +408,13 @@ exports.back__imageMinify            = back__imageMinify;
 exports.watch = watch;
 
 
+gulp.task('front-js', gulp.series(
+    front__jsCompile,
+));
+gulp.task('back-js', gulp.series(
+    back__jsCompile,
+));
+
 gulp.task('front-css', gulp.series(
     front__sassCompile,
     front__cssCompile
