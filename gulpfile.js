@@ -66,7 +66,8 @@ var frontSrcIcomoon       = proyectFront + srcIcomoonFront,
 var frontDistIcomoon       = proyectFront + distIcomoonFront,
     frontDistIcomoonSocial = proyectFront + distIcomoonSocial,
     frontDistCss           = proyectFront + distCss,
-    frontDistJs            = proyectFront + distJs;
+    frontDistJs            = proyectFront + distJs,
+    frontDistImg           = proyectFront + distImg;
 
 var frontWatchFilesPhp           = proyectFront + watchFilesPhp,
     frontWatchFilesIcomoon       = frontDistIcomoon + watchFilesIcomoon,
@@ -112,7 +113,8 @@ var backSrcIcomoon       = proyectBack + srcIcomoonBack,
 var backDistIcomoon       = proyectBack + distIcomoonBack,
     backDistIcomoonSocial = proyectBack + distIcomoonSocial,
     backDistCss           = proyectBack + distCss,
-    backDistJs            = proyectBack + distJs;
+    backDistJs            = proyectBack + distJs,
+    backDistImg           = proyectBack + distImg;
 
 var backWatchFilesPhp           = proyectBack + watchFilesPhp,
     backWatchFilesIcomoon       = backDistIcomoon + watchFilesIcomoon,
@@ -231,7 +233,7 @@ function front__jsCompile()
 function front__imageMinify()
 {
     return gulp.src(frontSrcImgRoots)
-               .pipe(changed(distImg))
+               .pipe(changed(frontDistImg))
                .pipe(imagemin([
                    imagemin.gifsicle({
                        interlaced: true
@@ -243,7 +245,7 @@ function front__imageMinify()
                        optimizationLevel: 5
                    })
                ]))
-               .pipe(gulp.dest(distImg));
+               .pipe(gulp.dest(frontDistImg));
 }
 
 
@@ -332,7 +334,7 @@ function back__jsCompile()
 function back__imageMinify()
 {
     return gulp.src(backSrcImgRoots)
-               .pipe(changed(distImg))
+               .pipe(changed(backDistImg))
                .pipe(imagemin([
                    imagemin.gifsicle({
                        interlaced: true
@@ -344,7 +346,7 @@ function back__imageMinify()
                        optimizationLevel: 5
                    })
                ]))
-               .pipe(gulp.dest(distImg));
+               .pipe(gulp.dest(backDistImg));
 }
 
 
@@ -435,6 +437,13 @@ gulp.task('back-icon', gulp.series(
     back__cssIcomoonCopy,
     back__cssIcomoonSocialMinify,
     back__cssIcomoonSocialCopy
+));
+
+gulp.task('front-img', gulp.series(
+  front__imageMinify
+));
+gulp.task('back-img', gulp.series(
+  back__imageMinify
 ));
 
 gulp.task('front', gulp.series(
