@@ -1,6 +1,7 @@
 'use strict';
 
 
+
 // DEPENDENCIES
 // =================================================
 const gulp                = require('gulp'),
@@ -19,96 +20,130 @@ const gulp                = require('gulp'),
       babel               = require('gulp-babel');
 
 
-// ROOTS
+
+// SETTINGS: FOLDER/FILE PATHS
 // =================================================
 let proyectName = 'gulp-compiler/';
 
-// Root src
-let rootSrc     = 'src/',
-    rootSrcSass = rootSrc + 'sass/',
-    rootSrcJs   = rootSrc + 'js/';
+// Path src
+let pathSrc     = 'src/',
+    pathSrcSass = pathSrc + 'sass/',
+    pathSrcJs   = pathSrc + 'js/';
 
-// Root dist
-let rootDist    = 'dist/',
-    rootDistCss = rootDist + 'css/',
-    rootDistJs  = rootDist + 'js/';
+// Path dist
+let pathDist    = 'dist/',
+    pathDistCss = pathDist + 'css/',
+    pathDistJs  = pathDist + 'js/';
 
-// Root Files
-let rootFiles     = '**/*',
-    rootFilesSass = '**/*.sass',
-    rootFilesCss  = '**/*.css',
-    rootFilesJs   = '**/*.js';
+// Path Files
+let pathFiles     = "**/*",
+	pathFilesHtml = "*.html",
+	pathFilesSass = "**/*.sass",
+	pathFilesCss  = "**/*.css",
+	pathFilesJs   = "**/*.js";
 
-// Watch
-let WatchFilesCss = rootDistCss + rootFilesCss,
-    WatchFilesJs  = rootDistJs + rootFilesJs;
+// Watch Files
+let watchFilesHtml = pathDist + pathFilesHtml,
+	watchFilesCss  = pathDistCss + pathFilesCss,
+	watchFilesJs   = pathDistJs + pathFilesJs;
+
+// Paths used to concat the files in a specific order.
+let filesJsCompile = [pathSrcJs + "scripts.js"];
 
 
-// Roots used to concat the files in a specific order.
-let filesJs = [
-    rootSrcJs + 'scripts.js',
-]
 
-
-// GULP TASK
+// FUNTIONS USED IN THE TASKS
 // =================================================
-function sassCompile()
-{
-    return gulp.src([rootSrcSass + 'styles.sass'])
-               .pipe(srcMaps.init({
-                   loadMaps: true
-               }))
-               .pipe(sass({
-                   outputStyle: 'compressed'
-               }).on('error', sass.logError))
-               .pipe(autoprefixer({
-                   versions: ['last 2 versions']
-               }))
-               .pipe(srcMaps.write())
-               .pipe(lineEndingCorrector())
-               .pipe(rename('styles.min.css'))
-               .pipe(gulp.dest(rootDistCss))
+function createServer() {
+	browserSync.init({
+		server: {
+			baseDir: "./dist",
+			browser: ["google-chrome", "firefox"],
+		},
+	});
 }
 
-function jsCompile()
-{
-    return gulp.src(filesJs)
-               .pipe(babel({
-                   'presets': ['@babel/preset-env']
-               }))
-               .pipe(concat('scripts.min.js'))
-               .pipe(uglify())
-               .pipe(lineEndingCorrector())
-               .pipe(gulp.dest(rootDistJs))
+function copyDirectory(directoryToCopy, directoryOutput) {
+	return gulp.src(`${directoryToCopy}/**/*`).pipe(gulp.dest(directoryOutput));
+}
+
+function copyFiles(filesToCopy, directoryOutput) {
+	return gulp.src(filesToCopy).pipe(gulp.dest(directoryOutput));
+}
+
+function htmlCopy() {
+	return copyFiles(pathSrc + pathFilesHtml, pathDist);
+}
+
+function sassCompile() {
+    return gulp
+		.src([pathSrcSass + "styles.sass"])
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+			})
+		)
+		.pipe(
+			sass({
+				outputStyle: "compressed",
+			}).on("error", sass.logError)
+		)
+		.pipe(
+			autoprefixer({
+				versions: ["last 2 versions"],
+			})
+		)
+		.pipe(srcMaps.write())
+		.pipe(lineEndingCorrector())
+		.pipe(rename("styles.min.css"))
+		.pipe(gulp.dest(pathDistCss));
+}
+
+function jsCompile() {
+    return gulp
+		.src(filesJsCompile)
+		.pipe(
+			babel({
+				presets: ["@babel/preset-env"],
+			})
+		)
+		.pipe(concat("scripts.min.js"))
+		.pipe(uglify())
+		.pipe(lineEndingCorrector())
+		.pipe(gulp.dest(pathDistJs));
+}
+
+function watch() {
+    createServer();
+    
+	gulp.watch(pathSrc + pathFilesHtml, htmlCopy);
+	gulp.watch(pathSrcSass + pathFilesSass, sassCompile);
+	gulp.watch(pathSrcJs + pathFilesJs, jsCompile);
+
+	gulp.watch([watchFilesHtml, watchFilesCss, watchFilesJs]).on(
+		"change",
+		reload
+	);
 }
 
 
-// WATCH and EXPORTS
+
+// EXPORTS
 // =================================================
-function watch()
-{
-    browserSync.init({
-        open: 'external',
-        proxy: 'http://localhost/' + proyectName,
-        port: 3306,
-    });
-    
-    gulp.watch(rootSrcJs + rootFilesJs, jsCompile);
-    gulp.watch(rootSrcSass + rootFilesSass, sassCompile);
-    
-    gulp.watch(
-        [
-            WatchFilesCss,
-            WatchFilesJs,
-        ]
-    ).on('change', reload);
-}
-
-exports.sassCompile = sassCompile;
-exports.jsCompile   = jsCompile;
+exports.createServer 	= createServer;
+exports.htmlCopy 		= htmlCopy;
+exports.sassCompile 	= sassCompile;
+exports.jsCompile   	= jsCompile;
+exports.watch 			= watch;
 
 
-exports.watch = watch;
 
-
-gulp.task('default', gulp.parallel(watch));
+// TASKS
+// =================================================
+gulp.task("default", gulp.series(htmlCopy, sassCompile, jsCompile, watch));
+gulp.task("serve", gulp.series(createServer));
+gulp.task("build", gulp.series(htmlCopy, sassCompile, jsCompile));
+gulp.task("html", gulp.series(htmlCopy));
+gulp.task("css", gulp.series(sassCompile));
+gulp.task("js", gulp.series(jsCompile));
+gulp.task("watch", gulp.parallel(watch));
