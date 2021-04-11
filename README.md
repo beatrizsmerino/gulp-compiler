@@ -178,6 +178,7 @@ or
 ```
 gulp htmlCopy
 gulp sassCompile
+gulp cssCompile
 gulp jsCompile
 gulp watch
 ```
@@ -212,6 +213,7 @@ or
 ```
 gulp htmlCopy
 gulp sassCompile
+gulp cssCompile
 gulp jsCompile
 ```
 
@@ -238,7 +240,8 @@ This command is able to:
 
 1. Creates the `dist` folder if it does not exist.
 2. Compile the `styles.sass` file (with the import files of partials sass) located at `src/sass/`, add prefixes to properties css, compress the file, create and add a mapping for the debugger styles sass on the browser inspector, apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
-3. Export the `styles.min.css` file to `dist/css/` folder.
+3. Create the `styles.min.css` file and export to `dist/css/` folder.
+4. Get list of files of `css` files of `filesCssCompile` variable and concat the files, compress it, add a mapping, apply Line Ending Corrector, overwrite `styles.min.css` and inject updated CSS code to browser without reloading it.
 
 ```
 gulp css
@@ -248,6 +251,7 @@ or
 
 ```
 gulp sassCompile
+gulp cssCompile
 ```
 
 ## 📄 Generate js
