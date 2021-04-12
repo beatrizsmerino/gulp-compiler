@@ -11,6 +11,7 @@ const gulp                = require('gulp'),
       changed             = require('gulp-changed'),
       cleanCss            = require('gulp-clean-css'),
       concat              = require('gulp-concat'),
+	  htmlmin 			  = require('gulp-htmlmin'),
       imagemin            = require('gulp-imagemin'),
       lineEndingCorrector = require('gulp-line-ending-corrector'),
       rename              = require('gulp-rename'),
@@ -81,6 +82,13 @@ function htmlCopy() {
 	return copyFiles(pathSrc + pathFilesHtml, pathDist);
 }
 
+function htmlMinfy() {
+	return gulp
+		.src(pathDist + pathFilesHtml)
+		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(gulp.dest(pathDist));
+}
+
 function sassCompile() {
     return gulp
 		.src([pathSrcSass + "styles.sass"])
@@ -135,7 +143,7 @@ function jsCompile() {
 function watch() {
     createServer();
     
-	gulp.watch(pathSrc + pathFilesHtml, htmlCopy);
+	gulp.watch(pathSrc + pathFilesHtml, gulp.series(htmlCopy, htmlMinfy));
 	gulp.watch(pathSrcSass + pathFilesSass, gulp.series(sassCompile, cssCompile));
 	gulp.watch(pathSrcJs + pathFilesJs, jsCompile);
 
@@ -151,6 +159,7 @@ function watch() {
 // =================================================
 exports.createServer  = createServer;
 exports.htmlCopy      = htmlCopy;
+exports.htmlMinfy     = htmlMinfy;
 exports.sassCompile   = sassCompile;
 exports.cssCompile    = cssCompile;
 exports.jsCompile     = jsCompile;
@@ -160,10 +169,10 @@ exports.watch         = watch;
 
 // TASKS
 // =================================================
-gulp.task("default", gulp.series(htmlCopy, sassCompile, jsCompile, watch));
+gulp.task("default", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile, watch));
 gulp.task("serve", gulp.series(createServer));
-gulp.task("build", gulp.series(htmlCopy, sassCompile, jsCompile));
-gulp.task("html", gulp.series(htmlCopy));
+gulp.task("build", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile));
+gulp.task("html", gulp.series(htmlCopy, htmlMinfy));
 gulp.task("css", gulp.series(sassCompile, cssCompile));
 gulp.task("js", gulp.series(jsCompile));
 gulp.task("watch", gulp.parallel(watch));

@@ -177,6 +177,7 @@ or
 
 ```
 gulp htmlCopy
+gulp htmlMinfy
 gulp sassCompile
 gulp cssCompile
 gulp jsCompile
@@ -212,6 +213,7 @@ or
 
 ```
 gulp htmlCopy
+gulp htmlMinfy
 gulp sassCompile
 gulp cssCompile
 gulp jsCompile
@@ -223,6 +225,7 @@ This command is able to:
 
 1. Creates the `dist` folder if it does not exist.
 2. Copies the `html` files from the `src` folder and pastes the `dist` folder.
+3. Minify the `html` files. Collapse white space that contributes to text nodes in a document tree.
 
 ```
 gulp html
@@ -232,6 +235,7 @@ or
 
 ```
 gulp htmlCopy
+gulp htmlMinfy
 ```
 
 ## 📄 Generate css
