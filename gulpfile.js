@@ -66,11 +66,15 @@ function createServer() {
 }
 
 function copyDirectory(directoryToCopy, directoryOutput) {
-	return gulp.src(`${directoryToCopy}/**/*`).pipe(gulp.dest(directoryOutput));
+	return gulp
+		.src(`${directoryToCopy}/**/*`)
+		.pipe(gulp.dest(directoryOutput));
 }
 
 function copyFiles(filesToCopy, directoryOutput) {
-	return gulp.src(filesToCopy).pipe(gulp.dest(directoryOutput));
+	return gulp
+		.src(filesToCopy)
+		.pipe(gulp.dest(directoryOutput));
 }
 
 function htmlCopy() {
