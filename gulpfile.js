@@ -11,9 +11,12 @@ const gulp                = require('gulp'),
       cleanCss            = require('gulp-clean-css'),
       concat              = require('gulp-concat'),
       imagemin            = require('gulp-imagemin'),
+	  imageminJpegtran    = require('imagemin-jpegtran'),
+	  imageminOptipng     = require('imagemin-optipng'),
+	  imageminGifsicle    = require('imagemin-gifsicle'),
       lineEndingCorrector = require('gulp-line-ending-corrector'),
       rename              = require('gulp-rename'),
-      sass                = require('gulp-sass'),
+      sass                = require('gulp-sass')(require('sass')),
       srcMaps             = require('gulp-sourcemaps'),
       uglify              = require('gulp-uglify'),
       babel               = require('gulp-babel');
@@ -75,18 +78,19 @@ var frontWatchFilesPhp           = proyectFront + watchFilesPhp,
     frontWatchFilesCss           = frontDistCss + watchFilesCss,
     frontWatchFilesJs            = frontDistJs + watchFilesJs;
 
+// Roots used to concat the css files in a specific order.
 var frontSrcCssRoots = [
-    nodeModules + 'swiper/css/swiper.min.css',
+    nodeModules + 'swiper/swiper-bundle.min.css',
     frontDistCss + 'styles.min.css',
 ];
 
-// Roots used to concat the files in a specific order.
+// Roots used to concat the js files in a specific order.
 var frontSrcJsRoots = [
     nodeModules + 'jquery/dist/jquery.min.js',
     nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
     nodeModules + 'jquery-validation/dist/additional-methods.min.js',
     nodeModules + 'isotope-layout/dist/isotope.pkgd.min.js',
-    nodeModules + 'swiper/js/swiper.min.js',
+    nodeModules + 'swiper/swiper-bundle.min.js',
     frontSrcJs + 'scripts.js',
     frontSrcJs + 'abstracts/variables/_abstracts-variables-breakpoints.js',
     frontSrcJs + 'abstracts/functions/_abstracts-functions-browser.js',
@@ -122,16 +126,19 @@ var backWatchFilesPhp           = proyectBack + watchFilesPhp,
     backWatchFilesCss           = backDistCss + watchFilesCss,
     backWatchFilesJs            = backDistJs + watchFilesJs;
 
+// Roots used to concat the css files in a specific order.
 var backSrcCssRoots = [
-    nodeModules + 'swiper/css/swiper.css',
+    nodeModules + 'swiper/swiper-bundle.min.css',
     backDistCss + 'styles.min.css',
 ];
 
-// Roots used to concat the files in a specific order.
+// Roots used to concat the js files in a specific order.
 var backSrcJsRoots = [
     nodeModules + 'jquery/dist/jquery.min.js',
     nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
     nodeModules + 'jquery-validation/dist/additional-methods.min.js',
+	nodeModules + 'isotope-layout/dist/isotope.pkgd.min.js',
+    nodeModules + 'swiper/swiper-bundle.min.js',
     backSrcJs + 'scripts.js',
     backSrcJs + 'abstracts/variables/_abstracts-variables-breakpoints.js',
     backSrcJs + 'abstracts/functions/_abstracts-functions-browser.js',
@@ -235,13 +242,13 @@ function front__imageMinify()
     return gulp.src(frontSrcImgRoots)
                .pipe(changed(frontDistImg))
                .pipe(imagemin([
-                   imagemin.gifsicle({
+                   imageminGifsicle({
                        interlaced: true
                    }),
-                   imagemin.jpegtran({
+                   imageminJpegtran({
                        progressive: true
                    }),
-                   imagemin.optipng({
+                   imageminOptipng({
                        optimizationLevel: 5
                    })
                ]))
@@ -336,13 +343,13 @@ function back__imageMinify()
     return gulp.src(backSrcImgRoots)
                .pipe(changed(backDistImg))
                .pipe(imagemin([
-                   imagemin.gifsicle({
+                   imageminGifsicle({
                        interlaced: true
                    }),
-                   imagemin.jpegtran({
+                   imageminJpegtran({
                        progressive: true
                    }),
-                   imagemin.optipng({
+                   imageminOptipng({
                        optimizationLevel: 5
                    })
                ]))
