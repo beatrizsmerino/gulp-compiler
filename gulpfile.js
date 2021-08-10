@@ -29,7 +29,7 @@ var proyectName  = "gulp-compiler/",
     proyectBack  = 'admin/';
 
 // Files src
-var src              = 'assets/src/',
+var src              = 'src/',
     srcIcomoon       = src + 'icomoon/',
     srcIcomoonFront  = srcIcomoon + 'icomoon-front/',
     srcIcomoonBack   = srcIcomoon + 'icomoon-back/',
@@ -39,7 +39,7 @@ var src              = 'assets/src/',
     srcImg           = src + 'images/';
 
 // Files dist
-var dist              = 'assets/dist/',
+var dist              = 'dist/',
     distIcomoon       = dist + 'icomoon/',
     distIcomoonFront  = distIcomoon + 'icomoon-front/',
     distIcomoonBack   = distIcomoon + 'icomoon-back/',
