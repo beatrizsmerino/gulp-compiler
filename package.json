@@ -1,34 +1,35 @@
 {
-  "name": "gulp-compiler",
-  "version": "1.0.0",
-  "description": "Gulp Compiler SASS and JS",
-  "main": "index.js",
-  "scripts": {
-    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"  },
-  "author": "beatrizsmerino@gmail.com",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.27.7",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-line-ending-corrector": "^1.0.3",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "sass": "^1.48.0"
-  },
-  "resolutions": {
-    "glob-parent": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
-    "set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
-  }
+	"name": "gulp-compiler",
+	"version": "1.0.0",
+	"description": "Gulp Compiler SASS and JS",
+	"main": "index.js",
+	"scripts": {
+		"preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
+	},
+	"author": "beatrizsmerino@gmail.com",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.16.7",
+		"@babel/preset-env": "^7.16.8",
+		"babel-core": "^6.26.3",
+		"babel-polyfill": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"browser-sync": "^2.27.7",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-line-ending-corrector": "^1.0.3",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"sass": "^1.48.0"
+	},
+	"resolutions": {
+		"glob-parent": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+		"set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
+	}
 }
