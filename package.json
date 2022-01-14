@@ -4,9 +4,7 @@
   "description": "Gulp Compiler SASS and JS",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"  },
   "author": "beatrizsmerino@gmail.com",
   "license": "ISC",
   "devDependencies": {
