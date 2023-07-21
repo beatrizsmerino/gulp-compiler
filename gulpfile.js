@@ -222,9 +222,7 @@ gulp.task(
 
 gulp.task(
 	"serve",
-	gulp.series(
-		createServer
-	)
+	createServer
 );
 
 gulp.task(
@@ -255,14 +253,10 @@ gulp.task(
 
 gulp.task(
 	"js",
-	gulp.series(
-		jsCompile
-	)
+	jsCompile
 );
 
 gulp.task(
 	"watch",
-	gulp.parallel(
-		watch
-	)
+	watch
 );
