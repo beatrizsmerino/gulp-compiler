@@ -21,8 +21,6 @@ const babel = require('gulp-babel');
 
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
-const proyectName = 'gulp-compiler/';
-
 // Path src
 const pathSrc = 'src/';
 const pathSrcSass = `${pathSrc}sass/`;
@@ -34,7 +32,6 @@ const pathDistCss = `${pathDist}css/`;
 const pathDistJs = `${pathDist}js/`;
 
 // Path Files
-const pathFiles = "**/*";
 const pathFilesHtml = "*.html";
 const pathFilesSass = "**/*.sass";
 const pathFilesCss = "**/*.css";
