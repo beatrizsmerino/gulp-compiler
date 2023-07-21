@@ -46,9 +46,13 @@ const watchFilesCss = pathDistCss + pathFilesCss;
 const watchFilesJs = pathDistJs + pathFilesJs;
 
 // Paths used to concat the files in a specific order.
-const filesJsCompile = [pathSrcJs + "scripts.js"];
+const filesJsCompile = [
+	pathSrcJs + "scripts.js"
+];
 
-const filesCssCompile = [pathDistCss + "styles.min.css"];
+const filesCssCompile = [
+	pathDistCss + "styles.min.css"
+];
 
 
 // FUNTIONS USED IN THE TASKS
@@ -57,7 +61,10 @@ function createServer() {
 	browserSync.init({
 		server: {
 			baseDir: "./dist",
-			browser: ["google-chrome", "firefox"],
+			browser: [
+				"google-chrome",
+				"firefox"
+			],
 		},
 	});
 };
@@ -75,19 +82,28 @@ function copyFiles(filesToCopy, directoryOutput) {
 };
 
 function htmlCopy() {
-	return copyFiles(pathSrc + pathFilesHtml, pathDist);
+	return copyFiles(
+		pathSrc + pathFilesHtml,
+		pathDist
+	);
 };
 
 function htmlMinfy() {
 	return gulp
 		.src(pathDist + pathFilesHtml)
-		.pipe(htmlmin({ collapseWhitespace: true }))
+		.pipe(
+			htmlmin({
+				collapseWhitespace: true
+			})
+		)
 		.pipe(gulp.dest(pathDist));
 };
 
 function sassCompile() {
 	return gulp
-		.src([pathSrcSass + "styles.sass"])
+		.src([
+			pathSrcSass + "styles.sass"
+		])
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -96,11 +112,16 @@ function sassCompile() {
 		.pipe(
 			sass({
 				outputStyle: "compressed",
-			}).on("error", sass.logError)
+			}).on(
+				"error",
+				sass.logError
+			)
 		)
 		.pipe(
 			autoprefixer({
-				versions: ["last 2 versions"],
+				versions: [
+					"last 2 versions"
+				],
 				cascade: false,
 			})
 		)
@@ -127,7 +148,9 @@ function jsCompile() {
 		.src(filesJsCompile)
 		.pipe(
 			babel({
-				presets: ["@babel/preset-env"],
+				presets: [
+					"@babel/preset-env"
+				],
 			})
 		)
 		.pipe(concat("scripts.min.js"))
@@ -139,11 +162,34 @@ function jsCompile() {
 function watch() {
 	createServer();
 
-	gulp.watch(pathSrc + pathFilesHtml, gulp.series(htmlCopy, htmlMinfy));
-	gulp.watch(pathSrcSass + pathFilesSass, gulp.series(sassCompile, cssCompile));
-	gulp.watch(pathSrcJs + pathFilesJs, jsCompile);
+	gulp.watch(
+		pathSrc + pathFilesHtml,
+		gulp.series(
+			htmlCopy,
+			htmlMinfy
+		)
+	);
 
-	gulp.watch([watchFilesHtml, watchFilesCss, watchFilesJs]).on(
+	gulp.watch(
+		pathSrcSass + pathFilesSass,
+		gulp.series(
+			sassCompile,
+			cssCompile
+		)
+	);
+
+	gulp.watch(
+		pathSrcJs + pathFilesJs,
+		jsCompile
+	);
+
+	gulp.watch(
+		[
+			watchFilesHtml,
+			watchFilesCss,
+			watchFilesJs
+		]
+	).on(
 		"change",
 		reload
 	);
@@ -163,10 +209,60 @@ exports.watch = watch;
 
 // TASKS
 // =================================================
-gulp.task("default", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile, watch));
-gulp.task("serve", gulp.series(createServer));
-gulp.task("build", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile));
-gulp.task("html", gulp.series(htmlCopy, htmlMinfy));
-gulp.task("css", gulp.series(sassCompile, cssCompile));
-gulp.task("js", gulp.series(jsCompile));
-gulp.task("watch", gulp.parallel(watch));
+gulp.task(
+	"default",
+	gulp.series(
+		htmlCopy,
+		htmlMinfy,
+		sassCompile,
+		jsCompile,
+		watch
+	)
+);
+
+gulp.task(
+	"serve",
+	gulp.series(
+		createServer
+	)
+);
+
+gulp.task(
+	"build",
+	gulp.series(
+		htmlCopy,
+		htmlMinfy,
+		sassCompile,
+		jsCompile
+	)
+);
+
+gulp.task(
+	"html",
+	gulp.series(
+		htmlCopy,
+		htmlMinfy
+	)
+);
+
+gulp.task(
+	"css",
+	gulp.series(
+		sassCompile,
+		cssCompile
+	)
+);
+
+gulp.task(
+	"js",
+	gulp.series(
+		jsCompile
+	)
+);
+
+gulp.task(
+	"watch",
+	gulp.parallel(
+		watch
+	)
+);
