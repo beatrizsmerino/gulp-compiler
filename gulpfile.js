@@ -51,7 +51,7 @@ const filesCssCompile = [
 ];
 
 
-// FUNTIONS USED IN THE TASKS
+// FUNCTIONS USED IN THE TASKS
 // =================================================
 function createServer() {
 	browserSync.init({
