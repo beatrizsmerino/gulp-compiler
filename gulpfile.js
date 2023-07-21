@@ -60,7 +60,7 @@ const filesCssCompile = [
 function createServer() {
 	browserSync.init({
 		server: {
-			baseDir: "./dist",
+			baseDir: pathDist,
 			browser: [
 				"google-chrome",
 				"firefox",
@@ -71,7 +71,7 @@ function createServer() {
 
 function copyDirectory(directoryToCopy, directoryOutput) {
 	return gulp
-		.src(`${directoryToCopy}/**/*`)
+		.src(`${directoryToCopy}${pathFiles}`)
 		.pipe(gulp.dest(directoryOutput));
 };
 
