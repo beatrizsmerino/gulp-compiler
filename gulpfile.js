@@ -22,32 +22,32 @@ const gulp = require('gulp'),
 
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
-let proyectName = 'gulp-compiler/';
+const proyectName = 'gulp-compiler/';
 
 // Path src
-let pathSrc = 'src/',
+const pathSrc = 'src/',
 	pathSrcSass = pathSrc + 'sass/',
 	pathSrcJs = pathSrc + 'js/';
 
 // Path dist
-let pathDist = 'dist/',
+const pathDist = 'dist/',
 	pathDistCss = pathDist + 'css/',
 	pathDistJs = pathDist + 'js/';
 
 // Path Files
-let pathFiles = "**/*",
+const pathFiles = "**/*",
 	pathFilesHtml = "*.html",
 	pathFilesSass = "**/*.sass",
 	pathFilesCss = "**/*.css",
 	pathFilesJs = "**/*.js";
 
 // Watch Files
-let watchFilesHtml = pathDist + pathFilesHtml,
+const watchFilesHtml = pathDist + pathFilesHtml,
 	watchFilesCss = pathDistCss + pathFilesCss,
 	watchFilesJs = pathDistJs + pathFilesJs;
 
 // Paths used to concat the files in a specific order.
-let filesJsCompile = [pathSrcJs + "scripts.js"];
+const filesJsCompile = [pathSrcJs + "scripts.js"];
 
 const filesCssCompile = [pathDistCss + "styles.min.css"];
 
