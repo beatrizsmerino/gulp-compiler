@@ -21,29 +21,33 @@ const babel = require('gulp-babel');
 
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
-// Path src
-const pathSrc = 'src/';
-const pathSrcSass = `${pathSrc}sass/`;
-const pathSrcJs = `${pathSrc}js/`;
-
-// Path dist
-const pathDist = 'dist/';
-const pathDistCss = `${pathDist}css/`;
-const pathDistJs = `${pathDist}js/`;
-
-// Path Files
-const pathFilesHtml = "*.html";
-const pathFilesSass = "**/*.sass";
-const pathFilesCss = "**/*.css";
-const pathFilesJs = "**/*.js";
+const paths = {
+	src: {
+		base: "src/",
+		sass: "src/sass/",
+		js: "src/js/",
+	},
+	dist: {
+		base: "dist/",
+		css: "dist/css/",
+		js: "dist/js/",
+	},
+	files: {
+		base: "**/*",
+		html: "*.html",
+		sass: "**/*.sass",
+		css: "**/*.css",
+		js: "**/*.js",
+	},
+};
 
 // Paths used to concat the files in a specific order.
 const filesJsCompile = [
-	`${pathSrcJs}scripts.js`,
+	`${paths.src.js}scripts.js`,
 ];
 
 const filesCssCompile = [
-	`${pathDistCss}styles.min.css`,
+	`${paths.dist.css}styles.min.css`,
 ];
 
 
@@ -52,7 +56,7 @@ const filesCssCompile = [
 function createServer() {
 	browserSync.init({
 		server: {
-			baseDir: pathDist,
+			baseDir: paths.dist.base,
 			browser: [
 				"google-chrome",
 				"firefox",
@@ -63,7 +67,7 @@ function createServer() {
 
 function copyDirectory(directoryToCopy, directoryOutput) {
 	return gulp
-		.src(`${directoryToCopy}${pathFiles}`)
+		.src(`${directoryToCopy}${paths.files.base}`)
 		.pipe(gulp.dest(directoryOutput));
 };
 
@@ -75,26 +79,26 @@ function copyFiles(filesToCopy, directoryOutput) {
 
 function htmlCopy() {
 	return copyFiles(
-		`${pathSrc}${pathFilesHtml}`,
-		pathDist
+		`${paths.src.base}${paths.files.html}`,
+		paths.dist.base
 	);
 };
 
 function htmlMinfy() {
 	return gulp
-		.src(`${pathDist}${pathFilesHtml}`)
+		.src(`${paths.dist.base}${paths.files.html}`)
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true,
 			})
 		)
-		.pipe(gulp.dest(pathDist));
+		.pipe(gulp.dest(paths.dist.base));
 };
 
 function sassCompile() {
 	return gulp
 		.src([
-			`${pathSrcSass}styles.sass`,
+			`${paths.src.sass}styles.sass`,
 		])
 		.pipe(
 			srcMaps.init({
@@ -121,7 +125,7 @@ function sassCompile() {
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(rename("styles.min.css"))
-		.pipe(gulp.dest(pathDistCss));
+		.pipe(gulp.dest(paths.dist.css));
 };
 
 function cssCompile() {
@@ -131,7 +135,7 @@ function cssCompile() {
 		.pipe(cleanCss())
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(pathDistCss))
+		.pipe(gulp.dest(paths.dist.css))
 		.pipe(browserSync.stream());
 };
 
@@ -148,14 +152,14 @@ function jsCompile() {
 		.pipe(concat("scripts.min.js"))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(pathDistJs));
+		.pipe(gulp.dest(paths.dist.js));
 };
 
 function watch() {
 	createServer();
 
 	gulp.watch(
-		`${pathSrc}${pathFilesHtml}`,
+		`${paths.src.base}${paths.files.html}`,
 		gulp.series(
 			htmlCopy,
 			htmlMinfy
@@ -163,7 +167,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${pathSrcSass}${pathFilesSass}`,
+		`${paths.src.sass}${paths.files.sass}`,
 		gulp.series(
 			sassCompile,
 			cssCompile
@@ -171,15 +175,15 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${pathSrcJs}${pathFilesJs}`,
+		`${paths.src.js}${paths.files.js}`,
 		jsCompile
 	);
 
 	gulp.watch(
 		[
-			`${pathDist}${pathFilesHtml}`,
-			`${pathDistCss}${pathFilesCss}`,
-			`${pathDistJs}${pathFilesJs}`,
+			`${paths.dist.base}${paths.files.html}`,
+			`${paths.dist.css}${paths.files.css}`,
+			`${paths.dist.js}${paths.files.js}`,
 		]
 	).on(
 		"change",
