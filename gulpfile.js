@@ -4,19 +4,19 @@
 
 // DEPENDENCIES
 // =================================================
-const gulp                = require('gulp'),
-      autoprefixer        = require('gulp-autoprefixer'),
-      browserSync         = require('browser-sync').create(),
-      reload              = browserSync.reload,
-      cleanCss            = require('gulp-clean-css'),
-      concat              = require('gulp-concat'),
-	  htmlmin             = require('gulp-htmlmin'),
-      lineEndingCorrector = require('gulp-line-ending-corrector'),
-      rename              = require('gulp-rename'),
-	  sass                = require('gulp-sass')(require('sass')),
-      srcMaps             = require('gulp-sourcemaps'),
-      uglify              = require('gulp-uglify'),
-      babel               = require('gulp-babel');
+const gulp = require('gulp'),
+	autoprefixer = require('gulp-autoprefixer'),
+	browserSync = require('browser-sync').create(),
+	reload = browserSync.reload,
+	cleanCss = require('gulp-clean-css'),
+	concat = require('gulp-concat'),
+	htmlmin = require('gulp-htmlmin'),
+	lineEndingCorrector = require('gulp-line-ending-corrector'),
+	rename = require('gulp-rename'),
+	sass = require('gulp-sass')(require('sass')),
+	srcMaps = require('gulp-sourcemaps'),
+	uglify = require('gulp-uglify'),
+	babel = require('gulp-babel');
 
 
 
@@ -25,26 +25,26 @@ const gulp                = require('gulp'),
 let proyectName = 'gulp-compiler/';
 
 // Path src
-let pathSrc     = 'src/',
-    pathSrcSass = pathSrc + 'sass/',
-    pathSrcJs   = pathSrc + 'js/';
+let pathSrc = 'src/',
+	pathSrcSass = pathSrc + 'sass/',
+	pathSrcJs = pathSrc + 'js/';
 
 // Path dist
-let pathDist    = 'dist/',
-    pathDistCss = pathDist + 'css/',
-    pathDistJs  = pathDist + 'js/';
+let pathDist = 'dist/',
+	pathDistCss = pathDist + 'css/',
+	pathDistJs = pathDist + 'js/';
 
 // Path Files
-let pathFiles     = "**/*",
+let pathFiles = "**/*",
 	pathFilesHtml = "*.html",
 	pathFilesSass = "**/*.sass",
-	pathFilesCss  = "**/*.css",
-	pathFilesJs   = "**/*.js";
+	pathFilesCss = "**/*.css",
+	pathFilesJs = "**/*.js";
 
 // Watch Files
 let watchFilesHtml = pathDist + pathFilesHtml,
-	watchFilesCss  = pathDistCss + pathFilesCss,
-	watchFilesJs   = pathDistJs + pathFilesJs;
+	watchFilesCss = pathDistCss + pathFilesCss,
+	watchFilesJs = pathDistJs + pathFilesJs;
 
 // Paths used to concat the files in a specific order.
 let filesJsCompile = [pathSrcJs + "scripts.js"];
@@ -88,7 +88,7 @@ function htmlMinfy() {
 }
 
 function sassCompile() {
-    return gulp
+	return gulp
 		.src([pathSrcSass + "styles.sass"])
 		.pipe(
 			srcMaps.init({
@@ -125,7 +125,7 @@ function cssCompile() {
 }
 
 function jsCompile() {
-    return gulp
+	return gulp
 		.src(filesJsCompile)
 		.pipe(
 			babel({
@@ -139,8 +139,8 @@ function jsCompile() {
 }
 
 function watch() {
-    createServer();
-    
+	createServer();
+
 	gulp.watch(pathSrc + pathFilesHtml, gulp.series(htmlCopy, htmlMinfy));
 	gulp.watch(pathSrcSass + pathFilesSass, gulp.series(sassCompile, cssCompile));
 	gulp.watch(pathSrcJs + pathFilesJs, jsCompile);
@@ -155,13 +155,13 @@ function watch() {
 
 // EXPORTS
 // =================================================
-exports.createServer  = createServer;
-exports.htmlCopy      = htmlCopy;
-exports.htmlMinfy     = htmlMinfy;
-exports.sassCompile   = sassCompile;
-exports.cssCompile    = cssCompile;
-exports.jsCompile     = jsCompile;
-exports.watch         = watch;
+exports.createServer = createServer;
+exports.htmlCopy = htmlCopy;
+exports.htmlMinfy = htmlMinfy;
+exports.sassCompile = sassCompile;
+exports.cssCompile = cssCompile;
+exports.jsCompile = jsCompile;
+exports.watch = watch;
 
 
 
