@@ -25,13 +25,13 @@ const proyectName = 'gulp-compiler/';
 
 // Path src
 const pathSrc = 'src/';
-const pathSrcSass = pathSrc + 'sass/';
-const pathSrcJs = pathSrc + 'js/';
+const pathSrcSass = `${pathSrc}sass/`;
+const pathSrcJs = `${pathSrc}js/`;
 
 // Path dist
 const pathDist = 'dist/';
-const pathDistCss = pathDist + 'css/';
-const pathDistJs = pathDist + 'js/';
+const pathDistCss = `${pathDist}css/`;
+const pathDistJs = `${pathDist}js/`;
 
 // Path Files
 const pathFiles = "**/*";
@@ -41,17 +41,17 @@ const pathFilesCss = "**/*.css";
 const pathFilesJs = "**/*.js";
 
 // Watch Files
-const watchFilesHtml = pathDist + pathFilesHtml;
-const watchFilesCss = pathDistCss + pathFilesCss;
-const watchFilesJs = pathDistJs + pathFilesJs;
+const watchFilesHtml = `${pathDist}${pathFilesHtml}`;
+const watchFilesCss = `${pathDistCss}${pathFilesCss}`;
+const watchFilesJs = `${pathDistJs}${pathFilesJs}`;
 
 // Paths used to concat the files in a specific order.
 const filesJsCompile = [
-	pathSrcJs + "scripts.js",
+	`${pathSrcJs}scripts.js`,
 ];
 
 const filesCssCompile = [
-	pathDistCss + "styles.min.css",
+	`${pathDistCss}styles.min.css`,
 ];
 
 
@@ -83,14 +83,14 @@ function copyFiles(filesToCopy, directoryOutput) {
 
 function htmlCopy() {
 	return copyFiles(
-		pathSrc + pathFilesHtml,
+		`${pathSrc}${pathFilesHtml}`,
 		pathDist
 	);
 };
 
 function htmlMinfy() {
 	return gulp
-		.src(pathDist + pathFilesHtml)
+		.src(`${pathDist}${pathFilesHtml}`)
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true,
@@ -102,7 +102,7 @@ function htmlMinfy() {
 function sassCompile() {
 	return gulp
 		.src([
-			pathSrcSass + "styles.sass",
+			`${pathSrcSass}styles.sass`,
 		])
 		.pipe(
 			srcMaps.init({
@@ -163,7 +163,7 @@ function watch() {
 	createServer();
 
 	gulp.watch(
-		pathSrc + pathFilesHtml,
+		`${pathSrc}${pathFilesHtml}`,
 		gulp.series(
 			htmlCopy,
 			htmlMinfy
@@ -171,7 +171,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		pathSrcSass + pathFilesSass,
+		`${pathSrcSass}${pathFilesSass}`,
 		gulp.series(
 			sassCompile,
 			cssCompile
@@ -179,7 +179,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		pathSrcJs + pathFilesJs,
+		`${pathSrcJs}${pathFilesJs}`,
 		jsCompile
 	);
 
