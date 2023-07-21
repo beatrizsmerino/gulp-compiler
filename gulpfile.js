@@ -37,11 +37,6 @@ const pathFilesSass = "**/*.sass";
 const pathFilesCss = "**/*.css";
 const pathFilesJs = "**/*.js";
 
-// Watch Files
-const watchFilesHtml = `${pathDist}${pathFilesHtml}`;
-const watchFilesCss = `${pathDistCss}${pathFilesCss}`;
-const watchFilesJs = `${pathDistJs}${pathFilesJs}`;
-
 // Paths used to concat the files in a specific order.
 const filesJsCompile = [
 	`${pathSrcJs}scripts.js`,
@@ -182,9 +177,9 @@ function watch() {
 
 	gulp.watch(
 		[
-			watchFilesHtml,
-			watchFilesCss,
-			watchFilesJs,
+			`${pathDist}${pathFilesHtml}`,
+			`${pathDistCss}${pathFilesCss}`,
+			`${pathDistJs}${pathFilesJs}`,
 		]
 	).on(
 		"change",
