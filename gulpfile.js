@@ -142,8 +142,7 @@ function cssCompile() {
 		.pipe(cleanCss())
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(paths.dist.css))
-		.pipe(browserSync.stream());
+		.pipe(gulp.dest(paths.dist.css));
 };
 
 // JS
