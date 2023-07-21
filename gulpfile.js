@@ -47,11 +47,11 @@ const watchFilesJs = pathDistJs + pathFilesJs;
 
 // Paths used to concat the files in a specific order.
 const filesJsCompile = [
-	pathSrcJs + "scripts.js"
+	pathSrcJs + "scripts.js",
 ];
 
 const filesCssCompile = [
-	pathDistCss + "styles.min.css"
+	pathDistCss + "styles.min.css",
 ];
 
 
@@ -63,7 +63,7 @@ function createServer() {
 			baseDir: "./dist",
 			browser: [
 				"google-chrome",
-				"firefox"
+				"firefox",
 			],
 		},
 	});
@@ -93,7 +93,7 @@ function htmlMinfy() {
 		.src(pathDist + pathFilesHtml)
 		.pipe(
 			htmlmin({
-				collapseWhitespace: true
+				collapseWhitespace: true,
 			})
 		)
 		.pipe(gulp.dest(pathDist));
@@ -102,7 +102,7 @@ function htmlMinfy() {
 function sassCompile() {
 	return gulp
 		.src([
-			pathSrcSass + "styles.sass"
+			pathSrcSass + "styles.sass",
 		])
 		.pipe(
 			srcMaps.init({
@@ -120,7 +120,7 @@ function sassCompile() {
 		.pipe(
 			autoprefixer({
 				versions: [
-					"last 2 versions"
+					"last 2 versions",
 				],
 				cascade: false,
 			})
@@ -149,7 +149,7 @@ function jsCompile() {
 		.pipe(
 			babel({
 				presets: [
-					"@babel/preset-env"
+					"@babel/preset-env",
 				],
 			})
 		)
@@ -187,7 +187,7 @@ function watch() {
 		[
 			watchFilesHtml,
 			watchFilesCss,
-			watchFilesJs
+			watchFilesJs,
 		]
 	).on(
 		"change",
