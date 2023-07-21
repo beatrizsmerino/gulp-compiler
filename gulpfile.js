@@ -53,18 +53,6 @@ const filesCssCompile = [
 
 // FUNCTIONS USED IN THE TASKS
 // =================================================
-function createServer() {
-	browserSync.init({
-		server: {
-			baseDir: paths.dist.base,
-			browser: [
-				"google-chrome",
-				"firefox",
-			],
-		},
-	});
-};
-
 function copyDirectory(directoryToCopy, directoryOutput) {
 	return gulp
 		.src(`${directoryToCopy}${paths.files.base}`)
@@ -77,6 +65,23 @@ function copyFiles(filesToCopy, directoryOutput) {
 		.pipe(gulp.dest(directoryOutput));
 };
 
+
+// FUNCTIONS & TASKS
+// =================================================
+function createServer() {
+	browserSync.init({
+		server: {
+			baseDir: paths.dist.base,
+			browser: [
+				"google-chrome",
+				"firefox",
+			],
+		},
+	});
+};
+
+// HTML
+// -------------------------------------------------
 function htmlCopy() {
 	return copyFiles(
 		`${paths.src.base}${paths.files.html}`,
@@ -95,6 +100,8 @@ function htmlMinfy() {
 		.pipe(gulp.dest(paths.dist.base));
 };
 
+// CSS
+// -------------------------------------------------
 function sassCompile() {
 	return gulp
 		.src([
@@ -139,6 +146,8 @@ function cssCompile() {
 		.pipe(browserSync.stream());
 };
 
+// JS
+// -------------------------------------------------
 function jsCompile() {
 	return gulp
 		.src(filesJsCompile)
@@ -155,6 +164,9 @@ function jsCompile() {
 		.pipe(gulp.dest(paths.dist.js));
 };
 
+
+// WATCH
+// =================================================
 function watch() {
 	createServer();
 
