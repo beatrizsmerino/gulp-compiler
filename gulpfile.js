@@ -49,7 +49,7 @@ let watchFilesHtml = pathDist + pathFilesHtml,
 // Paths used to concat the files in a specific order.
 let filesJsCompile = [pathSrcJs + "scripts.js"];
 
-var filesCssCompile = [pathDistCss + "styles.min.css"];
+const filesCssCompile = [pathDistCss + "styles.min.css"];
 
 
 
