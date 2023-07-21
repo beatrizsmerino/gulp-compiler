@@ -46,10 +46,6 @@ const filesJsCompile = [
 	`${paths.src.js}scripts.js`,
 ];
 
-const filesCssCompile = [
-	`${paths.dist.css}styles.min.css`,
-];
-
 
 // FUNCTIONS USED IN THE TASKS
 // =================================================
@@ -135,16 +131,6 @@ function sassCompile() {
 		.pipe(gulp.dest(paths.dist.css));
 };
 
-function cssCompile() {
-	return gulp
-		.src(filesCssCompile)
-		.pipe(concat("styles.min.css"))
-		.pipe(cleanCss())
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(paths.dist.css));
-};
-
 // JS
 // -------------------------------------------------
 function jsCompile() {
@@ -179,10 +165,7 @@ function watch() {
 
 	gulp.watch(
 		`${paths.src.sass}${paths.files.sass}`,
-		gulp.series(
-			sassCompile,
-			cssCompile
-		)
+		sassCompile
 	);
 
 	gulp.watch(
@@ -209,7 +192,6 @@ exports.createServer = createServer;
 exports.htmlCopy = htmlCopy;
 exports.htmlMinfy = htmlMinfy;
 exports.sassCompile = sassCompile;
-exports.cssCompile = cssCompile;
 exports.jsCompile = jsCompile;
 exports.watch = watch;
 
@@ -252,10 +234,7 @@ gulp.task(
 
 gulp.task(
 	"css",
-	gulp.series(
-		sassCompile,
-		cssCompile
-	)
+	sassCompile
 );
 
 gulp.task(
