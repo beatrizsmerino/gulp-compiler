@@ -19,7 +19,6 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 
 
-
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
 const proyectName = 'gulp-compiler/';
@@ -50,7 +49,6 @@ const watchFilesJs = pathDistJs + pathFilesJs;
 const filesJsCompile = [pathSrcJs + "scripts.js"];
 
 const filesCssCompile = [pathDistCss + "styles.min.css"];
-
 
 
 // FUNTIONS USED IN THE TASKS
@@ -152,7 +150,6 @@ function watch() {
 }
 
 
-
 // EXPORTS
 // =================================================
 exports.createServer = createServer;
@@ -162,7 +159,6 @@ exports.sassCompile = sassCompile;
 exports.cssCompile = cssCompile;
 exports.jsCompile = jsCompile;
 exports.watch = watch;
-
 
 
 // TASKS
