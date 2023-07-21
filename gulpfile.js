@@ -4,19 +4,19 @@
 
 // DEPENDENCIES
 // =================================================
-const gulp = require('gulp'),
-	autoprefixer = require('gulp-autoprefixer'),
-	browserSync = require('browser-sync').create(),
-	reload = browserSync.reload,
-	cleanCss = require('gulp-clean-css'),
-	concat = require('gulp-concat'),
-	htmlmin = require('gulp-htmlmin'),
-	lineEndingCorrector = require('gulp-line-ending-corrector'),
-	rename = require('gulp-rename'),
-	sass = require('gulp-sass')(require('sass')),
-	srcMaps = require('gulp-sourcemaps'),
-	uglify = require('gulp-uglify'),
-	babel = require('gulp-babel');
+const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
+const cleanCss = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const htmlmin = require('gulp-htmlmin');
+const lineEndingCorrector = require('gulp-line-ending-corrector');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
+const srcMaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 
 
 
@@ -25,26 +25,26 @@ const gulp = require('gulp'),
 const proyectName = 'gulp-compiler/';
 
 // Path src
-const pathSrc = 'src/',
-	pathSrcSass = pathSrc + 'sass/',
-	pathSrcJs = pathSrc + 'js/';
+const pathSrc = 'src/';
+const pathSrcSass = pathSrc + 'sass/';
+const pathSrcJs = pathSrc + 'js/';
 
 // Path dist
-const pathDist = 'dist/',
-	pathDistCss = pathDist + 'css/',
-	pathDistJs = pathDist + 'js/';
+const pathDist = 'dist/';
+const pathDistCss = pathDist + 'css/';
+const pathDistJs = pathDist + 'js/';
 
 // Path Files
-const pathFiles = "**/*",
-	pathFilesHtml = "*.html",
-	pathFilesSass = "**/*.sass",
-	pathFilesCss = "**/*.css",
-	pathFilesJs = "**/*.js";
+const pathFiles = "**/*";
+const pathFilesHtml = "*.html";
+const pathFilesSass = "**/*.sass";
+const pathFilesCss = "**/*.css";
+const pathFilesJs = "**/*.js";
 
 // Watch Files
-const watchFilesHtml = pathDist + pathFilesHtml,
-	watchFilesCss = pathDistCss + pathFilesCss,
-	watchFilesJs = pathDistJs + pathFilesJs;
+const watchFilesHtml = pathDist + pathFilesHtml;
+const watchFilesCss = pathDistCss + pathFilesCss;
+const watchFilesJs = pathDistJs + pathFilesJs;
 
 // Paths used to concat the files in a specific order.
 const filesJsCompile = [pathSrcJs + "scripts.js"];
