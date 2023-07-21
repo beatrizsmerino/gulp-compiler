@@ -60,30 +60,30 @@ function createServer() {
 			browser: ["google-chrome", "firefox"],
 		},
 	});
-}
+};
 
 function copyDirectory(directoryToCopy, directoryOutput) {
 	return gulp
 		.src(`${directoryToCopy}/**/*`)
 		.pipe(gulp.dest(directoryOutput));
-}
+};
 
 function copyFiles(filesToCopy, directoryOutput) {
 	return gulp
 		.src(filesToCopy)
 		.pipe(gulp.dest(directoryOutput));
-}
+};
 
 function htmlCopy() {
 	return copyFiles(pathSrc + pathFilesHtml, pathDist);
-}
+};
 
 function htmlMinfy() {
 	return gulp
 		.src(pathDist + pathFilesHtml)
 		.pipe(htmlmin({ collapseWhitespace: true }))
 		.pipe(gulp.dest(pathDist));
-}
+};
 
 function sassCompile() {
 	return gulp
@@ -109,7 +109,7 @@ function sassCompile() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename("styles.min.css"))
 		.pipe(gulp.dest(pathDistCss));
-}
+};
 
 function cssCompile() {
 	return gulp
@@ -120,7 +120,7 @@ function cssCompile() {
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(pathDistCss))
 		.pipe(browserSync.stream());
-}
+};
 
 function jsCompile() {
 	return gulp
@@ -134,7 +134,7 @@ function jsCompile() {
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(pathDistJs));
-}
+};
 
 function watch() {
 	createServer();
@@ -147,7 +147,7 @@ function watch() {
 		"change",
 		reload
 	);
-}
+};
 
 
 // EXPORTS
