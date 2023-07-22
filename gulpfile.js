@@ -24,12 +24,12 @@ const gulp = require('gulp'),
 
 // ROOTS
 // =================================================
-var proyectName = "gulp-compiler/",
+const proyectName = "gulp-compiler/",
 	proyectFront = '',
 	proyectBack = 'admin/';
 
 // Files src
-var src = 'src/',
+const src = 'src/',
 	srcIcomoon = src + 'icomoon/',
 	srcIcomoonFront = srcIcomoon + 'icomoon-front/',
 	srcIcomoonBack = srcIcomoon + 'icomoon-back/',
@@ -39,7 +39,7 @@ var src = 'src/',
 	srcImg = src + 'images/';
 
 // Files dist
-var dist = 'dist/',
+const dist = 'dist/',
 	distIcomoon = dist + 'icomoon/',
 	distIcomoonFront = distIcomoon + 'icomoon-front/',
 	distIcomoonBack = distIcomoon + 'icomoon-back/',
@@ -49,7 +49,7 @@ var dist = 'dist/',
 	distImg = dist + 'images/';
 
 // Watch Files
-var watchFiles = '**/*',
+const watchFiles = '**/*',
 	watchFilesPhp = '**/*.php',
 	watchFilesSass = '**/*.sass',
 	watchFilesCss = '**/*.css',
@@ -59,33 +59,33 @@ var watchFiles = '**/*',
 
 // FRONT
 // =================================================
-var nodeModules = "./node_modules/";
+const nodeModules = "./node_modules/";
 
-var frontSrcIcomoon = proyectFront + srcIcomoonFront,
+const frontSrcIcomoon = proyectFront + srcIcomoonFront,
 	frontSrcIcomoonSocial = proyectFront + srcIcomoonSocial,
 	frontSrcSass = proyectFront + srcSass,
 	frontSrcJs = proyectFront + srcJs;
 
-var frontDistIcomoon = proyectFront + distIcomoonFront,
+const frontDistIcomoon = proyectFront + distIcomoonFront,
 	frontDistIcomoonSocial = proyectFront + distIcomoonSocial,
 	frontDistCss = proyectFront + distCss,
 	frontDistJs = proyectFront + distJs,
 	frontDistImg = proyectFront + distImg;
 
-var frontWatchFilesPhp = proyectFront + watchFilesPhp,
+const frontWatchFilesPhp = proyectFront + watchFilesPhp,
 	frontWatchFilesIcomoon = frontDistIcomoon + watchFilesIcomoon,
 	frontWatchFilesIcomoonSocial = frontDistIcomoonSocial + watchFilesIcomoon,
 	frontWatchFilesCss = frontDistCss + watchFilesCss,
 	frontWatchFilesJs = frontDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
-var frontSrcCssRoots = [
+const frontSrcCssRoots = [
 	nodeModules + 'swiper/swiper-bundle.min.css',
 	frontDistCss + 'styles.min.css',
 ];
 
 // Roots used to concat the js files in a specific order.
-var frontSrcJsRoots = [
+const frontSrcJsRoots = [
 	nodeModules + 'jquery/dist/jquery.min.js',
 	nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
 	nodeModules + 'jquery-validation/dist/additional-methods.min.js',
@@ -104,36 +104,36 @@ var frontSrcJsRoots = [
 	frontSrcJs + 'components/_components-message.js',
 ];
 
-var frontSrcImgRoots = srcImg + watchFiles;
+const frontSrcImgRoots = srcImg + watchFiles;
 
 
 // BACK
 // =================================================
-var backSrcIcomoon = proyectBack + srcIcomoonBack,
+const backSrcIcomoon = proyectBack + srcIcomoonBack,
 	backSrcIcomoonSocial = proyectBack + srcIcomoonSocial,
 	backSrcSass = proyectBack + srcSass,
 	backSrcJs = proyectBack + srcJs;
 
-var backDistIcomoon = proyectBack + distIcomoonBack,
+const backDistIcomoon = proyectBack + distIcomoonBack,
 	backDistIcomoonSocial = proyectBack + distIcomoonSocial,
 	backDistCss = proyectBack + distCss,
 	backDistJs = proyectBack + distJs,
 	backDistImg = proyectBack + distImg;
 
-var backWatchFilesPhp = proyectBack + watchFilesPhp,
+const backWatchFilesPhp = proyectBack + watchFilesPhp,
 	backWatchFilesIcomoon = backDistIcomoon + watchFilesIcomoon,
 	backWatchFilesIcomoonSocial = backDistIcomoonSocial + watchFilesIcomoon,
 	backWatchFilesCss = backDistCss + watchFilesCss,
 	backWatchFilesJs = backDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
-var backSrcCssRoots = [
+const backSrcCssRoots = [
 	nodeModules + 'swiper/swiper-bundle.min.css',
 	backDistCss + 'styles.min.css',
 ];
 
 // Roots used to concat the js files in a specific order.
-var backSrcJsRoots = [
+const backSrcJsRoots = [
 	nodeModules + 'jquery/dist/jquery.min.js',
 	nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
 	nodeModules + 'jquery-validation/dist/additional-methods.min.js',
@@ -152,7 +152,7 @@ var backSrcJsRoots = [
 	backSrcJs + 'components/_components-message.js',
 ];
 
-var backSrcImgRoots = srcImg + watchFiles;
+const backSrcImgRoots = srcImg + watchFiles;
 
 
 // GULP TASK - FRONT
