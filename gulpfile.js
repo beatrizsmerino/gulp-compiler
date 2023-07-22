@@ -1,22 +1,22 @@
-'use strict';
+"use strict";
 
 
 
 // DEPENDENCIES
 // =================================================
-const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
+const gulp = require("gulp");
+const autoprefixer = require("gulp-autoprefixer");
+const browserSync = require("browser-sync").create();
 const reload = browserSync.reload;
-const cleanCss = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const htmlmin = require('gulp-htmlmin');
-const lineEndingCorrector = require('gulp-line-ending-corrector');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
-const srcMaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
-const babel = require('gulp-babel');
+const cleanCss = require("gulp-clean-css");
+const concat = require("gulp-concat");
+const htmlmin = require("gulp-htmlmin");
+const lineEndingCorrector = require("gulp-line-ending-corrector");
+const rename = require("gulp-rename");
+const sass = require("gulp-sass")(require("sass"));
+const srcMaps = require("gulp-sourcemaps");
+const uglify = require("gulp-uglify");
+const babel = require("gulp-babel");
 
 
 // SETTINGS: FOLDER/FILE PATHS
