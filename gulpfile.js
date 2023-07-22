@@ -3,80 +3,80 @@
 
 // DEPENDENCIES
 // =================================================
-const gulp = require('gulp'),
-	autoprefixer = require('gulp-autoprefixer'),
-	browserSync = require('browser-sync').create(),
-	reload = browserSync.reload,
-	changed = require('gulp-changed'),
-	cleanCss = require('gulp-clean-css'),
-	concat = require('gulp-concat'),
-	imagemin = require('gulp-imagemin'),
-	imageminJpegtran = require('imagemin-jpegtran'),
-	imageminOptipng = require('imagemin-optipng'),
-	imageminGifsicle = require('imagemin-gifsicle'),
-	lineEndingCorrector = require('gulp-line-ending-corrector'),
-	rename = require('gulp-rename'),
-	sass = require('gulp-sass')(require('sass')),
-	srcMaps = require('gulp-sourcemaps'),
-	uglify = require('gulp-uglify'),
-	babel = require('gulp-babel');
+const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
+const changed = require('gulp-changed');
+const cleanCss = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminOptipng = require('imagemin-optipng');
+const imageminGifsicle = require('imagemin-gifsicle');
+const lineEndingCorrector = require('gulp-line-ending-corrector');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
+const srcMaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 
 
 // ROOTS
 // =================================================
-const proyectName = "gulp-compiler/",
-	proyectFront = '',
-	proyectBack = 'admin/';
+const proyectName = "gulp-compiler/";
+const proyectFront = '';
+const proyectBack = 'admin/';
 
 // Files src
-const src = 'src/',
-	srcIcomoon = src + 'icomoon/',
-	srcIcomoonFront = srcIcomoon + 'icomoon-front/',
-	srcIcomoonBack = srcIcomoon + 'icomoon-back/',
-	srcIcomoonSocial = srcIcomoon + 'icomoon-social/',
-	srcSass = src + 'sass/',
-	srcJs = src + 'js/',
-	srcImg = src + 'images/';
+const src = 'src/';
+const srcIcomoon = src + 'icomoon/';
+const srcIcomoonFront = srcIcomoon + 'icomoon-front/';
+const srcIcomoonBack = srcIcomoon + 'icomoon-back/';
+const srcIcomoonSocial = srcIcomoon + 'icomoon-social/';
+const srcSass = src + 'sass/';
+const srcJs = src + 'js/';
+const srcImg = src + 'images/';
 
 // Files dist
-const dist = 'dist/',
-	distIcomoon = dist + 'icomoon/',
-	distIcomoonFront = distIcomoon + 'icomoon-front/',
-	distIcomoonBack = distIcomoon + 'icomoon-back/',
-	distIcomoonSocial = distIcomoon + 'icomoon-social/',
-	distCss = dist + 'css/',
-	distJs = dist + 'js/',
-	distImg = dist + 'images/';
+const dist = 'dist/';
+const distIcomoon = dist + 'icomoon/';
+const distIcomoonFront = distIcomoon + 'icomoon-front/';
+const distIcomoonBack = distIcomoon + 'icomoon-back/';
+const distIcomoonSocial = distIcomoon + 'icomoon-social/';
+const distCss = dist + 'css/';
+const distJs = dist + 'js/';
+const distImg = dist + 'images/';
 
 // Watch Files
-const watchFiles = '**/*',
-	watchFilesPhp = '**/*.php',
-	watchFilesSass = '**/*.sass',
-	watchFilesCss = '**/*.css',
-	watchFilesJs = '**/*.js',
-	watchFilesIcomoon = watchFiles;
+const watchFiles = '**/*';
+const watchFilesPhp = '**/*.php';
+const watchFilesSass = '**/*.sass';
+const watchFilesCss = '**/*.css';
+const watchFilesJs = '**/*.js';
+const watchFilesIcomoon = watchFiles;
 
 
 // FRONT
 // =================================================
 const nodeModules = "./node_modules/";
 
-const frontSrcIcomoon = proyectFront + srcIcomoonFront,
-	frontSrcIcomoonSocial = proyectFront + srcIcomoonSocial,
-	frontSrcSass = proyectFront + srcSass,
-	frontSrcJs = proyectFront + srcJs;
+const frontSrcIcomoon = proyectFront + srcIcomoonFront;
+const frontSrcIcomoonSocial = proyectFront + srcIcomoonSocial;
+const frontSrcSass = proyectFront + srcSass;
+const frontSrcJs = proyectFront + srcJs;
 
-const frontDistIcomoon = proyectFront + distIcomoonFront,
-	frontDistIcomoonSocial = proyectFront + distIcomoonSocial,
-	frontDistCss = proyectFront + distCss,
-	frontDistJs = proyectFront + distJs,
-	frontDistImg = proyectFront + distImg;
+const frontDistIcomoon = proyectFront + distIcomoonFront;
+const frontDistIcomoonSocial = proyectFront + distIcomoonSocial;
+const frontDistCss = proyectFront + distCss;
+const frontDistJs = proyectFront + distJs;
+const frontDistImg = proyectFront + distImg;
 
-const frontWatchFilesPhp = proyectFront + watchFilesPhp,
-	frontWatchFilesIcomoon = frontDistIcomoon + watchFilesIcomoon,
-	frontWatchFilesIcomoonSocial = frontDistIcomoonSocial + watchFilesIcomoon,
-	frontWatchFilesCss = frontDistCss + watchFilesCss,
-	frontWatchFilesJs = frontDistJs + watchFilesJs;
+const frontWatchFilesPhp = proyectFront + watchFilesPhp;
+const frontWatchFilesIcomoon = frontDistIcomoon + watchFilesIcomoon;
+const frontWatchFilesIcomoonSocial = frontDistIcomoonSocial + watchFilesIcomoon;
+const frontWatchFilesCss = frontDistCss + watchFilesCss;
+const frontWatchFilesJs = frontDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
 const frontSrcCssRoots = [
@@ -109,22 +109,22 @@ const frontSrcImgRoots = srcImg + watchFiles;
 
 // BACK
 // =================================================
-const backSrcIcomoon = proyectBack + srcIcomoonBack,
-	backSrcIcomoonSocial = proyectBack + srcIcomoonSocial,
-	backSrcSass = proyectBack + srcSass,
-	backSrcJs = proyectBack + srcJs;
+const backSrcIcomoon = proyectBack + srcIcomoonBack;
+const backSrcIcomoonSocial = proyectBack + srcIcomoonSocial;
+const backSrcSass = proyectBack + srcSass;
+const backSrcJs = proyectBack + srcJs;
 
-const backDistIcomoon = proyectBack + distIcomoonBack,
-	backDistIcomoonSocial = proyectBack + distIcomoonSocial,
-	backDistCss = proyectBack + distCss,
-	backDistJs = proyectBack + distJs,
-	backDistImg = proyectBack + distImg;
+const backDistIcomoon = proyectBack + distIcomoonBack;
+const backDistIcomoonSocial = proyectBack + distIcomoonSocial;
+const backDistCss = proyectBack + distCss;
+const backDistJs = proyectBack + distJs;
+const backDistImg = proyectBack + distImg;
 
-const backWatchFilesPhp = proyectBack + watchFilesPhp,
-	backWatchFilesIcomoon = backDistIcomoon + watchFilesIcomoon,
-	backWatchFilesIcomoonSocial = backDistIcomoonSocial + watchFilesIcomoon,
-	backWatchFilesCss = backDistCss + watchFilesCss,
-	backWatchFilesJs = backDistJs + watchFilesJs;
+const backWatchFilesPhp = proyectBack + watchFilesPhp;
+const backWatchFilesIcomoon = backDistIcomoon + watchFilesIcomoon;
+const backWatchFilesIcomoonSocial = backDistIcomoonSocial + watchFilesIcomoon;
+const backWatchFilesCss = backDistCss + watchFilesCss;
+const backWatchFilesJs = backDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
 const backSrcCssRoots = [
