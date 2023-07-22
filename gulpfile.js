@@ -169,12 +169,12 @@ function front__cssIcomoonMinify() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('fonts.min.css'))
 		.pipe(gulp.dest(frontDistIcomoon));
-}
+};
 
 function front__cssIcomoonCopy() {
 	return gulp.src(frontSrcIcomoon + 'fonts/*', { base: "./" + frontSrcIcomoon })
 		.pipe(gulp.dest(frontDistIcomoon));
-}
+};
 
 function front__cssIcomoonSocialMinify() {
 	return gulp.src(frontSrcIcomoonSocial + 'style.css')
@@ -187,12 +187,12 @@ function front__cssIcomoonSocialMinify() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('fonts.min.css'))
 		.pipe(gulp.dest(frontDistIcomoonSocial));
-}
+};
 
 function front__cssIcomoonSocialCopy() {
 	return gulp.src(frontSrcIcomoonSocial + 'fonts/*', { base: "./" + frontSrcIcomoonSocial })
 		.pipe(gulp.dest(frontDistIcomoonSocial));
-}
+};
 
 function front__sassCompile() {
 	return gulp.src([frontSrcSass + 'styles.sass'])
@@ -209,7 +209,7 @@ function front__sassCompile() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('styles.min.css'))
 		.pipe(gulp.dest(frontDistCss))
-}
+};
 
 function front__cssCompile() {
 	return gulp.src(frontSrcCssRoots)
@@ -217,7 +217,7 @@ function front__cssCompile() {
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(frontDistCss))
-}
+};
 
 function front__jsCompile() {
 	return gulp.src(frontSrcJsRoots)
@@ -229,7 +229,7 @@ function front__jsCompile() {
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(frontDistJs))
-}
+};
 
 function front__imageMinify() {
 	return gulp.src(frontSrcImgRoots)
@@ -246,7 +246,7 @@ function front__imageMinify() {
 			})
 		]))
 		.pipe(gulp.dest(frontDistImg));
-}
+};
 
 
 // GULP TASK - BACK
@@ -262,12 +262,12 @@ function back__cssIcomoonMinify() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('fonts.min.css'))
 		.pipe(gulp.dest(backDistIcomoon));
-}
+};
 
 function back__cssIcomoonCopy() {
 	return gulp.src(backSrcIcomoon + 'fonts/*', { base: "./" + backSrcIcomoon })
 		.pipe(gulp.dest(backDistIcomoon));
-}
+};
 
 function back__cssIcomoonSocialMinify() {
 	return gulp.src(backSrcIcomoonSocial + 'style.css')
@@ -280,12 +280,12 @@ function back__cssIcomoonSocialMinify() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('fonts.min.css'))
 		.pipe(gulp.dest(backDistIcomoonSocial));
-}
+};
 
 function back__cssIcomoonSocialCopy() {
 	return gulp.src(backSrcIcomoonSocial + 'fonts/*', { base: "./" + backSrcIcomoonSocial })
 		.pipe(gulp.dest(backDistIcomoonSocial));
-}
+};
 
 function back__sassCompile() {
 	return gulp.src([backSrcSass + 'styles.sass'])
@@ -302,7 +302,7 @@ function back__sassCompile() {
 		.pipe(lineEndingCorrector())
 		.pipe(rename('styles.min.css'))
 		.pipe(gulp.dest(backDistCss))
-}
+};
 
 function back__cssCompile() {
 	return gulp.src(backSrcCssRoots)
@@ -310,7 +310,7 @@ function back__cssCompile() {
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(backDistCss))
-}
+};
 
 function back__jsCompile() {
 	return gulp.src(backSrcJsRoots)
@@ -322,7 +322,7 @@ function back__jsCompile() {
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(backDistJs))
-}
+};
 
 function back__imageMinify() {
 	return gulp.src(backSrcImgRoots)
@@ -339,7 +339,7 @@ function back__imageMinify() {
 			})
 		]))
 		.pipe(gulp.dest(backDistImg));
-}
+};
 
 
 // WATCH and EXPORTS
@@ -377,7 +377,7 @@ function watch() {
 			backWatchFilesJs,
 		]
 	).on('change', reload);
-}
+};
 
 
 exports.front__cssIcomoonMinify = front__cssIcomoonMinify;
