@@ -159,11 +159,14 @@ const backSrcImgRoots = srcImg + watchFiles;
 // GULP TASK - FRONT
 // =================================================
 function front__cssIcomoonMinify() {
-	return gulp.src(frontSrcIcomoon + 'style.css')
-		.pipe(srcMaps.init({
-			loadMaps: true,
-			largeFile: true
-		}))
+	return gulp
+		.src(frontSrcIcomoon + 'style.css')
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+				largeFile: true
+			})
+		)
 		.pipe(cleanCss())
 		.pipe(srcMaps.write('./maps/'))
 		.pipe(lineEndingCorrector())
@@ -172,16 +175,25 @@ function front__cssIcomoonMinify() {
 };
 
 function front__cssIcomoonCopy() {
-	return gulp.src(frontSrcIcomoon + 'fonts/*', { base: "./" + frontSrcIcomoon })
+	return gulp
+		.src(
+			frontSrcIcomoon + 'fonts/*',
+			{
+				base: "./" + frontSrcIcomoon
+			}
+		)
 		.pipe(gulp.dest(frontDistIcomoon));
 };
 
 function front__cssIcomoonSocialMinify() {
-	return gulp.src(frontSrcIcomoonSocial + 'style.css')
-		.pipe(srcMaps.init({
-			loadMaps: true,
-			largeFile: true
-		}))
+	return gulp
+		.src(frontSrcIcomoonSocial + 'style.css')
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+				largeFile: true
+			})
+		)
 		.pipe(cleanCss())
 		.pipe(srcMaps.write('./maps/'))
 		.pipe(lineEndingCorrector())
@@ -190,21 +202,41 @@ function front__cssIcomoonSocialMinify() {
 };
 
 function front__cssIcomoonSocialCopy() {
-	return gulp.src(frontSrcIcomoonSocial + 'fonts/*', { base: "./" + frontSrcIcomoonSocial })
+	return gulp
+		.src(
+			frontSrcIcomoonSocial + 'fonts/*',
+			{
+				base: "./" + frontSrcIcomoonSocial
+			}
+		)
 		.pipe(gulp.dest(frontDistIcomoonSocial));
 };
 
 function front__sassCompile() {
-	return gulp.src([frontSrcSass + 'styles.sass'])
-		.pipe(srcMaps.init({
-			loadMaps: true
-		}))
-		.pipe(sass({
-			outputStyle: 'compressed'
-		}).on('error', sass.logError))
-		.pipe(autoprefixer({
-			versions: ['last 2 versions']
-		}))
+	return gulp
+		.src([
+			frontSrcSass + 'styles.sass'
+		])
+		.pipe(
+			srcMaps.init({
+				loadMaps: true
+			})
+		)
+		.pipe(
+			sass({
+				outputStyle: 'compressed'
+			}).on(
+				'error',
+				sass.logError
+			)
+		)
+		.pipe(
+			autoprefixer({
+				versions: [
+					'last 2 versions'
+				]
+			})
+		)
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(rename('styles.min.css'))
@@ -212,7 +244,8 @@ function front__sassCompile() {
 };
 
 function front__cssCompile() {
-	return gulp.src(frontSrcCssRoots)
+	return gulp
+		.src(frontSrcCssRoots)
 		.pipe(concat('styles.min.css'))
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
@@ -220,11 +253,16 @@ function front__cssCompile() {
 };
 
 function front__jsCompile() {
-	return gulp.src(frontSrcJsRoots)
-		.pipe(babel({
-			'presets': ['@babel/preset-env'],
-			'compact': false
-		}))
+	return gulp
+		.src(frontSrcJsRoots)
+		.pipe(
+			babel({
+				'presets': [
+					'@babel/preset-env'
+				],
+				'compact': false
+			})
+		)
 		.pipe(concat('scripts.min.js'))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
@@ -232,19 +270,22 @@ function front__jsCompile() {
 };
 
 function front__imageMinify() {
-	return gulp.src(frontSrcImgRoots)
+	return gulp
+		.src(frontSrcImgRoots)
 		.pipe(changed(frontDistImg))
-		.pipe(imagemin([
-			imageminGifsicle({
-				interlaced: true
-			}),
-			imageminJpegtran({
-				progressive: true
-			}),
-			imageminOptipng({
-				optimizationLevel: 5
-			})
-		]))
+		.pipe(
+			imagemin([
+				imageminGifsicle({
+					interlaced: true
+				}),
+				imageminJpegtran({
+					progressive: true
+				}),
+				imageminOptipng({
+					optimizationLevel: 5
+				})
+			])
+		)
 		.pipe(gulp.dest(frontDistImg));
 };
 
@@ -252,11 +293,14 @@ function front__imageMinify() {
 // GULP TASK - BACK
 // =================================================
 function back__cssIcomoonMinify() {
-	return gulp.src(backSrcIcomoon + 'style.css')
-		.pipe(srcMaps.init({
-			loadMaps: true,
-			largeFile: true
-		}))
+	return gulp
+		.src(backSrcIcomoon + 'style.css')
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+				largeFile: true
+			})
+		)
 		.pipe(cleanCss())
 		.pipe(srcMaps.write('./maps/'))
 		.pipe(lineEndingCorrector())
@@ -265,16 +309,25 @@ function back__cssIcomoonMinify() {
 };
 
 function back__cssIcomoonCopy() {
-	return gulp.src(backSrcIcomoon + 'fonts/*', { base: "./" + backSrcIcomoon })
+	return gulp
+		.src(
+			backSrcIcomoon + 'fonts/*',
+			{
+				base: "./" + backSrcIcomoon
+			}
+		)
 		.pipe(gulp.dest(backDistIcomoon));
 };
 
 function back__cssIcomoonSocialMinify() {
-	return gulp.src(backSrcIcomoonSocial + 'style.css')
-		.pipe(srcMaps.init({
-			loadMaps: true,
-			largeFile: true
-		}))
+	return gulp
+		.src(backSrcIcomoonSocial + 'style.css')
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+				largeFile: true
+			})
+		)
 		.pipe(cleanCss())
 		.pipe(srcMaps.write('./maps/'))
 		.pipe(lineEndingCorrector())
@@ -283,21 +336,41 @@ function back__cssIcomoonSocialMinify() {
 };
 
 function back__cssIcomoonSocialCopy() {
-	return gulp.src(backSrcIcomoonSocial + 'fonts/*', { base: "./" + backSrcIcomoonSocial })
+	return gulp
+		.src(
+			backSrcIcomoonSocial + 'fonts/*',
+			{
+				base: "./" + backSrcIcomoonSocial
+			}
+		)
 		.pipe(gulp.dest(backDistIcomoonSocial));
 };
 
 function back__sassCompile() {
-	return gulp.src([backSrcSass + 'styles.sass'])
-		.pipe(srcMaps.init({
-			loadMaps: true
-		}))
-		.pipe(sass({
-			outputStyle: 'compressed'
-		}).on('error', sass.logError))
-		.pipe(autoprefixer({
-			versions: ['last 2 versions']
-		}))
+	return gulp
+		.src([
+			backSrcSass + 'styles.sass'
+		])
+		.pipe(
+			srcMaps.init({
+				loadMaps: true
+			})
+		)
+		.pipe(
+			sass({
+				outputStyle: 'compressed'
+			}).on(
+				'error',
+				sass.logError
+			)
+		)
+		.pipe(
+			autoprefixer({
+				versions: [
+					'last 2 versions'
+				]
+			})
+		)
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(rename('styles.min.css'))
@@ -305,7 +378,8 @@ function back__sassCompile() {
 };
 
 function back__cssCompile() {
-	return gulp.src(backSrcCssRoots)
+	return gulp
+		.src(backSrcCssRoots)
 		.pipe(concat('styles.min.css'))
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
@@ -313,11 +387,16 @@ function back__cssCompile() {
 };
 
 function back__jsCompile() {
-	return gulp.src(backSrcJsRoots)
-		.pipe(babel({
-			'presets': ['@babel/preset-env'],
-			'compact': false
-		}))
+	return gulp
+		.src(backSrcJsRoots)
+		.pipe(
+			babel({
+				'presets': [
+					'@babel/preset-env'
+				],
+				'compact': false
+			})
+		)
 		.pipe(concat('scripts.min.js'))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
@@ -325,19 +404,22 @@ function back__jsCompile() {
 };
 
 function back__imageMinify() {
-	return gulp.src(backSrcImgRoots)
+	return gulp
+		.src(backSrcImgRoots)
 		.pipe(changed(backDistImg))
-		.pipe(imagemin([
-			imageminGifsicle({
-				interlaced: true
-			}),
-			imageminJpegtran({
-				progressive: true
-			}),
-			imageminOptipng({
-				optimizationLevel: 5
-			})
-		]))
+		.pipe(
+			imagemin([
+				imageminGifsicle({
+					interlaced: true
+				}),
+				imageminJpegtran({
+					progressive: true
+				}),
+				imageminOptipng({
+					optimizationLevel: 5
+				})
+			])
+		)
 		.pipe(gulp.dest(backDistImg));
 };
 
@@ -351,17 +433,73 @@ function watch() {
 		port: 3306,
 	});
 
-	gulp.watch(frontSrcJs + watchFilesJs, front__jsCompile);
-	gulp.watch(frontSrcSass + watchFilesSass, gulp.series(front__sassCompile, front__cssCompile));
-	gulp.watch(frontSrcIcomoon + watchFiles, gulp.series(front__cssIcomoonCopy, front__cssIcomoonMinify));
-	gulp.watch(frontSrcIcomoonSocial + watchFiles, gulp.series(front__cssIcomoonSocialCopy, front__cssIcomoonSocialMinify));
-	gulp.watch(srcImg + watchFiles, front__imageMinify);
+	gulp.watch(
+		frontSrcJs + watchFilesJs,
+		front__jsCompile
+	);
 
-	gulp.watch(backSrcJs + watchFilesJs, back__jsCompile);
-	gulp.watch(backSrcSass + watchFilesSass, gulp.series(back__sassCompile, back__cssCompile));
-	gulp.watch(backSrcIcomoon + watchFiles, gulp.series(back__cssIcomoonCopy, back__cssIcomoonMinify));
-	gulp.watch(backSrcIcomoonSocial + watchFiles, gulp.series(back__cssIcomoonSocialCopy, back__cssIcomoonSocialMinify));
-	gulp.watch(srcImg + watchFiles, back__imageMinify);
+	gulp.watch(
+		frontSrcSass + watchFilesSass,
+		gulp.series(
+			front__sassCompile,
+			front__cssCompile
+		)
+	);
+
+	gulp.watch(
+		frontSrcIcomoon + watchFiles,
+		gulp.series(
+			front__cssIcomoonCopy,
+			front__cssIcomoonMinify
+		)
+	);
+
+	gulp.watch(
+		frontSrcIcomoonSocial + watchFiles,
+		gulp.series(
+			front__cssIcomoonSocialCopy,
+			front__cssIcomoonSocialMinify
+		)
+	);
+
+	gulp.watch(
+		srcImg + watchFiles,
+		front__imageMinify
+	);
+
+	gulp.watch(
+		backSrcJs + watchFilesJs,
+		back__jsCompile
+	);
+
+	gulp.watch(
+		backSrcSass + watchFilesSass,
+		gulp.series(
+			back__sassCompile,
+			back__cssCompile
+		)
+	);
+
+	gulp.watch(
+		backSrcIcomoon + watchFiles,
+		gulp.series(
+			back__cssIcomoonCopy,
+			back__cssIcomoonMinify
+		)
+	);
+
+	gulp.watch(
+		backSrcIcomoonSocial + watchFiles,
+		gulp.series(
+			back__cssIcomoonSocialCopy,
+			back__cssIcomoonSocialMinify
+		)
+	);
+
+	gulp.watch(
+		srcImg + watchFiles,
+		back__imageMinify
+	);
 
 	gulp.watch(
 		[
@@ -376,7 +514,10 @@ function watch() {
 			backWatchFilesCss,
 			backWatchFilesJs,
 		]
-	).on('change', reload);
+	).on(
+		'change',
+		reload
+	);
 };
 
 
@@ -401,63 +542,101 @@ exports.back__imageMinify = back__imageMinify;
 exports.watch = watch;
 
 
-gulp.task('front-js', gulp.series(
-	front__jsCompile,
-));
-gulp.task('back-js', gulp.series(
-	back__jsCompile,
-));
+gulp.task(
+	'front-js',
+	gulp.series(
+		front__jsCompile,
+	)
+);
 
-gulp.task('front-css', gulp.series(
-	front__sassCompile,
-	front__cssCompile
-));
-gulp.task('back-css', gulp.series(
-	back__sassCompile,
-	back__cssCompile
-));
+gulp.task(
+	'back-js',
+	gulp.series(
+		back__jsCompile,
+	)
+);
 
-gulp.task('front-icon', gulp.series(
-	front__cssIcomoonMinify,
-	front__cssIcomoonCopy,
-	front__cssIcomoonSocialMinify,
-	front__cssIcomoonSocialCopy
-));
-gulp.task('back-icon', gulp.series(
-	back__cssIcomoonMinify,
-	back__cssIcomoonCopy,
-	back__cssIcomoonSocialMinify,
-	back__cssIcomoonSocialCopy
-));
+gulp.task(
+	'front-css',
+	gulp.series(
+		front__sassCompile,
+		front__cssCompile
+	)
+);
 
-gulp.task('front-img', gulp.series(
-	front__imageMinify
-));
-gulp.task('back-img', gulp.series(
-	back__imageMinify
-));
+gulp.task(
+	'back-css',
+	gulp.series(
+		back__sassCompile,
+		back__cssCompile
+	)
+);
 
-gulp.task('front', gulp.series(
-	front__cssIcomoonMinify,
-	front__cssIcomoonCopy,
-	front__cssIcomoonSocialMinify,
-	front__cssIcomoonSocialCopy,
-	front__sassCompile,
-	front__cssCompile,
-	front__jsCompile,
-	front__imageMinify
-));
+gulp.task(
+	'front-icon',
+	gulp.series(
+		front__cssIcomoonMinify,
+		front__cssIcomoonCopy,
+		front__cssIcomoonSocialMinify,
+		front__cssIcomoonSocialCopy
+	)
+);
 
-gulp.task('back', gulp.series(
-	back__cssIcomoonMinify,
-	back__cssIcomoonCopy,
-	back__cssIcomoonSocialMinify,
-	back__cssIcomoonSocialCopy,
-	back__sassCompile,
-	back__cssCompile,
-	back__jsCompile,
-	back__imageMinify
-));
+gulp.task(
+	'back-icon',
+	gulp.series(
+		back__cssIcomoonMinify,
+		back__cssIcomoonCopy,
+		back__cssIcomoonSocialMinify,
+		back__cssIcomoonSocialCopy
+	)
+);
 
+gulp.task(
+	'front-img',
+	gulp.series(
+		front__imageMinify
+	)
+);
 
-gulp.task('default', gulp.parallel(watch));
+gulp.task(
+	'back-img',
+	gulp.series(
+		back__imageMinify
+	)
+);
+
+gulp.task(
+	'front',
+	gulp.series(
+		front__cssIcomoonMinify,
+		front__cssIcomoonCopy,
+		front__cssIcomoonSocialMinify,
+		front__cssIcomoonSocialCopy,
+		front__sassCompile,
+		front__cssCompile,
+		front__jsCompile,
+		front__imageMinify
+	)
+);
+
+gulp.task(
+	'back',
+	gulp.series(
+		back__cssIcomoonMinify,
+		back__cssIcomoonCopy,
+		back__cssIcomoonSocialMinify,
+		back__cssIcomoonSocialCopy,
+		back__sassCompile,
+		back__cssCompile,
+		back__jsCompile,
+		back__imageMinify
+	)
+);
+
+gulp.task(
+	'default',
+	gulp.parallel(
+		watch
+	)
+);
