@@ -31,23 +31,23 @@ const proyectBack = "admin/";
 
 // Files src
 const src = "src/";
-const srcIcomoon = src + "icomoon/";
-const srcIcomoonFront = srcIcomoon + "icomoon-front/";
-const srcIcomoonBack = srcIcomoon + "icomoon-back/";
-const srcIcomoonSocial = srcIcomoon + "icomoon-social/";
-const srcSass = src + "sass/";
-const srcJs = src + "js/";
-const srcImg = src + "images/";
+const srcIcomoon = `${src}icomoon/`;
+const srcIcomoonFront = `${srcIcomoon}icomoon-front/`;
+const srcIcomoonBack = `${srcIcomoon}icomoon-back/`;
+const srcIcomoonSocial = `${srcIcomoon}icomoon-social/`;
+const srcSass = `${src}sass/`;
+const srcJs = `${src}js/`;
+const srcImg = `${src}images/`;
 
 // Files dist
 const dist = "dist/";
-const distIcomoon = dist + "icomoon/";
-const distIcomoonFront = distIcomoon + "icomoon-front/";
-const distIcomoonBack = distIcomoon + "icomoon-back/";
-const distIcomoonSocial = distIcomoon + "icomoon-social/";
-const distCss = dist + "css/";
-const distJs = dist + "js/";
-const distImg = dist + "images/";
+const distIcomoon = `${dist}icomoon/`;
+const distIcomoonFront = `${distIcomoon}icomoon-front/`;
+const distIcomoonBack = `${distIcomoon}icomoon-back/`;
+const distIcomoonSocial = `${distIcomoon}icomoon-social/`;
+const distCss = `${dist}css/`;
+const distJs = `${dist}js/`;
+const distImg = `${dist}images/`;
 
 // Watch Files
 const watchFiles = "**/*";
@@ -62,105 +62,106 @@ const watchFilesIcomoon = watchFiles;
 // =================================================
 const nodeModules = "./node_modules/";
 
-const frontSrcIcomoon = proyectFront + srcIcomoonFront;
-const frontSrcIcomoonSocial = proyectFront + srcIcomoonSocial;
-const frontSrcSass = proyectFront + srcSass;
-const frontSrcJs = proyectFront + srcJs;
+const frontSrcIcomoon = `${proyectFront}${srcIcomoonFront}`;
+const frontSrcIcomoonSocial = `${proyectFront}${srcIcomoonSocial}`;
+const frontSrcSass = `${proyectFront}${srcSass}`;
+const frontSrcJs = `${proyectFront}${srcJs}`;
 
-const frontDistIcomoon = proyectFront + distIcomoonFront;
-const frontDistIcomoonSocial = proyectFront + distIcomoonSocial;
-const frontDistCss = proyectFront + distCss;
-const frontDistJs = proyectFront + distJs;
-const frontDistImg = proyectFront + distImg;
+const frontDistIcomoon = `${proyectFront}${distIcomoonFront}`;
+const frontDistIcomoonSocial = `${proyectFront}${distIcomoonSocial}`;
+const frontDistCss = `${proyectFront}${distCss}`;
+const frontDistJs = `${proyectFront}${distJs}`;
+const frontDistImg = `${proyectFront}${distImg}`;
 
-const frontWatchFilesPhp = proyectFront + watchFilesPhp;
-const frontWatchFilesIcomoon = frontDistIcomoon + watchFilesIcomoon;
-const frontWatchFilesIcomoonSocial = frontDistIcomoonSocial + watchFilesIcomoon;
-const frontWatchFilesCss = frontDistCss + watchFilesCss;
-const frontWatchFilesJs = frontDistJs + watchFilesJs;
+const frontWatchFilesPhp = `${proyectFront}${watchFilesPhp}`;
+const frontWatchFilesIcomoon = `${frontDistIcomoon}${watchFilesIcomoon}`;
+const frontWatchFilesIcomoonSocial = `${frontDistIcomoonSocial}${watchFilesIcomoon}`;
+const frontWatchFilesCss = `${frontDistCss}${watchFilesCss}`;
+const frontWatchFilesJs = `${frontDistJs}${watchFilesJs}`;
 
 // Roots used to concat the css files in a specific order.
 const frontSrcCssRoots = [
-	nodeModules + "swiper/swiper-bundle.min.css",
-	frontDistCss + "styles.min.css",
+	`${nodeModules}swiper/swiper-bundle.min.css`,
+	`${frontDistCss}styles.min.css`,
 ];
 
 // Roots used to concat the js files in a specific order.
 const frontSrcJsRoots = [
-	nodeModules + "jquery/dist/jquery.min.js",
-	nodeModules + "jquery-validation/dist/jquery.validate.min.js",
-	nodeModules + "jquery-validation/dist/additional-methods.min.js",
-	nodeModules + "isotope-layout/dist/isotope.pkgd.min.js",
-	nodeModules + "swiper/swiper-bundle.min.js",
-	frontSrcJs + "scripts.js",
-	frontSrcJs + "abstracts/variables/_abstracts-variables-breakpoints.js",
-	frontSrcJs + "abstracts/functions/_abstracts-functions-browser.js",
-	frontSrcJs + "abstracts/functions/_abstracts-functions-form-require.js",
-	frontSrcJs + "abstracts/functions/_abstracts-functions-form-validate.js",
-	frontSrcJs + "abstracts/functions/_abstracts-functions-form-validate-ckeditor.js",
-	frontSrcJs + "layouts/_layouts-nav.js",
-	frontSrcJs + "components/_components-form-require.js",
-	frontSrcJs + "components/_components-form-validate.js",
-	frontSrcJs + "components/_components-form-validate-ckeditor.js",
-	frontSrcJs + "components/_components-message.js",
+	`${nodeModules}jquery/dist/jquery.min.js`,
+	`${nodeModules}jquery-validation/dist/jquery.validate.min.js`,
+	`${nodeModules}jquery-validation/dist/additional-methods.min.js`,
+	`${nodeModules}isotope-layout/dist/isotope.pkgd.min.js`,
+	`${nodeModules}swiper/swiper-bundle.min.js`,
+	`${frontSrcJs}scripts.js`,
+	`${frontSrcJs}abstracts/variables/_abstracts-variables-breakpoints.js`,
+	`${frontSrcJs}abstracts/functions/_abstracts-functions-browser.js`,
+	`${frontSrcJs}abstracts/functions/_abstracts-functions-form-require.js`,
+	`${frontSrcJs}abstracts/functions/_abstracts-functions-form-validate.js`,
+	`${frontSrcJs}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+	`${frontSrcJs}layouts/_layouts-nav.js`,
+	`${frontSrcJs}components/_components-form-require.js`,
+	`${frontSrcJs}components/_components-form-validate.js`,
+	`${frontSrcJs}components/_components-form-validate-ckeditor.js`,
+	`${frontSrcJs}components/_components-message.js`,
 ];
 
-const frontSrcImgRoots = srcImg + watchFiles;
+const frontSrcImgRoots = `${srcImg}${watchFiles}`;
 
 
 // BACK
 // =================================================
-const backSrcIcomoon = proyectBack + srcIcomoonBack;
-const backSrcIcomoonSocial = proyectBack + srcIcomoonSocial;
-const backSrcSass = proyectBack + srcSass;
-const backSrcJs = proyectBack + srcJs;
+const backSrcIcomoon = `${proyectBack}${srcIcomoonBack}`;
+const backSrcIcomoonSocial = `${proyectBack}${srcIcomoonSocial}`;
+const backSrcSass = `${proyectBack}${srcSass}`;
+const backSrcJs = `${proyectBack}${srcJs}`;
 
-const backDistIcomoon = proyectBack + distIcomoonBack;
-const backDistIcomoonSocial = proyectBack + distIcomoonSocial;
-const backDistCss = proyectBack + distCss;
-const backDistJs = proyectBack + distJs;
-const backDistImg = proyectBack + distImg;
+const backDistIcomoon = `${proyectBack}${distIcomoonBack}`;
+const backDistIcomoonSocial = `${proyectBack}${distIcomoonSocial}`;
+const backDistCss = `${proyectBack}${distCss}`;
+const backDistJs = `${proyectBack}${distJs}`;
+const backDistImg = `${proyectBack}${distImg}`;
 
-const backWatchFilesPhp = proyectBack + watchFilesPhp;
-const backWatchFilesIcomoon = backDistIcomoon + watchFilesIcomoon;
-const backWatchFilesIcomoonSocial = backDistIcomoonSocial + watchFilesIcomoon;
-const backWatchFilesCss = backDistCss + watchFilesCss;
-const backWatchFilesJs = backDistJs + watchFilesJs;
+const backWatchFilesPhp = `${proyectBack}${watchFilesPhp}`;
+const backWatchFilesIcomoon = `${backDistIcomoon}${watchFilesIcomoon}`;
+const backWatchFilesIcomoonSocial = `${backDistIcomoonSocial}${watchFilesIcomoon}`;
+const backWatchFilesCss = `${backDistCss}${watchFilesCss}`;
+const backWatchFilesJs = `${backDistJs}${watchFilesJs}`;
 
 // Roots used to concat the css files in a specific order.
 const backSrcCssRoots = [
-	nodeModules + "swiper/swiper-bundle.min.css",
-	backDistCss + "styles.min.css",
+	`${nodeModules}swiper/swiper-bundle.min.css`,
+	`${backDistCss}styles.min.css`,
 ];
 
 // Roots used to concat the js files in a specific order.
 const backSrcJsRoots = [
-	nodeModules + "jquery/dist/jquery.min.js",
-	nodeModules + "jquery-validation/dist/jquery.validate.min.js",
-	nodeModules + "jquery-validation/dist/additional-methods.min.js",
-	nodeModules + "isotope-layout/dist/isotope.pkgd.min.js",
-	nodeModules + "swiper/swiper-bundle.min.js",
-	backSrcJs + "scripts.js",
-	backSrcJs + "abstracts/variables/_abstracts-variables-breakpoints.js",
-	backSrcJs + "abstracts/functions/_abstracts-functions-browser.js",
-	backSrcJs + "abstracts/functions/_abstracts-functions-form-require.js",
-	backSrcJs + "abstracts/functions/_abstracts-functions-form-validate.js",
-	backSrcJs + "abstracts/functions/_abstracts-functions-form-validate-ckeditor.js",
-	backSrcJs + "layouts/_layouts-nav.js",
-	backSrcJs + "components/_components-form-require.js",
-	backSrcJs + "components/_components-form-validate.js",
-	backSrcJs + "components/_components-form-validate-ckeditor.js",
-	backSrcJs + "components/_components-message.js",
+	`${nodeModules}jquery/dist/jquery.min.js`,
+	`${nodeModules}jquery-validation/dist/jquery.validate.min.js`,
+	`${nodeModules}jquery-validation/dist/additional-methods.min.js`,
+	`${nodeModules}isotope-layout/dist/isotope.pkgd.min.js`,
+	`${nodeModules}swiper/swiper-bundle.min.js`,
+	`${backSrcJs}scripts.js`,
+	`${backSrcJs}abstracts/variables/_abstracts-variables-breakpoints.js`,
+	`${backSrcJs}abstracts/functions/_abstracts-functions-browser.js`,
+	`${backSrcJs}abstracts/functions/_abstracts-functions-form-require.js`,
+	`${backSrcJs}abstracts/functions/_abstracts-functions-form-validate.js`,
+	`${backSrcJs}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+	`${backSrcJs}layouts/_layouts-nav.js`,
+	`${backSrcJs}components/_components-form-require.js`,
+	`${backSrcJs}components/_components-form-validate.js`,
+	`${backSrcJs}components/_components-form-validate-ckeditor.js`,
+	`${backSrcJs}components/_components-message.js`,
 ];
 
-const backSrcImgRoots = srcImg + watchFiles;
+const backSrcImgRoots = `${srcImg}${watchFiles}`;
+
 
 
 // GULP TASK - FRONT
 // =================================================
 function front__cssIcomoonMinify() {
 	return gulp
-		.src(frontSrcIcomoon + "style.css")
+		.src(`${frontSrcIcomoon}style.css`)
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -177,9 +178,9 @@ function front__cssIcomoonMinify() {
 function front__cssIcomoonCopy() {
 	return gulp
 		.src(
-			frontSrcIcomoon + "fonts/*",
+			`${frontSrcIcomoon}fonts/*`,
 			{
-				base: "./" + frontSrcIcomoon,
+				base: `./${frontSrcIcomoon}`,
 			}
 		)
 		.pipe(gulp.dest(frontDistIcomoon));
@@ -187,7 +188,7 @@ function front__cssIcomoonCopy() {
 
 function front__cssIcomoonSocialMinify() {
 	return gulp
-		.src(frontSrcIcomoonSocial + "style.css")
+		.src(`${frontSrcIcomoonSocial}style.css`)
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -204,9 +205,9 @@ function front__cssIcomoonSocialMinify() {
 function front__cssIcomoonSocialCopy() {
 	return gulp
 		.src(
-			frontSrcIcomoonSocial + "fonts/*",
+			`${frontSrcIcomoonSocial}fonts/*`,
 			{
-				base: "./" + frontSrcIcomoonSocial,
+				base: `./${frontSrcIcomoonSocial}`,
 			}
 		)
 		.pipe(gulp.dest(frontDistIcomoonSocial));
@@ -215,7 +216,7 @@ function front__cssIcomoonSocialCopy() {
 function front__sassCompile() {
 	return gulp
 		.src([
-			frontSrcSass + "styles.sass",
+			`${frontSrcSass}styles.sass`,
 		])
 		.pipe(
 			srcMaps.init({
@@ -294,7 +295,7 @@ function front__imageMinify() {
 // =================================================
 function back__cssIcomoonMinify() {
 	return gulp
-		.src(backSrcIcomoon + "style.css")
+		.src(`${backSrcIcomoon}style.css`)
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -311,9 +312,9 @@ function back__cssIcomoonMinify() {
 function back__cssIcomoonCopy() {
 	return gulp
 		.src(
-			backSrcIcomoon + "fonts/*",
+			`${backSrcIcomoon}fonts/*`,
 			{
-				base: "./" + backSrcIcomoon,
+				base: `./${backSrcIcomoon}`,
 			}
 		)
 		.pipe(gulp.dest(backDistIcomoon));
@@ -321,7 +322,7 @@ function back__cssIcomoonCopy() {
 
 function back__cssIcomoonSocialMinify() {
 	return gulp
-		.src(backSrcIcomoonSocial + "style.css")
+		.src(`${backSrcIcomoonSocial}style.css`)
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -338,9 +339,9 @@ function back__cssIcomoonSocialMinify() {
 function back__cssIcomoonSocialCopy() {
 	return gulp
 		.src(
-			backSrcIcomoonSocial + "fonts/*",
+			`${backSrcIcomoonSocial}fonts/*`,
 			{
-				base: "./" + backSrcIcomoonSocial,
+				base: `./${backSrcIcomoonSocial}`,
 			}
 		)
 		.pipe(gulp.dest(backDistIcomoonSocial));
@@ -349,7 +350,7 @@ function back__cssIcomoonSocialCopy() {
 function back__sassCompile() {
 	return gulp
 		.src([
-			backSrcSass + "styles.sass"
+			`${backSrcSass}styles.sass`
 		])
 		.pipe(
 			srcMaps.init({
@@ -429,17 +430,17 @@ function back__imageMinify() {
 function watch() {
 	browserSync.init({
 		open: "external",
-		proxy: "http://localhost/" + proyectName,
+		proxy: `http://localhost/${proyectName}`,
 		port: 3306,
 	});
 
 	gulp.watch(
-		frontSrcJs + watchFilesJs,
+		`${frontSrcJs}${watchFilesJs}`,
 		front__jsCompile
 	);
 
 	gulp.watch(
-		frontSrcSass + watchFilesSass,
+		`${frontSrcSass}${watchFilesSass}`,
 		gulp.series(
 			front__sassCompile,
 			front__cssCompile
@@ -447,7 +448,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		frontSrcIcomoon + watchFiles,
+		`${frontSrcIcomoon}${watchFiles}`,
 		gulp.series(
 			front__cssIcomoonCopy,
 			front__cssIcomoonMinify
@@ -455,7 +456,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		frontSrcIcomoonSocial + watchFiles,
+		`${frontSrcIcomoonSocial}${watchFiles}`,
 		gulp.series(
 			front__cssIcomoonSocialCopy,
 			front__cssIcomoonSocialMinify
@@ -463,17 +464,17 @@ function watch() {
 	);
 
 	gulp.watch(
-		srcImg + watchFiles,
+		`${srcImg}${watchFiles}`,
 		front__imageMinify
 	);
 
 	gulp.watch(
-		backSrcJs + watchFilesJs,
+		`${backSrcJs}${watchFilesJs}`,
 		back__jsCompile
 	);
 
 	gulp.watch(
-		backSrcSass + watchFilesSass,
+		`${backSrcSass}${watchFilesSass}`,
 		gulp.series(
 			back__sassCompile,
 			back__cssCompile
@@ -481,7 +482,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		backSrcIcomoon + watchFiles,
+		`${backSrcIcomoon}${watchFiles}`,
 		gulp.series(
 			back__cssIcomoonCopy,
 			back__cssIcomoonMinify
@@ -489,7 +490,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		backSrcIcomoonSocial + watchFiles,
+		`${backSrcIcomoonSocial}${watchFiles}`,
 		gulp.series(
 			back__cssIcomoonSocialCopy,
 			back__cssIcomoonSocialMinify
@@ -497,7 +498,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		srcImg + watchFiles,
+		`${srcImg}${watchFiles}`,
 		back__imageMinify
 	);
 
