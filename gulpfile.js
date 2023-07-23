@@ -25,65 +25,75 @@ const babel = require("gulp-babel");
 
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
-const proyectName = "gulp-compiler/";
-const proyectBack = "admin/";
-const nodeModules = "./node_modules/";
-
-// Files src
-const srcSass = `src/sass/`;
-const srcJs = `src/js/`;
-const srcIcomoonFront = `src/icomoon/icomoon-front/`;
-const srcIcomoonBack = `src/icomoon/icomoon-back/`;
-const srcIcomoonSocial = `src/icomoon/icomoon-social/`;
-const srcImg = `src/images/`;
-
-// Files dist
-const distCss = `dist/css/`;
-const distJs = `dist/js/`;
-const distIcomoonFront = `dist/icomoon/icomoon-front/`;
-const distIcomoonBack = `dist/icomoon/icomoon-back/`;
-const distIcomoonSocial = `dist/icomoon/icomoon-social/`;
-const distImg = `dist/images/`;
-
-// Watch Files
-const watchFiles = "**/*";
-const watchFilesPhp = "**/*.php";
-const watchFilesSass = "**/*.sass";
-const watchFilesCss = "**/*.css";
-const watchFilesJs = "**/*.js";
+const paths = {
+	proyect: {
+		name: "gulp-compiler/",
+		back: "admin/",
+		node: "node_modules/",
+	},
+	src: {
+		base: "src/",
+		sass: "src/sass/",
+		js: "src/js/",
+		icons: {
+			front: "src/icomoon/icomoon-front/",
+			back: "src/icomoon/icomoon-back/",
+			social: "src/icomoon/icomoon-social/"
+		},
+		img: "src/images/",
+	},
+	dist: {
+		base: "dist/",
+		css: "dist/css/",
+		js: "dist/js/",
+		icons: {
+			front: "dist/icomoon/icomoon-front/",
+			back: "dist/icomoon/icomoon-back/",
+			social: "dist/icomoon/icomoon-social/"
+		},
+		img: "dist/images/",
+	},
+	files: {
+		base: "**/*",
+		php: "**/*.php",
+		sass: "**/*.sass",
+		css: "**/*.css",
+		js: "**/*.js",
+	},
+};
 
 
 // FRONT
 // -------------------------------------------------
 // Roots used to concat the css files in a specific order.
 const frontSrcCssRoots = [
-	`${nodeModules}swiper/swiper-bundle.min.css`,
+	`${paths.proyect.node}swiper/swiper-bundle.min.css`,
 	//----------------
-	`${distCss}styles.min.css`,
+	`${paths.dist.css}styles.min.css`,
 ];
 
 // Roots used to concat the js files in a specific order.
 const frontSrcJsRoots = [
-	`${nodeModules}jquery/dist/jquery.min.js`,
-	`${nodeModules}jquery-validation/dist/jquery.validate.min.js`,
-	`${nodeModules}jquery-validation/dist/additional-methods.min.js`,
-	`${nodeModules}isotope-layout/dist/isotope.pkgd.min.js`,
-	`${nodeModules}swiper/swiper-bundle.min.js`,
+	`${paths.proyect.node}jquery/dist/jquery.min.js`,
+	`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
+	`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
+	`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
+	`${paths.proyect.node}swiper/swiper-bundle.min.js`,
 	//----------------
-	`${srcJs}scripts.js`,
+	`${paths.src.js}scripts.js`,
 	//----------------
-	`${srcJs}abstracts/variables/_abstracts-variables-breakpoints.js`,
-	`${srcJs}abstracts/functions/_abstracts-functions-browser.js`,
-	`${srcJs}abstracts/functions/_abstracts-functions-form-require.js`,
-	`${srcJs}abstracts/functions/_abstracts-functions-form-validate.js`,
-	`${srcJs}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+	`${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
+	`${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
+	`${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
+	`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
+	`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
 	//----------------
-	`${srcJs}layouts/_layouts-nav.js`,
+	`${paths.src.js}layouts/_layouts-nav.js`,
 	//----------------
-	`${srcJs}components/_components-form-require.js`,
-	`${srcJs}components/_components-form-validate.js`,
-	`${srcJs}components/_components-form-validate-ckeditor.js`,
-	`${srcJs}components/_components-message.js`,
+	`${paths.src.js}components/_components-form-require.js`,
+	`${paths.src.js}components/_components-form-validate.js`,
+	`${paths.src.js}components/_components-form-validate-ckeditor.js`,
+	`${paths.src.js}components/_components-message.js`,
 ];
 
 
@@ -91,33 +101,33 @@ const frontSrcJsRoots = [
 // -------------------------------------------------
 // Roots used to concat the css files in a specific order.
 const backSrcCssRoots = [
-	`${nodeModules}swiper/swiper-bundle.min.css`,
+	`${paths.proyect.node}swiper/swiper-bundle.min.css`,
 	//----------------
-	`${proyectBack}${distCss}styles.min.css`,
+	`${paths.proyect.back}${paths.dist.css}styles.min.css`,
 ];
 
 // Roots used to concat the js files in a specific order.
 const backSrcJsRoots = [
-	`${nodeModules}jquery/dist/jquery.min.js`,
-	`${nodeModules}jquery-validation/dist/jquery.validate.min.js`,
-	`${nodeModules}jquery-validation/dist/additional-methods.min.js`,
-	`${nodeModules}isotope-layout/dist/isotope.pkgd.min.js`,
-	`${nodeModules}swiper/swiper-bundle.min.js`,
+	`${paths.proyect.node}jquery/dist/jquery.min.js`,
+	`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
+	`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
+	`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
+	`${paths.proyect.node}swiper/swiper-bundle.min.js`,
 	//----------------
-	`${proyectBack}${srcJs}scripts.js`,
+	`${paths.proyect.back}${paths.src.js}scripts.js`,
 	//----------------
-	`${proyectBack}${srcJs}abstracts/variables/_abstracts-variables-breakpoints.js`,
-	`${proyectBack}${srcJs}abstracts/functions/_abstracts-functions-browser.js`,
-	`${proyectBack}${srcJs}abstracts/functions/_abstracts-functions-form-require.js`,
-	`${proyectBack}${srcJs}abstracts/functions/_abstracts-functions-form-validate.js`,
-	`${proyectBack}${srcJs}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+	`${paths.proyect.back}${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
+	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
+	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
+	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
+	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
 	//----------------
-	`${proyectBack}${srcJs}layouts/_layouts-nav.js`,
+	`${paths.proyect.back}${paths.src.js}layouts/_layouts-nav.js`,
 	//----------------
-	`${proyectBack}${srcJs}components/_components-form-require.js`,
-	`${proyectBack}${srcJs}components/_components-form-validate.js`,
-	`${proyectBack}${srcJs}components/_components-form-validate-ckeditor.js`,
-	`${proyectBack}${srcJs}components/_components-message.js`,
+	`${paths.proyect.back}${paths.src.js}components/_components-form-require.js`,
+	`${paths.proyect.back}${paths.src.js}components/_components-form-validate.js`,
+	`${paths.proyect.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
+	`${paths.proyect.back}${paths.src.js}components/_components-message.js`,
 ];
 
 
@@ -231,7 +241,7 @@ function imageMinify(src, dist) {
 function createServer() {
 	browserSync.init({
 		open: "external",
-		proxy: `http://localhost/${proyectName}`,
+		proxy: `http://localhost/${paths.proyect.name}`,
 		port: 3306,
 	});
 };
@@ -240,8 +250,8 @@ function createServer() {
 // -------------------------------------------------
 function front__sassCompile() {
 	return sassCompile(
-		[`${srcSass}styles.sass`],
-		distCss,
+		[`${paths.src.sass}styles.sass`],
+		paths.dist.css,
 		"styles.min.css"
 	);
 };
@@ -249,7 +259,7 @@ function front__sassCompile() {
 function front__cssCompile() {
 	return cssCompile(
 		frontSrcCssRoots,
-		distCss,
+		paths.dist.css,
 		"styles.min.css"
 	);
 };
@@ -257,43 +267,43 @@ function front__cssCompile() {
 function front__jsCompile() {
 	return jsCompile(
 		frontSrcJsRoots,
-		distJs,
+		paths.dist.js,
 		"scripts.min.js"
 	);
 };
 
 function front__cssIcomoonMinify() {
 	return cssIcomoonMinify(
-		srcIcomoonFront,
-		distIcomoonFront
+		paths.src.icons.front,
+		paths.dist.icons.front
 	);
 };
 
 function front__cssIcomoonCopy() {
 	return copyFonts(
-		srcIcomoonFront,
-		distIcomoonFront
+		paths.src.icons.front,
+		paths.dist.icons.front
 	);
 };
 
 function front__cssIcomoonSocialMinify() {
 	return cssIcomoonMinify(
-		srcIcomoonSocial,
-		distIcomoonSocial
+		paths.src.icons.social,
+		paths.dist.icons.social
 	);
 };
 
 function front__cssIcomoonSocialCopy() {
 	return copyFonts(
-		srcIcomoonSocial,
-		distIcomoonSocial
+		paths.src.icons.social,
+		paths.dist.icons.social
 	);
 };
 
 function front__imageMinify() {
 	return imageMinify(
-		`${srcImg}${watchFiles}`,
-		distImg
+		`${paths.src.img}${paths.files.base}`,
+		paths.dist.img
 	);
 };
 
@@ -301,8 +311,8 @@ function front__imageMinify() {
 // -------------------------------------------------
 function back__sassCompile() {
 	return sassCompile(
-		[`${proyectBack}${srcSass}styles.sass`],
-		`${proyectBack}${distCss}`,
+		[`${paths.proyect.back}${paths.src.sass}styles.sass`],
+		`${paths.proyect.back}${paths.dist.css}`,
 		"styles.min.css"
 	);
 };
@@ -310,7 +320,7 @@ function back__sassCompile() {
 function back__cssCompile() {
 	return cssCompile(
 		backSrcCssRoots,
-		`${proyectBack}${distCss}`,
+		`${paths.proyect.back}${paths.dist.css}`,
 		"styles.min.css"
 	);
 };
@@ -318,43 +328,43 @@ function back__cssCompile() {
 function back__jsCompile() {
 	return jsCompile(
 		backSrcJsRoots,
-		`${proyectBack}${distJs}`,
+		`${paths.proyect.back}${paths.dist.js}`,
 		"scripts.min.js"
 	);
 };
 
 function back__cssIcomoonMinify() {
 	return cssIcomoonMinify(
-		`${proyectBack}${srcIcomoonBack}`,
-		`${proyectBack}${distIcomoonBack}`
+		`${paths.proyect.back}${paths.src.icons.back}`,
+		`${paths.proyect.back}${paths.dist.icons.back}`
 	);
 };
 
 function back__cssIcomoonCopy() {
 	return copyFonts(
-		`${proyectBack}${srcIcomoonBack}`,
-		`${proyectBack}${distIcomoonBack}`
+		`${paths.proyect.back}${paths.src.icons.back}`,
+		`${paths.proyect.back}${paths.dist.icons.back}`
 	);
 };
 
 function back__cssIcomoonSocialMinify() {
 	return cssIcomoonMinify(
-		`${proyectBack}${srcIcomoonSocial}`,
-		`${proyectBack}${distIcomoonSocial}`
+		`${paths.proyect.back}${paths.src.icons.social}`,
+		`${paths.proyect.back}${paths.dist.icons.social}`
 	);
 };
 
 function back__cssIcomoonSocialCopy() {
 	return copyFonts(
-		`${proyectBack}${srcIcomoonSocial}`,
-		`${proyectBack}${distIcomoonSocial}`
+		`${paths.proyect.back}${paths.src.icons.social}`,
+		`${paths.proyect.back}${paths.dist.icons.social}`
 	);
 };
 
 function back__imageMinify() {
 	return imageMinify(
-		`${srcImg}${watchFiles}`,
-		`${proyectBack}${distImg}`
+		`${paths.src.img}${paths.files.base}`,
+		`${paths.proyect.back}${paths.dist.img}`
 	);
 };
 
@@ -366,16 +376,16 @@ function watch() {
 
 	gulp.watch(
 		[
-			`${watchFilesPhp}`,
-			`${distCss}${watchFilesCss}`,
-			`${distJs}${watchFilesJs}`,
-			`${distIcomoonFront}${watchFiles}`,
-			`${distIcomoonSocial}${watchFiles}`,
-			`${proyectBack}${watchFilesPhp}`,
-			`${proyectBack}${distCss}${watchFilesCss}`,
-			`${proyectBack}${distJs}${watchFilesJs}`,
-			`${proyectBack}${distIcomoonBack}${watchFiles}`,
-			`${proyectBack}${distIcomoonSocial}${watchFiles}`,
+			`${paths.files.php}`,
+			`${paths.dist.css}${paths.files.css}`,
+			`${paths.dist.js}${paths.files.js}`,
+			`${paths.dist.icons.front}${paths.files.base}`,
+			`${paths.dist.icons.social}${paths.files.base}`,
+			`${paths.proyect.back}${paths.files.php}`,
+			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
+			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
+			`${paths.proyect.back}${paths.dist.icons.back}${paths.files.base}`,
+			`${paths.proyect.back}${paths.dist.icons.social}${paths.files.base}`,
 		]
 	).on(
 		"change",
@@ -385,7 +395,7 @@ function watch() {
 	// FRONT
 	// -------------------------------------------------
 	gulp.watch(
-		`${srcSass}${watchFilesSass}`,
+		`${paths.src.sass}${paths.files.sass}`,
 		gulp.series(
 			front__sassCompile,
 			front__cssCompile
@@ -393,12 +403,12 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${srcJs}${watchFilesJs}`,
+		`${paths.src.js}${paths.files.js}`,
 		front__jsCompile
 	);
 
 	gulp.watch(
-		`${srcIcomoonFront}${watchFiles}`,
+		`${paths.src.icons.front}${paths.files.base}`,
 		gulp.series(
 			front__cssIcomoonCopy,
 			front__cssIcomoonMinify
@@ -406,7 +416,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${srcIcomoonSocial}${watchFiles}`,
+		`${paths.src.icons.social}${paths.files.base}`,
 		gulp.series(
 			front__cssIcomoonSocialCopy,
 			front__cssIcomoonSocialMinify
@@ -414,14 +424,14 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${srcImg}${watchFiles}`,
+		`${paths.src.img}${paths.files.base}`,
 		front__imageMinify
 	);
 
 	// BACK
 	// -------------------------------------------------
 	gulp.watch(
-		`${proyectBack}${srcSass}${watchFilesSass}`,
+		`${paths.proyect.back}${paths.src.sass}${paths.files.sass}`,
 		gulp.series(
 			back__sassCompile,
 			back__cssCompile
@@ -429,12 +439,12 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${proyectBack}${srcJs}${watchFilesJs}`,
+		`${paths.proyect.back}${paths.src.js}${paths.files.js}`,
 		back__jsCompile
 	);
 
 	gulp.watch(
-		`${proyectBack}${srcIcomoonBack}${watchFiles}`,
+		`${paths.proyect.back}${paths.src.icons.back}${paths.files.base}`,
 		gulp.series(
 			back__cssIcomoonCopy,
 			back__cssIcomoonMinify
@@ -442,7 +452,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${proyectBack}${srcIcomoonSocial}${watchFiles}`,
+		`${paths.proyect.back}${paths.src.icons.social}${paths.files.base}`,
 		gulp.series(
 			back__cssIcomoonSocialCopy,
 			back__cssIcomoonSocialMinify
@@ -450,7 +460,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${srcImg}${watchFiles}`,
+		`${paths.src.img}${paths.files.base}`,
 		back__imageMinify
 	);
 };
