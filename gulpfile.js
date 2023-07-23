@@ -164,7 +164,7 @@ function front__cssIcomoonMinify() {
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
-				largeFile: true
+				largeFile: true,
 			})
 		)
 		.pipe(cleanCss())
@@ -179,7 +179,7 @@ function front__cssIcomoonCopy() {
 		.src(
 			frontSrcIcomoon + "fonts/*",
 			{
-				base: "./" + frontSrcIcomoon
+				base: "./" + frontSrcIcomoon,
 			}
 		)
 		.pipe(gulp.dest(frontDistIcomoon));
@@ -191,7 +191,7 @@ function front__cssIcomoonSocialMinify() {
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
-				largeFile: true
+				largeFile: true,
 			})
 		)
 		.pipe(cleanCss())
@@ -206,7 +206,7 @@ function front__cssIcomoonSocialCopy() {
 		.src(
 			frontSrcIcomoonSocial + "fonts/*",
 			{
-				base: "./" + frontSrcIcomoonSocial
+				base: "./" + frontSrcIcomoonSocial,
 			}
 		)
 		.pipe(gulp.dest(frontDistIcomoonSocial));
@@ -215,16 +215,16 @@ function front__cssIcomoonSocialCopy() {
 function front__sassCompile() {
 	return gulp
 		.src([
-			frontSrcSass + "styles.sass"
+			frontSrcSass + "styles.sass",
 		])
 		.pipe(
 			srcMaps.init({
-				loadMaps: true
+				loadMaps: true,
 			})
 		)
 		.pipe(
 			sass({
-				outputStyle: "compressed"
+				outputStyle: "compressed",
 			}).on(
 				"error",
 				sass.logError
@@ -233,8 +233,8 @@ function front__sassCompile() {
 		.pipe(
 			autoprefixer({
 				versions: [
-					"last 2 versions"
-				]
+					"last 2 versions",
+				],
 			})
 		)
 		.pipe(srcMaps.write())
@@ -258,9 +258,9 @@ function front__jsCompile() {
 		.pipe(
 			babel({
 				"presets": [
-					"@babel/preset-env"
+					"@babel/preset-env",
 				],
-				"compact": false
+				"compact": false,
 			})
 		)
 		.pipe(concat("scripts.min.js"))
@@ -276,13 +276,13 @@ function front__imageMinify() {
 		.pipe(
 			imagemin([
 				imageminGifsicle({
-					interlaced: true
+					interlaced: true,
 				}),
 				imageminJpegtran({
-					progressive: true
+					progressive: true,
 				}),
 				imageminOptipng({
-					optimizationLevel: 5
+					optimizationLevel: 5,
 				})
 			])
 		)
@@ -298,7 +298,7 @@ function back__cssIcomoonMinify() {
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
-				largeFile: true
+				largeFile: true,
 			})
 		)
 		.pipe(cleanCss())
@@ -313,7 +313,7 @@ function back__cssIcomoonCopy() {
 		.src(
 			backSrcIcomoon + "fonts/*",
 			{
-				base: "./" + backSrcIcomoon
+				base: "./" + backSrcIcomoon,
 			}
 		)
 		.pipe(gulp.dest(backDistIcomoon));
@@ -325,7 +325,7 @@ function back__cssIcomoonSocialMinify() {
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
-				largeFile: true
+				largeFile: true,
 			})
 		)
 		.pipe(cleanCss())
@@ -340,7 +340,7 @@ function back__cssIcomoonSocialCopy() {
 		.src(
 			backSrcIcomoonSocial + "fonts/*",
 			{
-				base: "./" + backSrcIcomoonSocial
+				base: "./" + backSrcIcomoonSocial,
 			}
 		)
 		.pipe(gulp.dest(backDistIcomoonSocial));
@@ -353,12 +353,12 @@ function back__sassCompile() {
 		])
 		.pipe(
 			srcMaps.init({
-				loadMaps: true
+				loadMaps: true,
 			})
 		)
 		.pipe(
 			sass({
-				outputStyle: "compressed"
+				outputStyle: "compressed",
 			}).on(
 				"error",
 				sass.logError
@@ -367,8 +367,8 @@ function back__sassCompile() {
 		.pipe(
 			autoprefixer({
 				versions: [
-					"last 2 versions"
-				]
+					"last 2 versions",
+				],
 			})
 		)
 		.pipe(srcMaps.write())
@@ -392,9 +392,9 @@ function back__jsCompile() {
 		.pipe(
 			babel({
 				"presets": [
-					"@babel/preset-env"
+					"@babel/preset-env",
 				],
-				"compact": false
+				"compact": false,
 			})
 		)
 		.pipe(concat("scripts.min.js"))
@@ -410,13 +410,13 @@ function back__imageMinify() {
 		.pipe(
 			imagemin([
 				imageminGifsicle({
-					interlaced: true
+					interlaced: true,
 				}),
 				imageminJpegtran({
-					progressive: true
+					progressive: true,
 				}),
 				imageminOptipng({
-					optimizationLevel: 5
+					optimizationLevel: 5,
 				})
 			])
 		)
