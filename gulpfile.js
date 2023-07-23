@@ -161,7 +161,7 @@ function front__sassCompile() {
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(rename("styles.min.css"))
-		.pipe(gulp.dest(`${distCss}`))
+		.pipe(gulp.dest(distCss))
 };
 
 function front__cssCompile() {
@@ -170,7 +170,7 @@ function front__cssCompile() {
 		.pipe(concat("styles.min.css"))
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(`${distCss}`))
+		.pipe(gulp.dest(distCss))
 };
 
 function front__jsCompile() {
@@ -187,7 +187,7 @@ function front__jsCompile() {
 		.pipe(concat("scripts.min.js"))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(`${distJs}`))
+		.pipe(gulp.dest(distJs))
 };
 
 function front__cssIcomoonMinify() {
@@ -203,7 +203,7 @@ function front__cssIcomoonMinify() {
 		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
 		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(`${distIcomoonFront}`));
+		.pipe(gulp.dest(distIcomoonFront));
 };
 
 function front__cssIcomoonCopy() {
@@ -211,10 +211,10 @@ function front__cssIcomoonCopy() {
 		.src(
 			`${srcIcomoonFront}fonts/*`,
 			{
-				base: `./${srcIcomoonFront}`,
+				base: srcIcomoonFront,
 			}
 		)
-		.pipe(gulp.dest(`${distIcomoonFront}`));
+		.pipe(gulp.dest(distIcomoonFront));
 };
 
 function front__cssIcomoonSocialMinify() {
@@ -230,7 +230,7 @@ function front__cssIcomoonSocialMinify() {
 		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
 		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(`${distIcomoonSocial}`));
+		.pipe(gulp.dest(distIcomoonSocial));
 };
 
 function front__cssIcomoonSocialCopy() {
@@ -238,16 +238,16 @@ function front__cssIcomoonSocialCopy() {
 		.src(
 			`${srcIcomoonSocial}fonts/*`,
 			{
-				base: `./${srcIcomoonSocial}`,
+				base: srcIcomoonSocial,
 			}
 		)
-		.pipe(gulp.dest(`${distIcomoonSocial}`));
+		.pipe(gulp.dest(distIcomoonSocial));
 };
 
 function front__imageMinify() {
 	return gulp
 		.src(`${srcImg}${watchFiles}`)
-		.pipe(changed(`${distImg}`))
+		.pipe(changed(distImg))
 		.pipe(
 			imagemin([
 				imageminGifsicle({
@@ -261,7 +261,7 @@ function front__imageMinify() {
 				})
 			])
 		)
-		.pipe(gulp.dest(`${distImg}`));
+		.pipe(gulp.dest(distImg));
 };
 
 // BACK
