@@ -1,60 +1,60 @@
-'use strict';
+"use strict";
 
 
 
 // DEPENDENCIES
 // =================================================
-const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
+const gulp = require("gulp");
+const autoprefixer = require("gulp-autoprefixer");
+const browserSync = require("browser-sync").create();
 const reload = browserSync.reload;
-const changed = require('gulp-changed');
-const cleanCss = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const imagemin = require('gulp-imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
-const imageminOptipng = require('imagemin-optipng');
-const imageminGifsicle = require('imagemin-gifsicle');
-const lineEndingCorrector = require('gulp-line-ending-corrector');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
-const srcMaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
-const babel = require('gulp-babel');
+const changed = require("gulp-changed");
+const cleanCss = require("gulp-clean-css");
+const concat = require("gulp-concat");
+const imagemin = require("gulp-imagemin");
+const imageminJpegtran = require("imagemin-jpegtran");
+const imageminOptipng = require("imagemin-optipng");
+const imageminGifsicle = require("imagemin-gifsicle");
+const lineEndingCorrector = require("gulp-line-ending-corrector");
+const rename = require("gulp-rename");
+const sass = require("gulp-sass")(require("sass"));
+const srcMaps = require("gulp-sourcemaps");
+const uglify = require("gulp-uglify");
+const babel = require("gulp-babel");
 
 
 // ROOTS
 // =================================================
 const proyectName = "gulp-compiler/";
-const proyectFront = '';
-const proyectBack = 'admin/';
+const proyectFront = "";
+const proyectBack = "admin/";
 
 // Files src
-const src = 'src/';
-const srcIcomoon = src + 'icomoon/';
-const srcIcomoonFront = srcIcomoon + 'icomoon-front/';
-const srcIcomoonBack = srcIcomoon + 'icomoon-back/';
-const srcIcomoonSocial = srcIcomoon + 'icomoon-social/';
-const srcSass = src + 'sass/';
-const srcJs = src + 'js/';
-const srcImg = src + 'images/';
+const src = "src/";
+const srcIcomoon = src + "icomoon/";
+const srcIcomoonFront = srcIcomoon + "icomoon-front/";
+const srcIcomoonBack = srcIcomoon + "icomoon-back/";
+const srcIcomoonSocial = srcIcomoon + "icomoon-social/";
+const srcSass = src + "sass/";
+const srcJs = src + "js/";
+const srcImg = src + "images/";
 
 // Files dist
-const dist = 'dist/';
-const distIcomoon = dist + 'icomoon/';
-const distIcomoonFront = distIcomoon + 'icomoon-front/';
-const distIcomoonBack = distIcomoon + 'icomoon-back/';
-const distIcomoonSocial = distIcomoon + 'icomoon-social/';
-const distCss = dist + 'css/';
-const distJs = dist + 'js/';
-const distImg = dist + 'images/';
+const dist = "dist/";
+const distIcomoon = dist + "icomoon/";
+const distIcomoonFront = distIcomoon + "icomoon-front/";
+const distIcomoonBack = distIcomoon + "icomoon-back/";
+const distIcomoonSocial = distIcomoon + "icomoon-social/";
+const distCss = dist + "css/";
+const distJs = dist + "js/";
+const distImg = dist + "images/";
 
 // Watch Files
-const watchFiles = '**/*';
-const watchFilesPhp = '**/*.php';
-const watchFilesSass = '**/*.sass';
-const watchFilesCss = '**/*.css';
-const watchFilesJs = '**/*.js';
+const watchFiles = "**/*";
+const watchFilesPhp = "**/*.php";
+const watchFilesSass = "**/*.sass";
+const watchFilesCss = "**/*.css";
+const watchFilesJs = "**/*.js";
 const watchFilesIcomoon = watchFiles;
 
 
@@ -81,28 +81,28 @@ const frontWatchFilesJs = frontDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
 const frontSrcCssRoots = [
-	nodeModules + 'swiper/swiper-bundle.min.css',
-	frontDistCss + 'styles.min.css',
+	nodeModules + "swiper/swiper-bundle.min.css",
+	frontDistCss + "styles.min.css",
 ];
 
 // Roots used to concat the js files in a specific order.
 const frontSrcJsRoots = [
-	nodeModules + 'jquery/dist/jquery.min.js',
-	nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
-	nodeModules + 'jquery-validation/dist/additional-methods.min.js',
-	nodeModules + 'isotope-layout/dist/isotope.pkgd.min.js',
-	nodeModules + 'swiper/swiper-bundle.min.js',
-	frontSrcJs + 'scripts.js',
-	frontSrcJs + 'abstracts/variables/_abstracts-variables-breakpoints.js',
-	frontSrcJs + 'abstracts/functions/_abstracts-functions-browser.js',
-	frontSrcJs + 'abstracts/functions/_abstracts-functions-form-require.js',
-	frontSrcJs + 'abstracts/functions/_abstracts-functions-form-validate.js',
-	frontSrcJs + 'abstracts/functions/_abstracts-functions-form-validate-ckeditor.js',
-	frontSrcJs + 'layouts/_layouts-nav.js',
-	frontSrcJs + 'components/_components-form-require.js',
-	frontSrcJs + 'components/_components-form-validate.js',
-	frontSrcJs + 'components/_components-form-validate-ckeditor.js',
-	frontSrcJs + 'components/_components-message.js',
+	nodeModules + "jquery/dist/jquery.min.js",
+	nodeModules + "jquery-validation/dist/jquery.validate.min.js",
+	nodeModules + "jquery-validation/dist/additional-methods.min.js",
+	nodeModules + "isotope-layout/dist/isotope.pkgd.min.js",
+	nodeModules + "swiper/swiper-bundle.min.js",
+	frontSrcJs + "scripts.js",
+	frontSrcJs + "abstracts/variables/_abstracts-variables-breakpoints.js",
+	frontSrcJs + "abstracts/functions/_abstracts-functions-browser.js",
+	frontSrcJs + "abstracts/functions/_abstracts-functions-form-require.js",
+	frontSrcJs + "abstracts/functions/_abstracts-functions-form-validate.js",
+	frontSrcJs + "abstracts/functions/_abstracts-functions-form-validate-ckeditor.js",
+	frontSrcJs + "layouts/_layouts-nav.js",
+	frontSrcJs + "components/_components-form-require.js",
+	frontSrcJs + "components/_components-form-validate.js",
+	frontSrcJs + "components/_components-form-validate-ckeditor.js",
+	frontSrcJs + "components/_components-message.js",
 ];
 
 const frontSrcImgRoots = srcImg + watchFiles;
@@ -129,28 +129,28 @@ const backWatchFilesJs = backDistJs + watchFilesJs;
 
 // Roots used to concat the css files in a specific order.
 const backSrcCssRoots = [
-	nodeModules + 'swiper/swiper-bundle.min.css',
-	backDistCss + 'styles.min.css',
+	nodeModules + "swiper/swiper-bundle.min.css",
+	backDistCss + "styles.min.css",
 ];
 
 // Roots used to concat the js files in a specific order.
 const backSrcJsRoots = [
-	nodeModules + 'jquery/dist/jquery.min.js',
-	nodeModules + 'jquery-validation/dist/jquery.validate.min.js',
-	nodeModules + 'jquery-validation/dist/additional-methods.min.js',
-	nodeModules + 'isotope-layout/dist/isotope.pkgd.min.js',
-	nodeModules + 'swiper/swiper-bundle.min.js',
-	backSrcJs + 'scripts.js',
-	backSrcJs + 'abstracts/variables/_abstracts-variables-breakpoints.js',
-	backSrcJs + 'abstracts/functions/_abstracts-functions-browser.js',
-	backSrcJs + 'abstracts/functions/_abstracts-functions-form-require.js',
-	backSrcJs + 'abstracts/functions/_abstracts-functions-form-validate.js',
-	backSrcJs + 'abstracts/functions/_abstracts-functions-form-validate-ckeditor.js',
-	backSrcJs + 'layouts/_layouts-nav.js',
-	backSrcJs + 'components/_components-form-require.js',
-	backSrcJs + 'components/_components-form-validate.js',
-	backSrcJs + 'components/_components-form-validate-ckeditor.js',
-	backSrcJs + 'components/_components-message.js',
+	nodeModules + "jquery/dist/jquery.min.js",
+	nodeModules + "jquery-validation/dist/jquery.validate.min.js",
+	nodeModules + "jquery-validation/dist/additional-methods.min.js",
+	nodeModules + "isotope-layout/dist/isotope.pkgd.min.js",
+	nodeModules + "swiper/swiper-bundle.min.js",
+	backSrcJs + "scripts.js",
+	backSrcJs + "abstracts/variables/_abstracts-variables-breakpoints.js",
+	backSrcJs + "abstracts/functions/_abstracts-functions-browser.js",
+	backSrcJs + "abstracts/functions/_abstracts-functions-form-require.js",
+	backSrcJs + "abstracts/functions/_abstracts-functions-form-validate.js",
+	backSrcJs + "abstracts/functions/_abstracts-functions-form-validate-ckeditor.js",
+	backSrcJs + "layouts/_layouts-nav.js",
+	backSrcJs + "components/_components-form-require.js",
+	backSrcJs + "components/_components-form-validate.js",
+	backSrcJs + "components/_components-form-validate-ckeditor.js",
+	backSrcJs + "components/_components-message.js",
 ];
 
 const backSrcImgRoots = srcImg + watchFiles;
@@ -160,7 +160,7 @@ const backSrcImgRoots = srcImg + watchFiles;
 // =================================================
 function front__cssIcomoonMinify() {
 	return gulp
-		.src(frontSrcIcomoon + 'style.css')
+		.src(frontSrcIcomoon + "style.css")
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -168,16 +168,16 @@ function front__cssIcomoonMinify() {
 			})
 		)
 		.pipe(cleanCss())
-		.pipe(srcMaps.write('./maps/'))
+		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
-		.pipe(rename('fonts.min.css'))
+		.pipe(rename("fonts.min.css"))
 		.pipe(gulp.dest(frontDistIcomoon));
 };
 
 function front__cssIcomoonCopy() {
 	return gulp
 		.src(
-			frontSrcIcomoon + 'fonts/*',
+			frontSrcIcomoon + "fonts/*",
 			{
 				base: "./" + frontSrcIcomoon
 			}
@@ -187,7 +187,7 @@ function front__cssIcomoonCopy() {
 
 function front__cssIcomoonSocialMinify() {
 	return gulp
-		.src(frontSrcIcomoonSocial + 'style.css')
+		.src(frontSrcIcomoonSocial + "style.css")
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -195,16 +195,16 @@ function front__cssIcomoonSocialMinify() {
 			})
 		)
 		.pipe(cleanCss())
-		.pipe(srcMaps.write('./maps/'))
+		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
-		.pipe(rename('fonts.min.css'))
+		.pipe(rename("fonts.min.css"))
 		.pipe(gulp.dest(frontDistIcomoonSocial));
 };
 
 function front__cssIcomoonSocialCopy() {
 	return gulp
 		.src(
-			frontSrcIcomoonSocial + 'fonts/*',
+			frontSrcIcomoonSocial + "fonts/*",
 			{
 				base: "./" + frontSrcIcomoonSocial
 			}
@@ -215,7 +215,7 @@ function front__cssIcomoonSocialCopy() {
 function front__sassCompile() {
 	return gulp
 		.src([
-			frontSrcSass + 'styles.sass'
+			frontSrcSass + "styles.sass"
 		])
 		.pipe(
 			srcMaps.init({
@@ -224,29 +224,29 @@ function front__sassCompile() {
 		)
 		.pipe(
 			sass({
-				outputStyle: 'compressed'
+				outputStyle: "compressed"
 			}).on(
-				'error',
+				"error",
 				sass.logError
 			)
 		)
 		.pipe(
 			autoprefixer({
 				versions: [
-					'last 2 versions'
+					"last 2 versions"
 				]
 			})
 		)
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
-		.pipe(rename('styles.min.css'))
+		.pipe(rename("styles.min.css"))
 		.pipe(gulp.dest(frontDistCss))
 };
 
 function front__cssCompile() {
 	return gulp
 		.src(frontSrcCssRoots)
-		.pipe(concat('styles.min.css'))
+		.pipe(concat("styles.min.css"))
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(frontDistCss))
@@ -257,13 +257,13 @@ function front__jsCompile() {
 		.src(frontSrcJsRoots)
 		.pipe(
 			babel({
-				'presets': [
-					'@babel/preset-env'
+				"presets": [
+					"@babel/preset-env"
 				],
-				'compact': false
+				"compact": false
 			})
 		)
-		.pipe(concat('scripts.min.js'))
+		.pipe(concat("scripts.min.js"))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(frontDistJs))
@@ -294,7 +294,7 @@ function front__imageMinify() {
 // =================================================
 function back__cssIcomoonMinify() {
 	return gulp
-		.src(backSrcIcomoon + 'style.css')
+		.src(backSrcIcomoon + "style.css")
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -302,16 +302,16 @@ function back__cssIcomoonMinify() {
 			})
 		)
 		.pipe(cleanCss())
-		.pipe(srcMaps.write('./maps/'))
+		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
-		.pipe(rename('fonts.min.css'))
+		.pipe(rename("fonts.min.css"))
 		.pipe(gulp.dest(backDistIcomoon));
 };
 
 function back__cssIcomoonCopy() {
 	return gulp
 		.src(
-			backSrcIcomoon + 'fonts/*',
+			backSrcIcomoon + "fonts/*",
 			{
 				base: "./" + backSrcIcomoon
 			}
@@ -321,7 +321,7 @@ function back__cssIcomoonCopy() {
 
 function back__cssIcomoonSocialMinify() {
 	return gulp
-		.src(backSrcIcomoonSocial + 'style.css')
+		.src(backSrcIcomoonSocial + "style.css")
 		.pipe(
 			srcMaps.init({
 				loadMaps: true,
@@ -329,16 +329,16 @@ function back__cssIcomoonSocialMinify() {
 			})
 		)
 		.pipe(cleanCss())
-		.pipe(srcMaps.write('./maps/'))
+		.pipe(srcMaps.write("./maps/"))
 		.pipe(lineEndingCorrector())
-		.pipe(rename('fonts.min.css'))
+		.pipe(rename("fonts.min.css"))
 		.pipe(gulp.dest(backDistIcomoonSocial));
 };
 
 function back__cssIcomoonSocialCopy() {
 	return gulp
 		.src(
-			backSrcIcomoonSocial + 'fonts/*',
+			backSrcIcomoonSocial + "fonts/*",
 			{
 				base: "./" + backSrcIcomoonSocial
 			}
@@ -349,7 +349,7 @@ function back__cssIcomoonSocialCopy() {
 function back__sassCompile() {
 	return gulp
 		.src([
-			backSrcSass + 'styles.sass'
+			backSrcSass + "styles.sass"
 		])
 		.pipe(
 			srcMaps.init({
@@ -358,29 +358,29 @@ function back__sassCompile() {
 		)
 		.pipe(
 			sass({
-				outputStyle: 'compressed'
+				outputStyle: "compressed"
 			}).on(
-				'error',
+				"error",
 				sass.logError
 			)
 		)
 		.pipe(
 			autoprefixer({
 				versions: [
-					'last 2 versions'
+					"last 2 versions"
 				]
 			})
 		)
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
-		.pipe(rename('styles.min.css'))
+		.pipe(rename("styles.min.css"))
 		.pipe(gulp.dest(backDistCss))
 };
 
 function back__cssCompile() {
 	return gulp
 		.src(backSrcCssRoots)
-		.pipe(concat('styles.min.css'))
+		.pipe(concat("styles.min.css"))
 		.pipe(srcMaps.write())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(backDistCss))
@@ -391,13 +391,13 @@ function back__jsCompile() {
 		.src(backSrcJsRoots)
 		.pipe(
 			babel({
-				'presets': [
-					'@babel/preset-env'
+				"presets": [
+					"@babel/preset-env"
 				],
-				'compact': false
+				"compact": false
 			})
 		)
-		.pipe(concat('scripts.min.js'))
+		.pipe(concat("scripts.min.js"))
 		.pipe(uglify())
 		.pipe(lineEndingCorrector())
 		.pipe(gulp.dest(backDistJs))
@@ -428,8 +428,8 @@ function back__imageMinify() {
 // =================================================
 function watch() {
 	browserSync.init({
-		open: 'external',
-		proxy: 'http://localhost/' + proyectName,
+		open: "external",
+		proxy: "http://localhost/" + proyectName,
 		port: 3306,
 	});
 
@@ -515,7 +515,7 @@ function watch() {
 			backWatchFilesJs,
 		]
 	).on(
-		'change',
+		"change",
 		reload
 	);
 };
@@ -543,21 +543,21 @@ exports.watch = watch;
 
 
 gulp.task(
-	'front-js',
+	"front-js",
 	gulp.series(
 		front__jsCompile,
 	)
 );
 
 gulp.task(
-	'back-js',
+	"back-js",
 	gulp.series(
 		back__jsCompile,
 	)
 );
 
 gulp.task(
-	'front-css',
+	"front-css",
 	gulp.series(
 		front__sassCompile,
 		front__cssCompile
@@ -565,7 +565,7 @@ gulp.task(
 );
 
 gulp.task(
-	'back-css',
+	"back-css",
 	gulp.series(
 		back__sassCompile,
 		back__cssCompile
@@ -573,7 +573,7 @@ gulp.task(
 );
 
 gulp.task(
-	'front-icon',
+	"front-icon",
 	gulp.series(
 		front__cssIcomoonMinify,
 		front__cssIcomoonCopy,
@@ -583,7 +583,7 @@ gulp.task(
 );
 
 gulp.task(
-	'back-icon',
+	"back-icon",
 	gulp.series(
 		back__cssIcomoonMinify,
 		back__cssIcomoonCopy,
@@ -593,21 +593,21 @@ gulp.task(
 );
 
 gulp.task(
-	'front-img',
+	"front-img",
 	gulp.series(
 		front__imageMinify
 	)
 );
 
 gulp.task(
-	'back-img',
+	"back-img",
 	gulp.series(
 		back__imageMinify
 	)
 );
 
 gulp.task(
-	'front',
+	"front",
 	gulp.series(
 		front__cssIcomoonMinify,
 		front__cssIcomoonCopy,
@@ -621,7 +621,7 @@ gulp.task(
 );
 
 gulp.task(
-	'back',
+	"back",
 	gulp.series(
 		back__cssIcomoonMinify,
 		back__cssIcomoonCopy,
@@ -635,7 +635,7 @@ gulp.task(
 );
 
 gulp.task(
-	'default',
+	"default",
 	gulp.parallel(
 		watch
 	)
