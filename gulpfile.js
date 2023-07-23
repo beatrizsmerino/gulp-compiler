@@ -257,10 +257,10 @@ function front__jsCompile() {
 		.src(frontSrcJsRoots)
 		.pipe(
 			babel({
-				"presets": [
+				presets: [
 					"@babel/preset-env",
 				],
-				"compact": false,
+				compact: false,
 			})
 		)
 		.pipe(concat("scripts.min.js"))
@@ -391,10 +391,10 @@ function back__jsCompile() {
 		.src(backSrcJsRoots)
 		.pipe(
 			babel({
-				"presets": [
+				presets: [
 					"@babel/preset-env",
 				],
-				"compact": false,
+				compact: false,
 			})
 		)
 		.pipe(concat("scripts.min.js"))
