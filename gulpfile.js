@@ -544,16 +544,12 @@ exports.watch = watch;
 
 gulp.task(
 	"front-js",
-	gulp.series(
-		front__jsCompile,
-	)
+	front__jsCompile
 );
 
 gulp.task(
 	"back-js",
-	gulp.series(
-		back__jsCompile,
-	)
+	back__jsCompile
 );
 
 gulp.task(
@@ -594,16 +590,12 @@ gulp.task(
 
 gulp.task(
 	"front-img",
-	gulp.series(
-		front__imageMinify
-	)
+	front__imageMinify
 );
 
 gulp.task(
 	"back-img",
-	gulp.series(
-		back__imageMinify
-	)
+	back__imageMinify
 );
 
 gulp.task(
@@ -636,7 +628,5 @@ gulp.task(
 
 gulp.task(
 	"default",
-	gulp.parallel(
-		watch
-	)
+	watch
 );
