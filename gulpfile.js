@@ -166,6 +166,13 @@ const backSrcImgRoots = `${srcImg}${watchFiles}`;
 
 // FUNCTIONS & TASKS
 // =================================================
+function createServer() {
+	browserSync.init({
+		open: "external",
+		proxy: `http://localhost/${proyectName}`,
+		port: 3306,
+	});
+};
 
 // FRONT
 // -------------------------------------------------
@@ -437,11 +444,7 @@ function back__imageMinify() {
 // WATCH
 // =================================================
 function watch() {
-	browserSync.init({
-		open: "external",
-		proxy: `http://localhost/${proyectName}`,
-		port: 3306,
-	});
+	createServer();
 
 	gulp.watch(
 		[
@@ -537,6 +540,7 @@ function watch() {
 
 // EXPORTS
 // =================================================
+exports.createServer = createServer;
 exports.watch = watch;
 
 // FRONT
@@ -564,6 +568,11 @@ exports.back__imageMinify = back__imageMinify;
 
 // TASKS
 // =================================================
+gulp.task(
+	"serve",
+	createServer
+);
+
 gulp.task(
 	"default",
 	watch
