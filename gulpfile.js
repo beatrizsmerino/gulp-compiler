@@ -121,6 +121,111 @@ const backSrcJsRoots = [
 ];
 
 
+// FUNCTIONS USED IN THE TASKS
+// =================================================
+function sassCompile(src, dist, fileName) {
+	return gulp
+		.src(src)
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+			})
+		)
+		.pipe(
+			sass({
+				outputStyle: "compressed",
+			}).on(
+				"error",
+				sass.logError
+			)
+		)
+		.pipe(
+			autoprefixer({
+				versions: [
+					"last 2 versions",
+				],
+			})
+		)
+		.pipe(srcMaps.write())
+		.pipe(lineEndingCorrector())
+		.pipe(rename(fileName))
+		.pipe(gulp.dest(dist))
+};
+
+function cssCompile(src, dist, fileName) {
+	return gulp
+		.src(src)
+		.pipe(concat(fileName))
+		.pipe(srcMaps.write())
+		.pipe(lineEndingCorrector())
+		.pipe(gulp.dest(dist))
+};
+
+function jsCompile(src, dist, fileName) {
+	return gulp
+		.src(src)
+		.pipe(
+			babel({
+				presets: [
+					"@babel/preset-env",
+				],
+				compact: false,
+			})
+		)
+		.pipe(concat(fileName))
+		.pipe(uglify())
+		.pipe(lineEndingCorrector())
+		.pipe(gulp.dest(dist))
+};
+
+function cssIcomoonMinify(src, dist) {
+	return gulp
+		.src(`${src}style.css`)
+		.pipe(
+			srcMaps.init({
+				loadMaps: true,
+				largeFile: true,
+			})
+		)
+		.pipe(cleanCss())
+		.pipe(srcMaps.write("./maps/"))
+		.pipe(lineEndingCorrector())
+		.pipe(rename("fonts.min.css"))
+		.pipe(gulp.dest(dist));
+}
+
+function copyFonts(src, dist) {
+	return gulp
+		.src(
+			`${src}fonts/*`,
+			{
+				base: `./${src}`,
+			}
+		)
+		.pipe(gulp.dest(dist));
+}
+
+function imageMinify(src, dist) {
+	return gulp
+		.src(src)
+		.pipe(changed(dist))
+		.pipe(
+			imagemin([
+				imageminGifsicle({
+					interlaced: true,
+				}),
+				imageminJpegtran({
+					progressive: true,
+				}),
+				imageminOptipng({
+					optimizationLevel: 5,
+				})
+			])
+		)
+		.pipe(gulp.dest(dist));
+}
+
+
 // FUNCTIONS & TASKS
 // =================================================
 function createServer() {
@@ -134,267 +239,123 @@ function createServer() {
 // FRONT
 // -------------------------------------------------
 function front__sassCompile() {
-	return gulp
-		.src([
-			`${srcSass}styles.sass`,
-		])
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-			})
-		)
-		.pipe(
-			sass({
-				outputStyle: "compressed",
-			}).on(
-				"error",
-				sass.logError
-			)
-		)
-		.pipe(
-			autoprefixer({
-				versions: [
-					"last 2 versions",
-				],
-			})
-		)
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(rename("styles.min.css"))
-		.pipe(gulp.dest(distCss))
+	return sassCompile(
+		[`${srcSass}styles.sass`],
+		distCss,
+		"styles.min.css"
+	);
 };
 
 function front__cssCompile() {
-	return gulp
-		.src(frontSrcCssRoots)
-		.pipe(concat("styles.min.css"))
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(distCss))
+	return cssCompile(
+		frontSrcCssRoots,
+		distCss,
+		"styles.min.css"
+	);
 };
 
 function front__jsCompile() {
-	return gulp
-		.src(frontSrcJsRoots)
-		.pipe(
-			babel({
-				presets: [
-					"@babel/preset-env",
-				],
-				compact: false,
-			})
-		)
-		.pipe(concat("scripts.min.js"))
-		.pipe(uglify())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(distJs))
+	return jsCompile(
+		frontSrcJsRoots,
+		distJs,
+		"scripts.min.js"
+	);
 };
 
 function front__cssIcomoonMinify() {
-	return gulp
-		.src(`${srcIcomoonFront}style.css`)
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-				largeFile: true,
-			})
-		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write("./maps/"))
-		.pipe(lineEndingCorrector())
-		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(distIcomoonFront));
+	return cssIcomoonMinify(
+		srcIcomoonFront,
+		distIcomoonFront
+	);
 };
 
 function front__cssIcomoonCopy() {
-	return gulp
-		.src(
-			`${srcIcomoonFront}fonts/*`,
-			{
-				base: srcIcomoonFront,
-			}
-		)
-		.pipe(gulp.dest(distIcomoonFront));
+	return copyFonts(
+		srcIcomoonFront,
+		distIcomoonFront
+	);
 };
 
 function front__cssIcomoonSocialMinify() {
-	return gulp
-		.src(`${srcIcomoonSocial}style.css`)
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-				largeFile: true,
-			})
-		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write("./maps/"))
-		.pipe(lineEndingCorrector())
-		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(distIcomoonSocial));
+	return cssIcomoonMinify(
+		srcIcomoonSocial,
+		distIcomoonSocial
+	);
 };
 
 function front__cssIcomoonSocialCopy() {
-	return gulp
-		.src(
-			`${srcIcomoonSocial}fonts/*`,
-			{
-				base: srcIcomoonSocial,
-			}
-		)
-		.pipe(gulp.dest(distIcomoonSocial));
+	return copyFonts(
+		srcIcomoonSocial,
+		distIcomoonSocial
+	);
 };
 
 function front__imageMinify() {
-	return gulp
-		.src(`${srcImg}${watchFiles}`)
-		.pipe(changed(distImg))
-		.pipe(
-			imagemin([
-				imageminGifsicle({
-					interlaced: true,
-				}),
-				imageminJpegtran({
-					progressive: true,
-				}),
-				imageminOptipng({
-					optimizationLevel: 5,
-				})
-			])
-		)
-		.pipe(gulp.dest(distImg));
+	return imageMinify(
+		`${srcImg}${watchFiles}`,
+		distImg
+	);
 };
 
 // BACK
 // -------------------------------------------------
 function back__sassCompile() {
-	return gulp
-		.src([
-			`${proyectBack}${srcSass}styles.sass`
-		])
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-			})
-		)
-		.pipe(
-			sass({
-				outputStyle: "compressed",
-			}).on(
-				"error",
-				sass.logError
-			)
-		)
-		.pipe(
-			autoprefixer({
-				versions: [
-					"last 2 versions",
-				],
-			})
-		)
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(rename("styles.min.css"))
-		.pipe(gulp.dest(`${proyectBack}${distCss}`))
+	return sassCompile(
+		[`${proyectBack}${srcSass}styles.sass`],
+		`${proyectBack}${distCss}`,
+		"styles.min.css"
+	);
 };
 
 function back__cssCompile() {
-	return gulp
-		.src(backSrcCssRoots)
-		.pipe(concat("styles.min.css"))
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(`${proyectBack}${distCss}`))
+	return cssCompile(
+		backSrcCssRoots,
+		`${proyectBack}${distCss}`,
+		"styles.min.css"
+	);
 };
 
 function back__jsCompile() {
-	return gulp
-		.src(backSrcJsRoots)
-		.pipe(
-			babel({
-				presets: [
-					"@babel/preset-env",
-				],
-				compact: false,
-			})
-		)
-		.pipe(concat("scripts.min.js"))
-		.pipe(uglify())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(`${proyectBack}${distJs}`))
+	return jsCompile(
+		backSrcJsRoots,
+		`${proyectBack}${distJs}`,
+		"scripts.min.js"
+	);
 };
 
 function back__cssIcomoonMinify() {
-	return gulp
-		.src(`${proyectBack}${srcIcomoonBack}style.css`)
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-				largeFile: true,
-			})
-		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write("./maps/"))
-		.pipe(lineEndingCorrector())
-		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(`${proyectBack}${distIcomoonBack}`));
+	return cssIcomoonMinify(
+		`${proyectBack}${srcIcomoonBack}`,
+		`${proyectBack}${distIcomoonBack}`
+	);
 };
 
 function back__cssIcomoonCopy() {
-	return gulp
-		.src(
-			`${proyectBack}${srcIcomoonBack}fonts/*`,
-			{
-				base: `./${proyectBack}${srcIcomoonBack}`,
-			}
-		)
-		.pipe(gulp.dest(`${proyectBack}${distIcomoonBack}`));
+	return copyFonts(
+		`${proyectBack}${srcIcomoonBack}`,
+		`${proyectBack}${distIcomoonBack}`
+	);
 };
 
 function back__cssIcomoonSocialMinify() {
-	return gulp
-		.src(`${proyectBack}${srcIcomoonSocial}style.css`)
-		.pipe(
-			srcMaps.init({
-				loadMaps: true,
-				largeFile: true,
-			})
-		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write("./maps/"))
-		.pipe(lineEndingCorrector())
-		.pipe(rename("fonts.min.css"))
-		.pipe(gulp.dest(`${proyectBack}${distIcomoonSocial}`));
+	return cssIcomoonMinify(
+		`${proyectBack}${srcIcomoonSocial}`,
+		`${proyectBack}${distIcomoonSocial}`
+	);
 };
 
 function back__cssIcomoonSocialCopy() {
-	return gulp
-		.src(
-			`${proyectBack}${srcIcomoonSocial}fonts/*`,
-			{
-				base: `./${proyectBack}${srcIcomoonSocial}`,
-			}
-		)
-		.pipe(gulp.dest(`${proyectBack}${distIcomoonSocial}`));
+	return copyFonts(
+		`${proyectBack}${srcIcomoonSocial}`,
+		`${proyectBack}${distIcomoonSocial}`
+	);
 };
 
 function back__imageMinify() {
-	return gulp
-		.src(`${srcImg}${watchFiles}`)
-		.pipe(changed(`${proyectBack}${distImg}`))
-		.pipe(
-			imagemin([
-				imageminGifsicle({
-					interlaced: true,
-				}),
-				imageminJpegtran({
-					progressive: true,
-				}),
-				imageminOptipng({
-					optimizationLevel: 5,
-				})
-			])
-		)
-		.pipe(gulp.dest(`${proyectBack}${distImg}`));
+	return imageMinify(
+		`${srcImg}${watchFiles}`,
+		`${proyectBack}${distImg}`
+	);
 };
 
 
