@@ -45,5 +45,9 @@
 		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz",
 		"semver-regex": "https://registry.npmjs.org/semver-regex/-/semver-regex-3.1.4.tgz",
 		"trim-newlines": "https://registry.npmjs.org/trim-newlines/-/trim-newlines-3.0.1.tgz"
+	},
+	"volta": {
+		"node": "14.21.3",
+		"npm": "6.14.18"
 	}
 }
