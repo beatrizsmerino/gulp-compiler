@@ -538,6 +538,11 @@ gulp.task(
 	createServer
 );
 
+gulp.task(
+	"watch",
+	watch
+);
+
 // FRONT
 // -------------------------------------------------
 gulp.task(
