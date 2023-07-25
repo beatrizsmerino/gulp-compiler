@@ -190,7 +190,7 @@ function jsCompile(src, dist, fileName) {
 		.pipe(gulp.dest(dist))
 };
 
-function copyFonts(src, dist) {
+function fontsIcomoonCopy(src, dist) {
 	return gulp
 		.src(
 			`${src}fonts/*`,
@@ -275,7 +275,7 @@ function front__jsCompile() {
 };
 
 function front__cssIcomoonMainCopy() {
-	return copyFonts(
+	return fontsIcomoonCopy(
 		paths.src.icons.front,
 		paths.dist.icons.front
 	);
@@ -289,7 +289,7 @@ function front__cssIcomoonMainMinify() {
 };
 
 function front__cssIcomoonSocialCopy() {
-	return copyFonts(
+	return fontsIcomoonCopy(
 		paths.src.icons.social,
 		paths.dist.icons.social
 	);
@@ -336,7 +336,7 @@ function back__jsCompile() {
 };
 
 function back__cssIcomoonMainCopy() {
-	return copyFonts(
+	return fontsIcomoonCopy(
 		`${paths.proyect.back}${paths.src.icons.back}`,
 		`${paths.proyect.back}${paths.dist.icons.back}`
 	);
@@ -350,7 +350,7 @@ function back__cssIcomoonMainMinify() {
 };
 
 function back__cssIcomoonSocialCopy() {
-	return copyFonts(
+	return fontsIcomoonCopy(
 		`${paths.proyect.back}${paths.src.icons.social}`,
 		`${paths.proyect.back}${paths.dist.icons.social}`
 	);
