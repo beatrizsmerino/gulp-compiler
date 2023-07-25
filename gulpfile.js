@@ -383,11 +383,13 @@ function watch() {
 			`${paths.dist.js}${paths.files.js}`,
 			`${paths.dist.icons.front}${paths.files.base}`,
 			`${paths.dist.icons.social}${paths.files.base}`,
+			`${paths.dist.img}${paths.files.base}`,
 			`${paths.proyect.back}${paths.files.php}`,
 			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
 			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
 			`${paths.proyect.back}${paths.dist.icons.back}${paths.files.base}`,
 			`${paths.proyect.back}${paths.dist.icons.social}${paths.files.base}`,
+			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`
 		]
 	).on(
 		"change",
