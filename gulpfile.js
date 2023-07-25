@@ -5,22 +5,22 @@
 // DEPENDENCIES
 // =================================================
 const gulp = require("gulp");
-const autoprefixer = require("gulp-autoprefixer");
+const gulpAutoprefixer = require("gulp-autoprefixer");
 const browserSync = require("browser-sync").create();
 const reload = browserSync.reload;
-const changed = require("gulp-changed");
-const cleanCss = require("gulp-clean-css");
-const concat = require("gulp-concat");
-const imagemin = require("gulp-imagemin");
+const gulpChanged = require("gulp-changed");
+const gulpCleanCss = require("gulp-clean-css");
+const gulpConcat = require("gulp-concat");
+const gulpImagemin = require("gulp-imagemin");
 const imageminJpegtran = require("imagemin-jpegtran");
 const imageminOptipng = require("imagemin-optipng");
 const imageminGifsicle = require("imagemin-gifsicle");
-const lineEndingCorrector = require("gulp-line-ending-corrector");
-const rename = require("gulp-rename");
-const sass = require("gulp-sass")(require("sass"));
-const srcMaps = require("gulp-sourcemaps");
-const uglify = require("gulp-uglify");
-const babel = require("gulp-babel");
+const gulpLineEndingCorrector = require("gulp-line-ending-corrector");
+const gulpRename = require("gulp-rename");
+const gulpSass = require("gulp-sass")(require("sass"));
+const gulpSourcemaps = require("gulp-sourcemaps");
+const gulpUglify = require("gulp-uglify");
+const gulpBabel = require("gulp-babel");
 
 
 // SETTINGS: FOLDER/FILE PATHS
@@ -137,37 +137,37 @@ function sassCompile(src, dist, fileName) {
 	return gulp
 		.src(src)
 		.pipe(
-			srcMaps.init({
+			gulpSourcemaps.init({
 				loadMaps: true,
 			})
 		)
 		.pipe(
-			sass({
+			gulpSass({
 				outputStyle: "compressed",
 			}).on(
 				"error",
-				sass.logError
+				gulpSass.logError
 			)
 		)
 		.pipe(
-			autoprefixer({
+			gulpAutoprefixer({
 				versions: [
 					"last 2 versions",
 				],
 			})
 		)
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(rename(fileName))
+		.pipe(gulpSourcemaps.write())
+		.pipe(gulpLineEndingCorrector())
+		.pipe(gulpRename(fileName))
 		.pipe(gulp.dest(dist))
 };
 
 function cssCompile(src, dist, fileName) {
 	return gulp
 		.src(src)
-		.pipe(concat(fileName))
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
+		.pipe(gulpConcat(fileName))
+		.pipe(gulpSourcemaps.write())
+		.pipe(gulpLineEndingCorrector())
 		.pipe(gulp.dest(dist))
 };
 
@@ -175,16 +175,16 @@ function jsCompile(src, dist, fileName) {
 	return gulp
 		.src(src)
 		.pipe(
-			babel({
+			gulpBabel({
 				presets: [
 					"@babel/preset-env",
 				],
 				compact: false,
 			})
 		)
-		.pipe(concat(fileName))
-		.pipe(uglify())
-		.pipe(lineEndingCorrector())
+		.pipe(gulpConcat(fileName))
+		.pipe(gulpUglify())
+		.pipe(gulpLineEndingCorrector())
 		.pipe(gulp.dest(dist))
 };
 
@@ -192,15 +192,15 @@ function cssIcomoonMinify(src, dist) {
 	return gulp
 		.src(`${src}style.css`)
 		.pipe(
-			srcMaps.init({
+			gulpSourcemaps.init({
 				loadMaps: true,
 				largeFile: true,
 			})
 		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write("./maps/"))
-		.pipe(lineEndingCorrector())
-		.pipe(rename("fonts.min.css"))
+		.pipe(gulpCleanCss())
+		.pipe(gulpSourcemaps.write("./maps/"))
+		.pipe(gulpLineEndingCorrector())
+		.pipe(gulpRename("fonts.min.css"))
 		.pipe(gulp.dest(dist));
 }
 
@@ -218,9 +218,9 @@ function copyFonts(src, dist) {
 function imageMinify(src, dist) {
 	return gulp
 		.src(src)
-		.pipe(changed(dist))
+		.pipe(gulpChanged(dist))
 		.pipe(
-			imagemin([
+			gulpImagemin([
 				imageminGifsicle({
 					interlaced: true,
 				}),
