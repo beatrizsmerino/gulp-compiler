@@ -499,11 +499,6 @@ exports.back__imageMinify = back__imageMinify;
 // TASKS
 // =================================================
 gulp.task(
-	"serve",
-	createServer
-);
-
-gulp.task(
 	"default",
 	gulp.series(
 		gulp.series(
@@ -536,6 +531,11 @@ gulp.task(
 		),
 		watch
 	)
+);
+
+gulp.task(
+	"serve",
+	createServer
 );
 
 // FRONT
