@@ -505,7 +505,37 @@ gulp.task(
 
 gulp.task(
 	"default",
-	watch
+	gulp.series(
+		gulp.series(
+			gulp.series(
+				front__sassCompile,
+				front__cssCompile
+			),
+			front__jsCompile,
+			gulp.series(
+				front__cssIcomoonMinify,
+				front__cssIcomoonCopy,
+				front__cssIcomoonSocialMinify,
+				front__cssIcomoonSocialCopy
+			),
+			front__imageMinify
+		),
+		gulp.series(
+			gulp.series(
+				back__sassCompile,
+				back__cssCompile
+			),
+			back__jsCompile,
+			gulp.series(
+				back__cssIcomoonMinify,
+				back__cssIcomoonCopy,
+				back__cssIcomoonSocialMinify,
+				back__cssIcomoonSocialCopy,
+			),
+			back__imageMinify
+		),
+		watch
+	)
 );
 
 // FRONT
