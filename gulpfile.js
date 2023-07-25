@@ -87,7 +87,7 @@ function htmlCopy() {
 	);
 };
 
-function htmlMinfy() {
+function htmlMinify() {
 	return gulp
 		.src(`${paths.dist.base}${paths.files.html}`)
 		.pipe(
@@ -161,7 +161,7 @@ function watch() {
 		`${paths.src.base}${paths.files.html}`,
 		gulp.series(
 			htmlCopy,
-			htmlMinfy
+			htmlMinify
 		)
 	);
 
@@ -192,7 +192,7 @@ function watch() {
 // =================================================
 exports.createServer = createServer;
 exports.htmlCopy = htmlCopy;
-exports.htmlMinfy = htmlMinfy;
+exports.htmlMinify = htmlMinify;
 exports.sassCompile = sassCompile;
 exports.jsCompile = jsCompile;
 exports.watch = watch;
@@ -204,7 +204,7 @@ gulp.task(
 	"default",
 	gulp.series(
 		htmlCopy,
-		htmlMinfy,
+		htmlMinify,
 		sassCompile,
 		jsCompile,
 		watch
@@ -220,7 +220,7 @@ gulp.task(
 	"build",
 	gulp.series(
 		htmlCopy,
-		htmlMinfy,
+		htmlMinify,
 		sassCompile,
 		jsCompile
 	)
@@ -230,7 +230,7 @@ gulp.task(
 	"html",
 	gulp.series(
 		htmlCopy,
-		htmlMinfy
+		htmlMinify
 	)
 );
 
