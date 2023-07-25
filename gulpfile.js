@@ -252,7 +252,7 @@ function createServer() {
 // -------------------------------------------------
 function front__sassCompile() {
 	return sassCompile(
-		[`${paths.src.sass}styles.sass`],
+		`${paths.src.sass}styles.sass`,
 		paths.dist.css,
 		"styles.min.css"
 	);
@@ -313,7 +313,7 @@ function front__imageMinify() {
 // -------------------------------------------------
 function back__sassCompile() {
 	return sassCompile(
-		[`${paths.proyect.back}${paths.src.sass}styles.sass`],
+		`${paths.proyect.back}${paths.src.sass}styles.sass`,
 		`${paths.proyect.back}${paths.dist.css}`,
 		"styles.min.css"
 	);
