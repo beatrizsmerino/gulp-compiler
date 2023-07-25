@@ -546,7 +546,7 @@ gulp.task(
 // FRONT
 // -------------------------------------------------
 gulp.task(
-	"front",
+	"front-build",
 	gulp.series(
 		front__sassCompile,
 		front__cssCompile,
@@ -590,7 +590,7 @@ gulp.task(
 // BACK
 // -------------------------------------------------
 gulp.task(
-	"back",
+	"back-build",
 	gulp.series(
 		back__sassCompile,
 		back__cssCompile,
