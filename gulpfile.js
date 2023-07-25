@@ -190,6 +190,17 @@ function jsCompile(src, dist, fileName) {
 		.pipe(gulp.dest(dist))
 };
 
+function copyFonts(src, dist) {
+	return gulp
+		.src(
+			`${src}fonts/*`,
+			{
+				base: `./${src}`,
+			}
+		)
+		.pipe(gulp.dest(dist));
+}
+
 function cssIcomoonMinify(src, dist) {
 	return gulp
 		.src(`${src}style.css`)
@@ -203,17 +214,6 @@ function cssIcomoonMinify(src, dist) {
 		.pipe(gulpSourcemaps.write("./maps/"))
 		.pipe(gulpLineEndingCorrector())
 		.pipe(gulpRename("fonts.min.css"))
-		.pipe(gulp.dest(dist));
-}
-
-function copyFonts(src, dist) {
-	return gulp
-		.src(
-			`${src}fonts/*`,
-			{
-				base: `./${src}`,
-			}
-		)
 		.pipe(gulp.dest(dist));
 }
 
@@ -274,13 +274,6 @@ function front__jsCompile() {
 	);
 };
 
-function front__cssIcomoonMainMinify() {
-	return cssIcomoonMinify(
-		paths.src.icons.front,
-		paths.dist.icons.front
-	);
-};
-
 function front__cssIcomoonMainCopy() {
 	return copyFonts(
 		paths.src.icons.front,
@@ -288,15 +281,22 @@ function front__cssIcomoonMainCopy() {
 	);
 };
 
-function front__cssIcomoonSocialMinify() {
+function front__cssIcomoonMainMinify() {
 	return cssIcomoonMinify(
-		paths.src.icons.social,
-		paths.dist.icons.social
+		paths.src.icons.front,
+		paths.dist.icons.front
 	);
 };
 
 function front__cssIcomoonSocialCopy() {
 	return copyFonts(
+		paths.src.icons.social,
+		paths.dist.icons.social
+	);
+};
+
+function front__cssIcomoonSocialMinify() {
+	return cssIcomoonMinify(
 		paths.src.icons.social,
 		paths.dist.icons.social
 	);
@@ -335,13 +335,6 @@ function back__jsCompile() {
 	);
 };
 
-function back__cssIcomoonMainMinify() {
-	return cssIcomoonMinify(
-		`${paths.proyect.back}${paths.src.icons.back}`,
-		`${paths.proyect.back}${paths.dist.icons.back}`
-	);
-};
-
 function back__cssIcomoonMainCopy() {
 	return copyFonts(
 		`${paths.proyect.back}${paths.src.icons.back}`,
@@ -349,15 +342,22 @@ function back__cssIcomoonMainCopy() {
 	);
 };
 
-function back__cssIcomoonSocialMinify() {
+function back__cssIcomoonMainMinify() {
 	return cssIcomoonMinify(
-		`${paths.proyect.back}${paths.src.icons.social}`,
-		`${paths.proyect.back}${paths.dist.icons.social}`
+		`${paths.proyect.back}${paths.src.icons.back}`,
+		`${paths.proyect.back}${paths.dist.icons.back}`
 	);
 };
 
 function back__cssIcomoonSocialCopy() {
 	return copyFonts(
+		`${paths.proyect.back}${paths.src.icons.social}`,
+		`${paths.proyect.back}${paths.dist.icons.social}`
+	);
+};
+
+function back__cssIcomoonSocialMinify() {
+	return cssIcomoonMinify(
 		`${paths.proyect.back}${paths.src.icons.social}`,
 		`${paths.proyect.back}${paths.dist.icons.social}`
 	);
@@ -478,10 +478,10 @@ exports.watch = watch;
 exports.front__sassCompile = front__sassCompile;
 exports.front__cssCompile = front__cssCompile;
 exports.front__jsCompile = front__jsCompile;
-exports.front__cssIcomoonMainMinify = front__cssIcomoonMainMinify;
 exports.front__cssIcomoonMainCopy = front__cssIcomoonMainCopy;
-exports.front__cssIcomoonSocialMinify = front__cssIcomoonSocialMinify;
+exports.front__cssIcomoonMainMinify = front__cssIcomoonMainMinify;
 exports.front__cssIcomoonSocialCopy = front__cssIcomoonSocialCopy;
+exports.front__cssIcomoonSocialMinify = front__cssIcomoonSocialMinify;
 exports.front__imageMinify = front__imageMinify;
 
 // BACK
@@ -489,10 +489,10 @@ exports.front__imageMinify = front__imageMinify;
 exports.back__sassCompile = back__sassCompile;
 exports.back__cssCompile = back__cssCompile;
 exports.back__jsCompile = back__jsCompile;
-exports.back__cssIcomoonMainMinify = back__cssIcomoonMainMinify;
 exports.back__cssIcomoonMainCopy = back__cssIcomoonMainCopy;
-exports.back__cssIcomoonSocialMinify = back__cssIcomoonSocialMinify;
+exports.back__cssIcomoonMainMinify = back__cssIcomoonMainMinify;
 exports.back__cssIcomoonSocialCopy = back__cssIcomoonSocialCopy;
+exports.back__cssIcomoonSocialMinify = back__cssIcomoonSocialMinify;
 exports.back__imageMinify = back__imageMinify;
 
 
@@ -508,10 +508,10 @@ gulp.task(
 			),
 			front__jsCompile,
 			gulp.series(
-				front__cssIcomoonMainMinify,
 				front__cssIcomoonMainCopy,
-				front__cssIcomoonSocialMinify,
-				front__cssIcomoonSocialCopy
+				front__cssIcomoonMainMinify,
+				front__cssIcomoonSocialCopy,
+				front__cssIcomoonSocialMinify
 			),
 			front__imageMinify
 		),
@@ -522,10 +522,10 @@ gulp.task(
 			),
 			back__jsCompile,
 			gulp.series(
-				back__cssIcomoonMainMinify,
 				back__cssIcomoonMainCopy,
-				back__cssIcomoonSocialMinify,
+				back__cssIcomoonMainMinify,
 				back__cssIcomoonSocialCopy,
+				back__cssIcomoonSocialMinify
 			),
 			back__imageMinify
 		),
@@ -551,10 +551,10 @@ gulp.task(
 		front__sassCompile,
 		front__cssCompile,
 		front__jsCompile,
-		front__cssIcomoonMainMinify,
 		front__cssIcomoonMainCopy,
-		front__cssIcomoonSocialMinify,
+		front__cssIcomoonMainMinify,
 		front__cssIcomoonSocialCopy,
+		front__cssIcomoonSocialMinify,
 		front__imageMinify
 	)
 );
@@ -575,10 +575,10 @@ gulp.task(
 gulp.task(
 	"front-icon",
 	gulp.series(
-		front__cssIcomoonMainMinify,
 		front__cssIcomoonMainCopy,
-		front__cssIcomoonSocialMinify,
-		front__cssIcomoonSocialCopy
+		front__cssIcomoonMainMinify,
+		front__cssIcomoonSocialCopy,
+		front__cssIcomoonSocialMinify
 	)
 );
 
@@ -595,10 +595,10 @@ gulp.task(
 		back__sassCompile,
 		back__cssCompile,
 		back__jsCompile,
-		back__cssIcomoonMainMinify,
 		back__cssIcomoonMainCopy,
-		back__cssIcomoonSocialMinify,
+		back__cssIcomoonMainMinify,
 		back__cssIcomoonSocialCopy,
+		back__cssIcomoonSocialMinify,
 		back__imageMinify
 	)
 );
@@ -619,10 +619,10 @@ gulp.task(
 gulp.task(
 	"back-icon",
 	gulp.series(
-		back__cssIcomoonMainMinify,
 		back__cssIcomoonMainCopy,
-		back__cssIcomoonSocialMinify,
-		back__cssIcomoonSocialCopy
+		back__cssIcomoonMainMinify,
+		back__cssIcomoonSocialCopy,
+		back__cssIcomoonSocialMinify
 	)
 );
 
