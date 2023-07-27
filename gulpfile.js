@@ -67,70 +67,71 @@ const paths = {
 
 // FRONT
 // -------------------------------------------------
-// Roots used to concat the css files in a specific order.
-const frontSrcCssRoots = [
-	`${paths.proyect.node}swiper/swiper-bundle.min.css`,
-	//----------------
-	`${paths.dist.css}styles.min.css`,
-];
-
-// Roots used to concat the js files in a specific order.
-const frontSrcJsRoots = [
-	`${paths.proyect.node}jquery/dist/jquery.min.js`,
-	`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
-	`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
-	`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
-	`${paths.proyect.node}swiper/swiper-bundle.min.js`,
-	//----------------
-	`${paths.src.js}scripts.js`,
-	//----------------
-	`${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
-	`${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
-	`${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
-	`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
-	`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
-	//----------------
-	`${paths.src.js}layouts/_layouts-nav.js`,
-	//----------------
-	`${paths.src.js}components/_components-form-require.js`,
-	`${paths.src.js}components/_components-form-validate.js`,
-	`${paths.src.js}components/_components-form-validate-ckeditor.js`,
-	`${paths.src.js}components/_components-message.js`,
-];
-
+const pathsFront = {
+	src: {
+		css: [
+			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
+			//----------------
+			`${paths.dist.css}styles.min.css`,
+		],
+		js: [
+			`${paths.proyect.node}jquery/dist/jquery.min.js`,
+			`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
+			`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
+			`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
+			`${paths.proyect.node}swiper/swiper-bundle.min.js`,
+			//----------------
+			`${paths.src.js}scripts.js`,
+			//----------------
+			`${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
+			`${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
+			`${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
+			`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
+			`${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+			//----------------
+			`${paths.src.js}layouts/_layouts-nav.js`,
+			//----------------
+			`${paths.src.js}components/_components-form-require.js`,
+			`${paths.src.js}components/_components-form-validate.js`,
+			`${paths.src.js}components/_components-form-validate-ckeditor.js`,
+			`${paths.src.js}components/_components-message.js`,
+		]
+	}
+};
 
 // BACK
 // -------------------------------------------------
-// Roots used to concat the css files in a specific order.
-const backSrcCssRoots = [
-	`${paths.proyect.node}swiper/swiper-bundle.min.css`,
-	//----------------
-	`${paths.proyect.back}${paths.dist.css}styles.min.css`,
-];
-
-// Roots used to concat the js files in a specific order.
-const backSrcJsRoots = [
-	`${paths.proyect.node}jquery/dist/jquery.min.js`,
-	`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
-	`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
-	`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
-	`${paths.proyect.node}swiper/swiper-bundle.min.js`,
-	//----------------
-	`${paths.proyect.back}${paths.src.js}scripts.js`,
-	//----------------
-	`${paths.proyect.back}${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
-	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
-	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
-	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
-	`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
-	//----------------
-	`${paths.proyect.back}${paths.src.js}layouts/_layouts-nav.js`,
-	//----------------
-	`${paths.proyect.back}${paths.src.js}components/_components-form-require.js`,
-	`${paths.proyect.back}${paths.src.js}components/_components-form-validate.js`,
-	`${paths.proyect.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
-	`${paths.proyect.back}${paths.src.js}components/_components-message.js`,
-];
+const pathsBack = {
+	src: {
+		css: [
+			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
+			//----------------
+			`${paths.proyect.back}${paths.dist.css}styles.min.css`,
+		],
+		js: [
+			`${paths.proyect.node}jquery/dist/jquery.min.js`,
+			`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
+			`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
+			`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
+			`${paths.proyect.node}swiper/swiper-bundle.min.js`,
+			//----------------
+			`${paths.proyect.back}${paths.src.js}scripts.js`,
+			//----------------
+			`${paths.proyect.back}${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
+			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
+			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
+			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
+			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+			//----------------
+			`${paths.proyect.back}${paths.src.js}layouts/_layouts-nav.js`,
+			//----------------
+			`${paths.proyect.back}${paths.src.js}components/_components-form-require.js`,
+			`${paths.proyect.back}${paths.src.js}components/_components-form-validate.js`,
+			`${paths.proyect.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
+			`${paths.proyect.back}${paths.src.js}components/_components-message.js`,
+		]
+	}
+};
 
 
 // FUNCTIONS USED IN THE TASKS
@@ -260,7 +261,7 @@ function front__sassCompile() {
 
 function front__cssCompile() {
 	return cssCompile(
-		frontSrcCssRoots,
+		pathsFront.src.css,
 		paths.dist.css,
 		"styles.min.css"
 	);
@@ -268,7 +269,7 @@ function front__cssCompile() {
 
 function front__jsCompile() {
 	return jsCompile(
-		frontSrcJsRoots,
+		pathsFront.src.js,
 		paths.dist.js,
 		"scripts.min.js"
 	);
@@ -321,7 +322,7 @@ function back__sassCompile() {
 
 function back__cssCompile() {
 	return cssCompile(
-		backSrcCssRoots,
+		pathsBack.src.css,
 		`${paths.proyect.back}${paths.dist.css}`,
 		"styles.min.css"
 	);
@@ -329,7 +330,7 @@ function back__cssCompile() {
 
 function back__jsCompile() {
 	return jsCompile(
-		backSrcJsRoots,
+		pathsBack.src.js,
 		`${paths.proyect.back}${paths.dist.js}`,
 		"scripts.min.js"
 	);
