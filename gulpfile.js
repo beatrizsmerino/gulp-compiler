@@ -365,7 +365,7 @@ function back__cssIcomoonSocialMinify() {
 
 function back__imageMinify() {
 	return imageMinify(
-		`${paths.src.img}${paths.files.base}`,
+		`${paths.proyect.back}${paths.src.img}${paths.files.base}`,
 		`${paths.proyect.back}${paths.dist.img}`
 	);
 };
