@@ -37,22 +37,14 @@ const paths = {
 		base: "src/",
 		sass: "src/sass/",
 		js: "src/js/",
-		icons: {
-			front: "src/icomoon/icomoon-front/",
-			back: "src/icomoon/icomoon-back/",
-			social: "src/icomoon/icomoon-social/"
-		},
+		icons: "src/icomoon/",
 		img: "src/images/",
 	},
 	dist: {
 		base: "dist/",
 		css: "dist/css/",
 		js: "dist/js/",
-		icons: {
-			front: "dist/icomoon/icomoon-front/",
-			back: "dist/icomoon/icomoon-back/",
-			social: "dist/icomoon/icomoon-social/"
-		},
+		icons: "dist/icomoon/",
 		img: "dist/images/",
 	},
 	files: {
@@ -95,7 +87,17 @@ const pathsFront = {
 			`${paths.src.js}components/_components-form-validate.js`,
 			`${paths.src.js}components/_components-form-validate-ckeditor.js`,
 			`${paths.src.js}components/_components-message.js`,
-		]
+		],
+		icons: {
+			main: `${paths.src.icons}icomoon-front/`,
+			social: `${paths.src.icons}icomoon-social/`
+		}
+	},
+	dist: {
+		icons: {
+			main: `${paths.dist.icons}icomoon-front/`,
+			social: `${paths.dist.icons}icomoon-social/`
+		}
 	}
 };
 
@@ -129,7 +131,17 @@ const pathsBack = {
 			`${paths.proyect.back}${paths.src.js}components/_components-form-validate.js`,
 			`${paths.proyect.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
 			`${paths.proyect.back}${paths.src.js}components/_components-message.js`,
-		]
+		],
+		icons: {
+			main: `${paths.proyect.back}${paths.src.icons}icomoon-back/`,
+			social: `${paths.proyect.back}${paths.src.icons}icomoon-social/`
+		}
+	},
+	dist: {
+		icons: {
+			main: `${paths.proyect.back}${paths.dist.icons}icomoon-back/`,
+			social: `${paths.proyect.back}${paths.dist.icons}icomoon-social/`
+		}
 	}
 };
 
@@ -277,29 +289,29 @@ function front__jsCompile() {
 
 function front__cssIcomoonMainCopy() {
 	return fontsIcomoonCopy(
-		paths.src.icons.front,
-		paths.dist.icons.front
+		pathsFront.src.icons.main,
+		pathsFront.dist.icons.main
 	);
 };
 
 function front__cssIcomoonMainMinify() {
 	return cssIcomoonMinify(
-		paths.src.icons.front,
-		paths.dist.icons.front
+		pathsFront.src.icons.main,
+		pathsFront.dist.icons.main
 	);
 };
 
 function front__cssIcomoonSocialCopy() {
 	return fontsIcomoonCopy(
-		paths.src.icons.social,
-		paths.dist.icons.social
+		pathsFront.src.icons.social,
+		pathsFront.dist.icons.social
 	);
 };
 
 function front__cssIcomoonSocialMinify() {
 	return cssIcomoonMinify(
-		paths.src.icons.social,
-		paths.dist.icons.social
+		pathsFront.src.icons.social,
+		pathsFront.dist.icons.social
 	);
 };
 
@@ -338,29 +350,29 @@ function back__jsCompile() {
 
 function back__cssIcomoonMainCopy() {
 	return fontsIcomoonCopy(
-		`${paths.proyect.back}${paths.src.icons.back}`,
-		`${paths.proyect.back}${paths.dist.icons.back}`
+		pathsBack.src.icons.main,
+		pathsBack.dist.icons.main
 	);
 };
 
 function back__cssIcomoonMainMinify() {
 	return cssIcomoonMinify(
-		`${paths.proyect.back}${paths.src.icons.back}`,
-		`${paths.proyect.back}${paths.dist.icons.back}`
+		pathsBack.src.icons.main,
+		pathsBack.dist.icons.main
 	);
 };
 
 function back__cssIcomoonSocialCopy() {
 	return fontsIcomoonCopy(
-		`${paths.proyect.back}${paths.src.icons.social}`,
-		`${paths.proyect.back}${paths.dist.icons.social}`
+		pathsBack.src.icons.social,
+		pathsBack.dist.icons.social
 	);
 };
 
 function back__cssIcomoonSocialMinify() {
 	return cssIcomoonMinify(
-		`${paths.proyect.back}${paths.src.icons.social}`,
-		`${paths.proyect.back}${paths.dist.icons.social}`
+		pathsBack.src.icons.social,
+		pathsBack.dist.icons.social
 	);
 };
 
@@ -382,14 +394,14 @@ function watch() {
 			`${paths.files.php}`,
 			`${paths.dist.css}${paths.files.css}`,
 			`${paths.dist.js}${paths.files.js}`,
-			`${paths.dist.icons.front}${paths.files.base}`,
-			`${paths.dist.icons.social}${paths.files.base}`,
+			`${pathsFront.dist.icons.main}${paths.files.base}`,
+			`${pathsFront.dist.icons.social}${paths.files.base}`,
 			`${paths.dist.img}${paths.files.base}`,
 			`${paths.proyect.back}${paths.files.php}`,
 			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
 			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
-			`${paths.proyect.back}${paths.dist.icons.back}${paths.files.base}`,
-			`${paths.proyect.back}${paths.dist.icons.social}${paths.files.base}`,
+			`${pathsBack.dist.icons.main}${paths.files.base}`,
+			`${pathsBack.dist.icons.social}${paths.files.base}`,
 			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`
 		]
 	).on(
@@ -413,7 +425,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${paths.src.icons.front}${paths.files.base}`,
+		`${pathsFront.src.icons.main}${paths.files.base}`,
 		gulp.series(
 			front__cssIcomoonMainCopy,
 			front__cssIcomoonMainMinify
@@ -421,7 +433,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${paths.src.icons.social}${paths.files.base}`,
+		`${pathsFront.src.icons.social}${paths.files.base}`,
 		gulp.series(
 			front__cssIcomoonSocialCopy,
 			front__cssIcomoonSocialMinify
@@ -449,7 +461,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${paths.proyect.back}${paths.src.icons.back}${paths.files.base}`,
+		`${pathsBack.src.icons.main}${paths.files.base}`,
 		gulp.series(
 			back__cssIcomoonMainCopy,
 			back__cssIcomoonMainMinify
@@ -457,7 +469,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${paths.proyect.back}${paths.src.icons.social}${paths.files.base}`,
+		`${pathsBack.src.icons.social}${paths.files.base}`,
 		gulp.series(
 			back__cssIcomoonSocialCopy,
 			back__cssIcomoonSocialMinify
