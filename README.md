@@ -178,9 +178,8 @@ or
 
 ```
 gulp htmlCopy
-gulp htmlMinfy
+gulp htmlMinify
 gulp sassCompile
-gulp cssCompile
 gulp jsCompile
 gulp watch
 ```
@@ -214,9 +213,8 @@ or
 
 ```
 gulp htmlCopy
-gulp htmlMinfy
+gulp htmlMinify
 gulp sassCompile
-gulp cssCompile
 gulp jsCompile
 ```
 
@@ -236,7 +234,7 @@ or
 
 ```
 gulp htmlCopy
-gulp htmlMinfy
+gulp htmlMinify
 ```
 
 ## 📄 Generate css
@@ -246,7 +244,6 @@ This command is able to:
 1. Creates the `dist` folder if it does not exist.
 2. Compile the `styles.sass` file (with the import files of partials sass) located at `src/sass/`, add prefixes to properties css, compress the file, create and add a mapping for the debugger styles sass on the browser inspector, apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
 3. Create the `styles.min.css` file and export to `dist/css/` folder.
-4. Get list of files of `css` files of `filesCssCompile` variable and concat the files, compress it, add a mapping, apply Line Ending Corrector, overwrite `styles.min.css` and inject updated CSS code to browser without reloading it.
 
 ```
 gulp css
@@ -256,7 +253,6 @@ or
 
 ```
 gulp sassCompile
-gulp cssCompile
 ```
 
 ## 📄 Generate js
@@ -264,7 +260,7 @@ gulp cssCompile
 This command is able to:
 
 1. Creates the `dist` folder if it does not exist.
-2. Get list of files of `filesJsCompile` variable, compile the files with Babel NPM package, compress it and apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
+2. Get list of files of `pathsFront` object, compile the files with Babel NPM package, compress it and apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
 3. Export the `scripts.min.js` file to `dist/js` folder.
 
 ```
