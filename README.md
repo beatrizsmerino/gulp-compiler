@@ -6,7 +6,7 @@
 
 ![Image of Gulp Compiler](README/images/gulp-logo-gulpfile-front-back.png)
 
-## Gulp Compiler is a basic code for automate the tasks of your development environment, compile SASS and JS with the task runner Gulp
+Gulp Compiler is a basic code for automate the tasks of your development environment, compile SASS and JS with the task runner Gulp
 
 ## Development interface
 
@@ -18,7 +18,7 @@ The _'sass'_ and _'js'_ compilation tasks pick up the files in the _'src'_ folde
 
 #### Structure
 
-```
+```shell
 gulp-compiler
     admin/
         src/
@@ -76,7 +76,7 @@ gulp-compiler
 
 #### Output
 
-```
+```shell
 gulp-compiler
     admin/
         dist/
@@ -111,22 +111,22 @@ gulp-compiler
 
 #### Necessary files
 
--   _package.json_
+- _package.json_
      Configuration file
--   _gulpfile.js_
+- _gulpfile.js_
      Specify possible tasks
 
 ## How use
 
 ### To use it is necessary have installed
 
--   [Node](https://nodejs.org/es/)
+- [Node](https://nodejs.org/es/)
     [download](https://nodejs.org/es/)
     `node --version`
--   [NPM](https://docs.npmjs.com/)
+- [NPM](https://docs.npmjs.com/)
     `npm install`
     `npm --version`
--   [Gulp 4.0.0](https://gulpjs.com/)
+- [Gulp 4.0.0](https://gulpjs.com/)
     `npm install --global gulp-cli`
     `npm install gulp`
     `gulp --version`
@@ -171,6 +171,6 @@ You can start the following tasks using the command console while in the project
 `gulp back__jsCompile`
 `gulp back__imageMinify`
 
-## Continue...
+## Continue
 
 Here I leave a link [to continue](https://gulpjs.com/docs/en/getting-started/quick-start) you can add more task if you need.
