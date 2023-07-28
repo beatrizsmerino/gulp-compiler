@@ -47,11 +47,15 @@ const paths = {
 // -------------------------------------------------
 const pathsFront = {
 	src: {
+		html: `${paths.src.base}${paths.files.html}`,
+		sass: `${paths.src.sass}styles.sass`,
 		js: [
 			`${paths.src.js}scripts.js`,
 		],
 	},
 	dist: {
+		html: paths.dist.base,
+		css: paths.dist.css,
 		js: paths.dist.js
 	}
 }
@@ -90,27 +94,27 @@ function createServer() {
 // -------------------------------------------------
 function htmlCopy() {
 	return copyFiles(
-		`${paths.src.base}${paths.files.html}`,
-		paths.dist.base
+		pathsFront.src.html,
+		pathsFront.dist.html
 	);
 };
 
 function htmlMinify() {
 	return gulp
-		.src(`${paths.dist.base}${paths.files.html}`)
+		.src(`${pathsFront.dist.html}${paths.files.html}`)
 		.pipe(
 			gulpHtmlmin({
 				collapseWhitespace: true,
 			})
 		)
-		.pipe(gulp.dest(paths.dist.base));
+		.pipe(gulp.dest(pathsFront.dist.html));
 };
 
 // CSS
 // -------------------------------------------------
 function sassCompile() {
 	return gulp
-		.src(`${paths.src.sass}styles.sass`)
+		.src(pathsFront.src.sass)
 		.pipe(
 			gulpSourcemaps.init({
 				loadMaps: true,
@@ -136,7 +140,7 @@ function sassCompile() {
 		.pipe(gulpSourcemaps.write())
 		.pipe(gulpLineEndingCorrector())
 		.pipe(gulpRename("styles.min.css"))
-		.pipe(gulp.dest(paths.dist.css));
+		.pipe(gulp.dest(pathsFront.dist.css));
 };
 
 // JS
