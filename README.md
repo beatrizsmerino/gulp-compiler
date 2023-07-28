@@ -6,7 +6,7 @@
 
 ![Image of Gulp Compiler](README/images/gulp-logo-gulpfile-front-back.png)
 
-Gulp Compiler is a basic code for automate the tasks of your development environment, compile SASS and JS with the task runner Gulp
+Gulp Compiler is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
 
 ## Development interface
 
@@ -14,9 +14,9 @@ Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript
 
 ### Content
 
-The _'sass'_ and _'js'_ compilation tasks pick up the files in the _'src'_ folder and generate a new _'dist'_ folder with the results.
+The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
-#### Structure
+#### Input structure folders
 
 ```shell
 gulp-compiler
@@ -74,7 +74,7 @@ gulp-compiler
             scripts.js
 ```
 
-#### Output
+#### Output structure folders
 
 ```shell
 gulp-compiler
@@ -111,65 +111,91 @@ gulp-compiler
 
 #### Necessary files
 
-- _package.json_
-     Configuration file
-- _gulpfile.js_
-     Specify possible tasks
+- _package.json_: Configuration file
+- _gulpfile.js_: Specify possible tasks
 
 ## How use
 
 ### To use it is necessary have installed
 
 - [Node](https://nodejs.org/es/)
-    [download](https://nodejs.org/es/)
-    `node --version`
+
+    ```shell
+    node --version
+    ```
+
 - [NPM](https://docs.npmjs.com/)
-    `npm install`
-    `npm --version`
+
+    ```shell
+    npm install
+    npm --version
+    ```
+
 - [Gulp 4.0.0](https://gulpjs.com/)
-    `npm install --global gulp-cli`
-    `npm install gulp`
-    `gulp --version`
+
+    ```shell
+    npm install --global gulp-cli
+    npm install gulp
+    gulp --version
+    ```
 
 ### If you already have node, npm and gulp
 
 After installing everything you need, you must launch the command, for download the packages the 'devDependencies' of configuration file.
-`npm install`
+
+```shell
+npm install
+```
 
 ### Tasks availables
 
 You can start the following tasks using the command console while in the project folder.
-`gulp`
 
-**FRONT**
-`gulp front`
-`gulp front-css`
-`gulp front-js`
-`gulp front-icon`
-`gulp front-img`
-`gulp front__cssIcomoonMinify`
-`gulp front__cssIcomoonCopy`
-`gulp front__cssIcomoonSocialMinify`
-`gulp front__cssIcomoonSocialCopy`
-`gulp front__sassCompile`
-`gulp front__cssCompile`
-`gulp front__jsCompile`
-`gulp front__imageMinify`
+```shell
+gulp
+```
 
-**BACK**
-`gulp back`
-`gulp back-css`
-`gulp back-js`
-`gulp back-icon`
-`gulp back-img`
-`gulp back__cssIcomoonMinify`
-`gulp back__cssIcomoonCopy`
-`gulp back__cssIcomoonSocialMinify`
-`gulp back__cssIcomoonSocialCopy`
-`gulp back__sassCompile`
-`gulp back__cssCompile`
-`gulp back__jsCompile`
-`gulp back__imageMinify`
+#### Front
+
+```shell
+gulp front
+gulp front-css
+gulp front-js
+gulp front-icon
+gulp front-img
+```
+
+```shell
+gulp front__cssIcomoonMinify
+gulp front__cssIcomoonCopy
+gulp front__cssIcomoonSocialMinify
+gulp front__cssIcomoonSocialCopy
+gulp front__sassCompile
+gulp front__cssCompile
+gulp front__jsCompile
+gulp front__imageMinify
+```
+
+#### Back
+
+```shell
+gulp back
+gulp back-css
+gulp back-js
+gulp back-icon
+gulp back-img
+```
+
+```shell
+gulp back__cssIcomoonMinify
+gulp back__cssIcomoonCopy
+gulp back__cssIcomoonSocialMinify
+gulp back__cssIcomoonSocialCopy
+gulp back__sassCompile
+gulp back__cssCompile
+gulp back__jsCompile
+gulp back__imageMinify
+```
 
 ## Continue
 
