@@ -1,5 +1,5 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/gulp-compiler)
-![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)  
+![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
 ![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/gulp-compiler)
 ![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/gulp-compiler)
 ![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/gulp-compiler)
@@ -23,29 +23,29 @@ More information: [Introduction to gulp](https://dolphinandmermaids.com/blog/gul
 
 ![Input/Output folders](README/images/input-output-folder.svg)
 
-The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.  
+The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
-- Input structure folders
+-   Input structure folders
 
-	```
-	src/
-		js/
-			scripts.js
-		sass/  
-			styles.sass
-		index.html
-	```
+    ```
+    src/
+    	js/
+    		scripts.js
+    	sass/
+    		styles.sass
+    	index.html
+    ```
 
-- Output structure folders
+-   Output structure folders
 
-	```
-	dist/
-		css/
-			styles.min.css
-		js/
-			scripts.min.js
-		index.html
-	```
+    ```
+    dist/
+    	css/
+    		styles.min.css
+    	js/
+    		scripts.min.js
+    	index.html
+    ```
 
 # First steps
 
@@ -57,53 +57,55 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 
 1. Install [Node](https://nodejs.org/es/) and [NPM](https://docs.npmjs.com/)
 
-	- If you are on MAC you can do it with line of following these steps
+    - If you are on MAC you can do it with line of following these steps
 
-      - First, install [Homebrew](https://brew.sh/index_es)
+        - First, install [Homebrew](https://brew.sh/index_es)
 
-  		```
-  		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  		```
+        ```
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        ```
 
-      - Next, install Node (npm will be installed with Node):
-      	```
-      	brew install node
-      	```
+        - Next, install Node (npm will be installed with Node):
+            ```
+            brew install node
+            ```
 
-	- Or install node and npm together with this program: [Download](https://www.npmjs.com/get-npm)
+    - Or install node and npm together with this program: [Download](https://www.npmjs.com/get-npm)
 
 2. Install [Gulp 4.0.0](https://gulpjs.com/)
 
-	- Install gulp globally
-		```
-		npm install --global gulp-cli
-		```
+    - Install gulp globally
 
-	- Install gulp inside project
-		``` 
-		npm install gulp
-		```
+        ```
+        npm install --global gulp-cli
+        ```
+
+    - Install gulp inside project
+        ```
+        npm install gulp
+        ```
 
 ## Check the packages installed
 
 1. To test out your `NODE`, `NPM` and `GULP`, check versions installed
-   - Check version of node
-		```
-		node --version
-		```
-	- Check version of npm
-		```
-		npm --version
-		```
-	- Check version gulp
-		```
-		gulp --version
-		```
+
+    - Check version of node
+        ```
+        node --version
+        ```
+    - Check version of npm
+        ```
+        npm --version
+        ```
+    - Check version gulp
+        ```
+        gulp --version
+        ```
 
 2. Check the globally installed packages
-	```
-	npm list -g --depth=0
-	```
+    ```
+    npm list -g --depth=0
+    ```
 
 # How use
 
@@ -113,23 +115,23 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 
 1. After installing everything you need, cloning this repository.
 
-	```
-	git clone https://github.com/beatrizsmerino/gulp-compiler.git
-	```
+    ```
+    git clone https://github.com/beatrizsmerino/gulp-compiler.git
+    ```
 
 2. For end, you must launch this command, for download the NPM packages and get the dependencies of configuration file [package.json](package.json).
 
-	```
-	npm install
-	```
+    ```
+    npm install
+    ```
 
 ## Gulp tasks availables
 
-- You can to list available the gulp tasks of this project, using the command
+-   You can to list available the gulp tasks of this project, using the command
 
-	```
-	gulp --tasks
-	```
+    ```
+    gulp --tasks
+    ```
 
 # NPM
 
@@ -184,7 +186,7 @@ gulp jsCompile
 gulp watch
 ```
 
-## 💻  Run server
+## 💻 Run server
 
 This create a static server with browserSync package, serves the files from `dist` folder and opens by default the `index.html` file in any of these browsers: Chrome & Firefox.
 
@@ -289,5 +291,5 @@ gulp watch
 
 There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
 
-- This version separate the frontend and backend.
-- It has more tasks as minify images and icons.
+-   This version separate the frontend and backend.
+-   It has more tasks as minify images and icons.
