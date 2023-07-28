@@ -158,7 +158,7 @@ gulp
 #### Front
 
 ```shell
-gulp front
+gulp front-build
 gulp front-css
 gulp front-js
 gulp front-icon
@@ -166,20 +166,20 @@ gulp front-img
 ```
 
 ```shell
-gulp front__cssIcomoonMinify
-gulp front__cssIcomoonCopy
-gulp front__cssIcomoonSocialMinify
-gulp front__cssIcomoonSocialCopy
 gulp front__sassCompile
 gulp front__cssCompile
 gulp front__jsCompile
+gulp front__cssIcomoonMainCopy
+gulp front__cssIcomoonMainMinify
+gulp front__cssIcomoonSocialCopy
+gulp front__cssIcomoonSocialMinify
 gulp front__imageMinify
 ```
 
 #### Back
 
 ```shell
-gulp back
+gulp back-build
 gulp back-css
 gulp back-js
 gulp back-icon
@@ -187,13 +187,13 @@ gulp back-img
 ```
 
 ```shell
-gulp back__cssIcomoonMinify
-gulp back__cssIcomoonCopy
-gulp back__cssIcomoonSocialMinify
-gulp back__cssIcomoonSocialCopy
 gulp back__sassCompile
 gulp back__cssCompile
 gulp back__jsCompile
+gulp back__cssIcomoonMainCopy
+gulp back__cssIcomoonMainMinify
+gulp back__cssIcomoonSocialCopy
+gulp back__cssIcomoonSocialMinify
 gulp back__imageMinify
 ```
 
