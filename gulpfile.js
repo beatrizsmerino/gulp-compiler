@@ -394,14 +394,12 @@ function watch() {
 			`${paths.files.php}`,
 			`${paths.dist.css}${paths.files.css}`,
 			`${paths.dist.js}${paths.files.js}`,
-			`${pathsFront.dist.icons.main}${paths.files.base}`,
-			`${pathsFront.dist.icons.social}${paths.files.base}`,
+			`${paths.dist.icons}${paths.files.base}`,
 			`${paths.dist.img}${paths.files.base}`,
 			`${paths.proyect.back}${paths.files.php}`,
 			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
 			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
-			`${pathsBack.dist.icons.main}${paths.files.base}`,
-			`${pathsBack.dist.icons.social}${paths.files.base}`,
+			`${paths.proyect.back}${paths.dist.icons}${paths.files.base}`,
 			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`
 		]
 	).on(
