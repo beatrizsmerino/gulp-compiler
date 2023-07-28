@@ -57,7 +57,7 @@ const pathsFront = {
 		html: paths.dist.base,
 		css: paths.dist.css,
 		js: paths.dist.js
-	}
+	},
 }
 
 
