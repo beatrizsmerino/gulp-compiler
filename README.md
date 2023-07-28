@@ -7,7 +7,8 @@
 
 # Gulp compiler
 
-Gulp Compiler is a basic code for automate the tasks of your development environment with the task runner Gulp. This project has functions for create a server, copy and paste folders/files, compile and compress files and watch his changes
+Gulp Compiler is a basic code for automate the tasks of your development environment with the task runner `Gulp`.
+This project has functions for create a **server**, **copy and paste** folders/files, **compile** and **compress** files and **watch** his changes.
 
 ![Image of Gulp Compiler](README/images/gulp-compiler.svg)
 
