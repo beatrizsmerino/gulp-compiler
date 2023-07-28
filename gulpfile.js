@@ -28,7 +28,7 @@ const reloadBrowserSync = createBrowserSync.reload;
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
 const paths = {
-	proyect: {
+	project: {
 		name: "gulp-compiler/",
 		back: "admin/",
 		node: "node_modules/",
@@ -62,16 +62,16 @@ const pathsFront = {
 	src: {
 		sass: `${paths.src.sass}styles.sass`,
 		css: [
-			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
+			`${paths.project.node}swiper/swiper-bundle.min.css`,
 			//----------------
 			`${paths.dist.css}styles.min.css`,
 		],
 		js: [
-			`${paths.proyect.node}jquery/dist/jquery.min.js`,
-			`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
-			`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
-			`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
-			`${paths.proyect.node}swiper/swiper-bundle.min.js`,
+			`${paths.project.node}jquery/dist/jquery.min.js`,
+			`${paths.project.node}jquery-validation/dist/jquery.validate.min.js`,
+			`${paths.project.node}jquery-validation/dist/additional-methods.min.js`,
+			`${paths.project.node}isotope-layout/dist/isotope.pkgd.min.js`,
+			`${paths.project.node}swiper/swiper-bundle.min.js`,
 			//----------------
 			`${paths.src.js}scripts.js`,
 			//----------------
@@ -109,48 +109,48 @@ const pathsFront = {
 // -------------------------------------------------
 const pathsBack = {
 	src: {
-		sass: `${paths.proyect.back}${paths.src.sass}styles.sass`,
+		sass: `${paths.project.back}${paths.src.sass}styles.sass`,
 		css: [
-			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
+			`${paths.project.node}swiper/swiper-bundle.min.css`,
 			//----------------
-			`${paths.proyect.back}${paths.dist.css}styles.min.css`,
+			`${paths.project.back}${paths.dist.css}styles.min.css`,
 		],
 		js: [
-			`${paths.proyect.node}jquery/dist/jquery.min.js`,
-			`${paths.proyect.node}jquery-validation/dist/jquery.validate.min.js`,
-			`${paths.proyect.node}jquery-validation/dist/additional-methods.min.js`,
-			`${paths.proyect.node}isotope-layout/dist/isotope.pkgd.min.js`,
-			`${paths.proyect.node}swiper/swiper-bundle.min.js`,
+			`${paths.project.node}jquery/dist/jquery.min.js`,
+			`${paths.project.node}jquery-validation/dist/jquery.validate.min.js`,
+			`${paths.project.node}jquery-validation/dist/additional-methods.min.js`,
+			`${paths.project.node}isotope-layout/dist/isotope.pkgd.min.js`,
+			`${paths.project.node}swiper/swiper-bundle.min.js`,
 			//----------------
-			`${paths.proyect.back}${paths.src.js}scripts.js`,
+			`${paths.project.back}${paths.src.js}scripts.js`,
 			//----------------
-			`${paths.proyect.back}${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
-			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
-			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
-			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
-			`${paths.proyect.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
+			`${paths.project.back}${paths.src.js}abstracts/variables/_abstracts-variables-breakpoints.js`,
+			`${paths.project.back}${paths.src.js}abstracts/functions/_abstracts-functions-browser.js`,
+			`${paths.project.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-require.js`,
+			`${paths.project.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate.js`,
+			`${paths.project.back}${paths.src.js}abstracts/functions/_abstracts-functions-form-validate-ckeditor.js`,
 			//----------------
-			`${paths.proyect.back}${paths.src.js}layouts/_layouts-nav.js`,
+			`${paths.project.back}${paths.src.js}layouts/_layouts-nav.js`,
 			//----------------
-			`${paths.proyect.back}${paths.src.js}components/_components-form-require.js`,
-			`${paths.proyect.back}${paths.src.js}components/_components-form-validate.js`,
-			`${paths.proyect.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
-			`${paths.proyect.back}${paths.src.js}components/_components-message.js`,
+			`${paths.project.back}${paths.src.js}components/_components-form-require.js`,
+			`${paths.project.back}${paths.src.js}components/_components-form-validate.js`,
+			`${paths.project.back}${paths.src.js}components/_components-form-validate-ckeditor.js`,
+			`${paths.project.back}${paths.src.js}components/_components-message.js`,
 		],
 		icons: {
-			main: `${paths.proyect.back}${paths.src.icons}icomoon-back/`,
-			social: `${paths.proyect.back}${paths.src.icons}icomoon-social/`,
+			main: `${paths.project.back}${paths.src.icons}icomoon-back/`,
+			social: `${paths.project.back}${paths.src.icons}icomoon-social/`,
 		},
-		img: `${paths.proyect.back}${paths.src.img}${paths.files.base}`,
+		img: `${paths.project.back}${paths.src.img}${paths.files.base}`,
 	},
 	dist: {
-		css: `${paths.proyect.back}${paths.dist.css}`,
-		js: `${paths.proyect.back}${paths.dist.js}`,
+		css: `${paths.project.back}${paths.dist.css}`,
+		js: `${paths.project.back}${paths.dist.js}`,
 		icons: {
-			main: `${paths.proyect.back}${paths.dist.icons}icomoon-back/`,
-			social: `${paths.proyect.back}${paths.dist.icons}icomoon-social/`,
+			main: `${paths.project.back}${paths.dist.icons}icomoon-back/`,
+			social: `${paths.project.back}${paths.dist.icons}icomoon-social/`,
 		},
-		img: `${paths.proyect.back}${paths.dist.img}`,
+		img: `${paths.project.back}${paths.dist.img}`,
 	},
 };
 
@@ -265,7 +265,7 @@ function imageMinify(src, dist) {
 function createServer() {
 	createBrowserSync.init({
 		open: "external",
-		proxy: `http://localhost/${paths.proyect.name}`,
+		proxy: `http://localhost/${paths.project.name}`,
 		port: 3306,
 	});
 };
@@ -405,11 +405,11 @@ function watch() {
 			`${paths.dist.js}${paths.files.js}`,
 			`${paths.dist.icons}${paths.files.base}`,
 			`${paths.dist.img}${paths.files.base}`,
-			`${paths.proyect.back}${paths.files.php}`,
-			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
-			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
-			`${paths.proyect.back}${paths.dist.icons}${paths.files.base}`,
-			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`,
+			`${paths.project.back}${paths.files.php}`,
+			`${paths.project.back}${paths.dist.css}${paths.files.css}`,
+			`${paths.project.back}${paths.dist.js}${paths.files.js}`,
+			`${paths.project.back}${paths.dist.icons}${paths.files.base}`,
+			`${paths.project.back}${paths.dist.img}${paths.files.base}`,
 		]
 	).on(
 		"change",
@@ -455,7 +455,7 @@ function watch() {
 	// BACK
 	// -------------------------------------------------
 	gulp.watch(
-		`${paths.proyect.back}${paths.src.sass}${paths.files.sass}`,
+		`${paths.project.back}${paths.src.sass}${paths.files.sass}`,
 		gulp.series(
 			back__sassCompile,
 			back__cssCompile
@@ -463,7 +463,7 @@ function watch() {
 	);
 
 	gulp.watch(
-		`${paths.proyect.back}${paths.src.js}${paths.files.js}`,
+		`${paths.project.back}${paths.src.js}${paths.files.js}`,
 		back__jsCompile
 	);
 
