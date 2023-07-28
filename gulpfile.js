@@ -61,6 +61,7 @@ const paths = {
 // -------------------------------------------------
 const pathsFront = {
 	src: {
+		sass: `${paths.src.sass}styles.sass`,
 		css: [
 			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
 			//----------------
@@ -91,13 +92,17 @@ const pathsFront = {
 		icons: {
 			main: `${paths.src.icons}icomoon-front/`,
 			social: `${paths.src.icons}icomoon-social/`
-		}
+		},
+		img: `${paths.src.img}${paths.files.base}`
 	},
 	dist: {
+		css: paths.dist.css,
+		js: paths.dist.js,
 		icons: {
 			main: `${paths.dist.icons}icomoon-front/`,
 			social: `${paths.dist.icons}icomoon-social/`
-		}
+		},
+		img: paths.dist.img
 	}
 };
 
@@ -105,6 +110,7 @@ const pathsFront = {
 // -------------------------------------------------
 const pathsBack = {
 	src: {
+		sass: `${paths.proyect.back}${paths.src.sass}styles.sass`,
 		css: [
 			`${paths.proyect.node}swiper/swiper-bundle.min.css`,
 			//----------------
@@ -135,13 +141,17 @@ const pathsBack = {
 		icons: {
 			main: `${paths.proyect.back}${paths.src.icons}icomoon-back/`,
 			social: `${paths.proyect.back}${paths.src.icons}icomoon-social/`
-		}
+		},
+		img: `${paths.proyect.back}${paths.src.img}${paths.files.base}`
 	},
 	dist: {
+		css: `${paths.proyect.back}${paths.dist.css}`,
+		js: `${paths.proyect.back}${paths.dist.js}`,
 		icons: {
 			main: `${paths.proyect.back}${paths.dist.icons}icomoon-back/`,
 			social: `${paths.proyect.back}${paths.dist.icons}icomoon-social/`
-		}
+		},
+		img: `${paths.proyect.back}${paths.dist.img}`
 	}
 };
 
@@ -265,8 +275,8 @@ function createServer() {
 // -------------------------------------------------
 function front__sassCompile() {
 	return sassCompile(
-		`${paths.src.sass}styles.sass`,
-		paths.dist.css,
+		pathsFront.src.sass,
+		pathsFront.dist.css,
 		"styles.min.css"
 	);
 };
@@ -274,7 +284,7 @@ function front__sassCompile() {
 function front__cssCompile() {
 	return cssCompile(
 		pathsFront.src.css,
-		paths.dist.css,
+		pathsFront.dist.css,
 		"styles.min.css"
 	);
 };
@@ -282,7 +292,7 @@ function front__cssCompile() {
 function front__jsCompile() {
 	return jsCompile(
 		pathsFront.src.js,
-		paths.dist.js,
+		pathsFront.dist.js,
 		"scripts.min.js"
 	);
 };
@@ -317,8 +327,8 @@ function front__cssIcomoonSocialMinify() {
 
 function front__imageMinify() {
 	return imageMinify(
-		`${paths.src.img}${paths.files.base}`,
-		paths.dist.img
+		pathsFront.src.img,
+		pathsFront.dist.img
 	);
 };
 
@@ -326,8 +336,8 @@ function front__imageMinify() {
 // -------------------------------------------------
 function back__sassCompile() {
 	return sassCompile(
-		`${paths.proyect.back}${paths.src.sass}styles.sass`,
-		`${paths.proyect.back}${paths.dist.css}`,
+		pathsBack.src.sass,
+		pathsBack.dist.css,
 		"styles.min.css"
 	);
 };
@@ -335,7 +345,7 @@ function back__sassCompile() {
 function back__cssCompile() {
 	return cssCompile(
 		pathsBack.src.css,
-		`${paths.proyect.back}${paths.dist.css}`,
+		pathsBack.dist.css,
 		"styles.min.css"
 	);
 };
@@ -343,7 +353,7 @@ function back__cssCompile() {
 function back__jsCompile() {
 	return jsCompile(
 		pathsBack.src.js,
-		`${paths.proyect.back}${paths.dist.js}`,
+		pathsBack.dist.js,
 		"scripts.min.js"
 	);
 };
@@ -378,8 +388,8 @@ function back__cssIcomoonSocialMinify() {
 
 function back__imageMinify() {
 	return imageMinify(
-		`${paths.proyect.back}${paths.src.img}${paths.files.base}`,
-		`${paths.proyect.back}${paths.dist.img}`
+		pathsBack.src.img,
+		pathsBack.dist.img
 	);
 };
 
