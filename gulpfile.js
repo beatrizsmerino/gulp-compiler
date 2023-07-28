@@ -183,7 +183,7 @@ function sassCompile(src, dist, fileName) {
 		.pipe(gulpSourcemaps.write())
 		.pipe(gulpLineEndingCorrector())
 		.pipe(gulpRename(fileName))
-		.pipe(gulp.dest(dist))
+		.pipe(gulp.dest(dist));
 };
 
 function cssCompile(src, dist, fileName) {
@@ -192,7 +192,7 @@ function cssCompile(src, dist, fileName) {
 		.pipe(gulpConcat(fileName))
 		.pipe(gulpSourcemaps.write())
 		.pipe(gulpLineEndingCorrector())
-		.pipe(gulp.dest(dist))
+		.pipe(gulp.dest(dist));
 };
 
 function jsCompile(src, dist, fileName) {
@@ -209,7 +209,7 @@ function jsCompile(src, dist, fileName) {
 		.pipe(gulpConcat(fileName))
 		.pipe(gulpUglify())
 		.pipe(gulpLineEndingCorrector())
-		.pipe(gulp.dest(dist))
+		.pipe(gulp.dest(dist));
 };
 
 function fontsIcomoonCopy(src, dist) {
