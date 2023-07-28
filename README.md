@@ -111,64 +111,64 @@ gulp-compiler
 
 #### Necessary files
 
--   _package.json_  
+-   _package.json_
      Configuration file
--   _gulpfile.js_  
+-   _gulpfile.js_
      Specify possible tasks
 
 ## How use
 
 ### To use it is necessary have installed
 
--   [Node](https://nodejs.org/es/)  
-    [download](https://nodejs.org/es/)  
+-   [Node](https://nodejs.org/es/)
+    [download](https://nodejs.org/es/)
     `node --version`
--   [NPM](https://docs.npmjs.com/)  
-    `npm install`  
+-   [NPM](https://docs.npmjs.com/)
+    `npm install`
     `npm --version`
--   [Gulp 4.0.0](https://gulpjs.com/)  
-    `npm install --global gulp-cli`  
-    `npm install gulp`  
+-   [Gulp 4.0.0](https://gulpjs.com/)
+    `npm install --global gulp-cli`
+    `npm install gulp`
     `gulp --version`
 
 ### If you already have node, npm and gulp
 
-After installing everything you need, you must launch the command, for download the packages the 'devDependencies' of configuration file.  
+After installing everything you need, you must launch the command, for download the packages the 'devDependencies' of configuration file.
 `npm install`
 
 ### Tasks availables
 
-You can start the following tasks using the command console while in the project folder.  
+You can start the following tasks using the command console while in the project folder.
 `gulp`
 
-**FRONT**  
-`gulp front`  
-`gulp front-css`  
-`gulp front-js`  
-`gulp front-icon`  
-`gulp front-img`  
-`gulp front__cssIcomoonMinify`  
-`gulp front__cssIcomoonCopy`  
-`gulp front__cssIcomoonSocialMinify`  
-`gulp front__cssIcomoonSocialCopy`  
-`gulp front__sassCompile`  
-`gulp front__cssCompile`  
-`gulp front__jsCompile`  
+**FRONT**
+`gulp front`
+`gulp front-css`
+`gulp front-js`
+`gulp front-icon`
+`gulp front-img`
+`gulp front__cssIcomoonMinify`
+`gulp front__cssIcomoonCopy`
+`gulp front__cssIcomoonSocialMinify`
+`gulp front__cssIcomoonSocialCopy`
+`gulp front__sassCompile`
+`gulp front__cssCompile`
+`gulp front__jsCompile`
 `gulp front__imageMinify`
 
-**BACK**  
-`gulp back`  
-`gulp back-css`  
-`gulp back-js`  
-`gulp back-icon`  
-`gulp back-img`  
-`gulp back__cssIcomoonMinify`  
-`gulp back__cssIcomoonCopy`  
-`gulp back__cssIcomoonSocialMinify`  
-`gulp back__cssIcomoonSocialCopy`  
-`gulp back__sassCompile`  
-`gulp back__cssCompile`  
-`gulp back__jsCompile`  
+**BACK**
+`gulp back`
+`gulp back-css`
+`gulp back-js`
+`gulp back-icon`
+`gulp back-img`
+`gulp back__cssIcomoonMinify`
+`gulp back__cssIcomoonCopy`
+`gulp back__cssIcomoonSocialMinify`
+`gulp back__cssIcomoonSocialCopy`
+`gulp back__sassCompile`
+`gulp back__cssCompile`
+`gulp back__jsCompile`
 `gulp back__imageMinify`
 
 ## Continue...
