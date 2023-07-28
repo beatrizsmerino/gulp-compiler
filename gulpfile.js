@@ -58,7 +58,7 @@ const pathsFront = {
 		css: paths.dist.css,
 		js: paths.dist.js
 	},
-}
+};
 
 
 // FUNCTIONS USED IN THE TASKS
