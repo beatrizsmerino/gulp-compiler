@@ -91,19 +91,19 @@ const pathsFront = {
 		],
 		icons: {
 			main: `${paths.src.icons}icomoon-front/`,
-			social: `${paths.src.icons}icomoon-social/`
+			social: `${paths.src.icons}icomoon-social/`,
 		},
-		img: `${paths.src.img}${paths.files.base}`
+		img: `${paths.src.img}${paths.files.base}`,
 	},
 	dist: {
 		css: paths.dist.css,
 		js: paths.dist.js,
 		icons: {
 			main: `${paths.dist.icons}icomoon-front/`,
-			social: `${paths.dist.icons}icomoon-social/`
+			social: `${paths.dist.icons}icomoon-social/`,
 		},
-		img: paths.dist.img
-	}
+		img: paths.dist.img,
+	},
 };
 
 // BACK
@@ -140,19 +140,19 @@ const pathsBack = {
 		],
 		icons: {
 			main: `${paths.proyect.back}${paths.src.icons}icomoon-back/`,
-			social: `${paths.proyect.back}${paths.src.icons}icomoon-social/`
+			social: `${paths.proyect.back}${paths.src.icons}icomoon-social/`,
 		},
-		img: `${paths.proyect.back}${paths.src.img}${paths.files.base}`
+		img: `${paths.proyect.back}${paths.src.img}${paths.files.base}`,
 	},
 	dist: {
 		css: `${paths.proyect.back}${paths.dist.css}`,
 		js: `${paths.proyect.back}${paths.dist.js}`,
 		icons: {
 			main: `${paths.proyect.back}${paths.dist.icons}icomoon-back/`,
-			social: `${paths.proyect.back}${paths.dist.icons}icomoon-social/`
+			social: `${paths.proyect.back}${paths.dist.icons}icomoon-social/`,
 		},
-		img: `${paths.proyect.back}${paths.dist.img}`
-	}
+		img: `${paths.proyect.back}${paths.dist.img}`,
+	},
 };
 
 
@@ -410,7 +410,7 @@ function watch() {
 			`${paths.proyect.back}${paths.dist.css}${paths.files.css}`,
 			`${paths.proyect.back}${paths.dist.js}${paths.files.js}`,
 			`${paths.proyect.back}${paths.dist.icons}${paths.files.base}`,
-			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`
+			`${paths.proyect.back}${paths.dist.img}${paths.files.base}`,
 		]
 	).on(
 		"change",
