@@ -17,9 +17,16 @@ By automating these tasks, developers can focus on their creative and productive
 
 ## 🧩 Content
 
-Is developed with `Gulp` 4.0.0 a task runner and javascript.
+The automated tasks in the `gulpfile.js` include several important functions:
 
-The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
+1. Concatenation of `CSS` files of external libraries from `node_modules` folder and compilation of partials `SASS` files, to generate a single minified file.
+2. Compilation of external libraries from `node_modules` folder and partials `JS` files into a single minified file.
+3. Copying of fonts and minification of css icons, obtained from the online tool `Icomoon`.
+4. Copy and compression of `Images`, to improve website performance by reducing its size without compromising its visual quality.
+
+The tasks collect the necessary files from the `src` folder and generate a new `dist` folder containing the processed and optimized results.
+
+The website interface has a `frontend` (visible for all users to interact with) and a `backend` (accessible only to the client that manages the website). Both parts have the same folder and file structure, where the frontend files are located in the root of the project and the backend files inside the `admin` folder located in the root of the project.
 
 ### Input structure folders
 
