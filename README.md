@@ -9,11 +9,11 @@
 
 ![Image of Gulp Compiler](README/images/gulp-logo.png)
 
-## Description
+## 🎯 Description
 
 This repository is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
 
-## Content
+## 🧩 Content
 
 Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
 
@@ -83,7 +83,7 @@ dist/
         scripts.min.js
 ```
 
-## Required
+## 🔑 Required
 
 ### Dependencies
 
@@ -96,7 +96,7 @@ dist/
 - `package.json`
 - `gulpfile.js`
 
-## Commands
+## 🚀 Commands
 
 ### Generic commands
 
@@ -176,6 +176,6 @@ gulp front-img
 gulp back-img
 ```
 
-## References
+## 🔗 References
 
 Here I leave a link [to continue](https://gulpjs.com/docs/en/getting-started/quick-start) you can add more tasks if you need.
