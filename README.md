@@ -87,8 +87,8 @@ dist/
 
 #### Necessary files
 
-- _package.json_: Configuration file
-- _gulpfile.js_: Specify possible tasks
+- `package.json`: Configuration file
+- `gulpfile.js`: Specify possible tasks
 
 ## How use
 
