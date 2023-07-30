@@ -95,24 +95,8 @@ dist/
 ### To use it is necessary have installed
 
 - [Node](https://nodejs.org/es/)
-
-    ```shell
-    node --version
-    ```
-
 - [NPM](https://docs.npmjs.com/)
-
-    ```shell
-    npm --version
-    ```
-
-- [Gulp 4.0.0](https://gulpjs.com/)
-
-    ```shell
-    npm install --global gulp-cli
-    npm install gulp
-    gulp --version
-    ```
+- [Gulp](https://gulpjs.com/)
 
 ### If you already have node, npm and gulp
 
