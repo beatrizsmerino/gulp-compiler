@@ -28,7 +28,7 @@ More information: [Introduction to gulp](https://dolphinandmermaids.com/blog/gul
 
 The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
--   Input structure folders
+- Input structure folders
 
     ```shell
     src/
@@ -39,7 +39,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
         index.html
     ```
 
--   Output structure folders
+- Output structure folders
 
     ```shell
     dist/
@@ -138,7 +138,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 
 ### Gulp tasks availables
 
--   You can to list available the gulp tasks of this project, using the command
+- You can to list available the gulp tasks of this project, using the command
 
     ```shell
     gulp --tasks
@@ -302,5 +302,5 @@ gulp watch
 
 There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
 
--   This version separate the frontend and backend.
--   It has more tasks as minify images and icons.
+- This version separate the frontend and backend.
+- It has more tasks as minify images and icons.
