@@ -116,15 +116,11 @@ dist/
 
 ### If you already have node, npm and gulp
 
-After installing everything you need, you must launch the command, for download the packages the 'devDependencies' of configuration file.
-
 ```shell
 npm install
 ```
 
 ### Tasks availables
-
-You can start the following tasks using the command console while in the project folder.
 
 ```shell
 gulp
