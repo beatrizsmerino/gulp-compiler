@@ -132,6 +132,6 @@ gulp back-icon
 gulp back-img
 ```
 
-## Continue
+## References
 
 Here I leave a link [to continue](https://gulpjs.com/docs/en/getting-started/quick-start) you can add more tasks if you need.
