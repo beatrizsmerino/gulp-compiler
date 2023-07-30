@@ -31,33 +31,47 @@ The website interface has a `frontend` (visible for all users to interact with) 
 ### Input structure folders
 
 ```shell
+node_modules/
+    /...
 admin/
     src/
         sass/
+            /...
             styles.sass
         js/
+            /...
             scripts.js
         icomoon/
             icomoon-back/
                 fonts/
+                    /...
                 fonts.css
             icomoon-social/
                 fonts/
+                    /...
                 fonts.css
         images/
+            /...
+    index.html
 src/
     sass/
+        /...
         styles.sass
     js/
+        /...
         scripts.js
     icomoon/
         icomoon-front/
             fonts/
+                /...
             fonts.css
         icomoon-social/
             fonts/
+                /...
             fonts.css
     images/
+        /...
+index.html
 ```
 
 ### Output structure folders
@@ -72,11 +86,15 @@ admin/
         icomoon/
             icomoon-back/
                 fonts/
+                    /...
                 fonts.min.css
             icomoon-social/
                 fonts/
+                    /...
                 fonts.min.css
         images/
+            /...
+    index.html
 dist/
     css/
         styles.min.css
@@ -85,11 +103,15 @@ dist/
     icomoon/
         icomoon-front/
             fonts/
+                /...
             fonts.min.css
         icomoon-social/
             fonts/
+                /...
             fonts.min.css
     images/
+        /...
+index.html
 ```
 
 ## 🔑 Required
