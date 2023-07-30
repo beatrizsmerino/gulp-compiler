@@ -13,15 +13,13 @@
 
 This repository is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
 
-## Development interface
+## Content
 
 Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
 
-### Content
-
 The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
-#### Input structure folders
+### Input structure folders
 
 ```shell
 admin/
@@ -53,7 +51,7 @@ src/
         scripts.js
 ```
 
-#### Output structure folders
+### Output structure folders
 
 ```shell
 admin/
