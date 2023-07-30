@@ -103,7 +103,6 @@ dist/
 - [NPM](https://docs.npmjs.com/)
 
     ```shell
-    npm install
     npm --version
     ```
 
