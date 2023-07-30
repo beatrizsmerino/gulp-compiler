@@ -24,85 +24,43 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 #### Input structure folders
 
 ```shell
-gulp-compiler
-    admin/
-        src/
-            images/
-            icomoon/
-                icomoon-back/
-                    **/*
-                icomoon-social/
-                    **/*
-            sass/
-                abstracts/
-                bases/
-                components/
-                layouts/
-                pages/
-                vendors/
-                themes/
-                styles.sass
-            js/
-                abstracts/
-                bases/
-                components/
-                layouts/
-                pages/
-                vendors/
-                themes/
-                scripts.js
+admin/
     src/
         images/
-            **/*
         icomoon/
-            icomoon-front/
-                **/*
+            icomoon-back/
+                fonts/
+                fonts.css
             icomoon-social/
-                **/*
+                fonts/
+                fonts.css
         sass/
-            abstracts/
-            bases/
-            components/
-            layouts/
-            pages/
-            vendors/
-            themes/
             styles.sass
         js/
-            abstracts/
-            bases/
-            components/
-            layouts/
-            pages/
-            vendors/
-            themes/
             scripts.js
+src/
+    images/
+    icomoon/
+        icomoon-front/
+            fonts/
+            fonts.css
+        icomoon-social/
+            fonts/
+            fonts.css
+    sass/
+        styles.sass
+    js/
+        scripts.js
 ```
 
 #### Output structure folders
 
 ```shell
-gulp-compiler
-    admin/
-        dist/
-            images/
-                **/*
-            icomoon/
-                icomoon-back/
-                    fonts/
-                    fonts.min.css
-                icomoon-social/
-                    fonts/
-                    fonts.min.css
-            css/
-                styles.min.css
-            js/
-                scripts.min.js
+admin/
     dist/
         images/
-            **/*
         icomoon/
-            icomoon-front/
+            icomoon-back/
                 fonts/
                 fonts.min.css
             icomoon-social/
@@ -112,6 +70,19 @@ gulp-compiler
             styles.min.css
         js/
             scripts.min.js
+dist/
+    images/
+    icomoon/
+        icomoon-front/
+            fonts/
+            fonts.min.css
+        icomoon-social/
+            fonts/
+            fonts.min.css
+    css/
+        styles.min.css
+    js/
+        scripts.min.js
 ```
 
 #### Necessary files
