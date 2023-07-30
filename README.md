@@ -4,11 +4,11 @@
 
 # Gulp compiler
 
+![Image of Gulp Compiler](README/images/gulp-logo.png)
+
 ## Description
 
 Gulp Compiler is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
-
-![Image of Gulp Compiler](README/images/gulp-logo.png)
 
 ## Development interface
 
