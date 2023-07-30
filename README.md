@@ -1,5 +1,5 @@
-![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/gulp-compiler)
 ![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
+![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/gulp-compiler)
 ![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/gulp-compiler)
 ![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/gulp-compiler)
 ![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/gulp-compiler)
