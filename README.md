@@ -187,28 +187,12 @@ This command is able to:
 gulp
 ```
 
-or
-
-```shell
-gulp htmlCopy
-gulp htmlMinify
-gulp sassCompile
-gulp jsCompile
-gulp watch
-```
-
 ### 💻 Run server
 
 This create a static server with browserSync package, serves the files from `dist` folder and opens by default the `index.html` file in any of these browsers: Chrome & Firefox.
 
 ```shell
 gulp serve
-```
-
-or
-
-```shell
-gulp createServer
 ```
 
 ### 📂 Generate html, css and js
@@ -220,15 +204,6 @@ This command is able to:
 
 ```shell
 gulp build
-```
-
-or
-
-```shell
-gulp htmlCopy
-gulp htmlMinify
-gulp sassCompile
-gulp jsCompile
 ```
 
 ### 📄 Generate html
@@ -243,13 +218,6 @@ This command is able to:
 gulp html
 ```
 
-or
-
-```shell
-gulp htmlCopy
-gulp htmlMinify
-```
-
 ### 📄 Generate css
 
 This command is able to:
@@ -262,12 +230,6 @@ This command is able to:
 gulp css
 ```
 
-or
-
-```shell
-gulp sassCompile
-```
-
 ### 📄 Generate js
 
 This command is able to:
@@ -278,12 +240,6 @@ This command is able to:
 
 ```shell
 gulp js
-```
-
-or
-
-```shell
-gulp jsCompile
 ```
 
 ### 🔎 Watch changes
