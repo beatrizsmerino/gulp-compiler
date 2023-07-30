@@ -11,7 +11,9 @@
 
 ## 🎯 Description
 
-This repository is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
+This repository automates tasks in the development environment using the `Gulp` task runner and the `Javascript` programming language. Contains functions that make it easy to **create a local server**, **copy and paste** folders and files, **compile** and **compress** various types of files. In addition, it is specifically designed to be used in the folders containing the `frontend` and `backend` files of a web site.
+
+By automating these tasks, developers can focus on their creative and productive work without worrying about repetitive manual operations. This makes it a complete and versatile solution to improve efficiency in the development process.
 
 ## 🧩 Content
 
