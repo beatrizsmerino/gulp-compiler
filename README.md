@@ -15,7 +15,7 @@ This repository is a basic code for automate the tasks of your development envir
 
 ## 🧩 Content
 
-Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
+Is developed with `Gulp` 4.0.0 a task runner and javascript.
 
 The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
