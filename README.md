@@ -100,13 +100,13 @@ dist/
 
 ### Generic commands
 
-#### If you already have node, npm and gulp
+#### Install dependencies
 
 ```shell
 npm install
 ```
 
-#### Tasks availables
+#### Build files, run server and watch changes
 
 ```shell
 gulp
