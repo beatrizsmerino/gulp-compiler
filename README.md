@@ -116,27 +116,27 @@ gulp-compiler
 
 #### Necessary files
 
-- _package.json_: Configuration file
-- _gulpfile.js_: Specify possible tasks
+-   _package.json_: Configuration file
+-   _gulpfile.js_: Specify possible tasks
 
 ## How use
 
 ### To use it is necessary have installed
 
-- [Node](https://nodejs.org/es/)
+-   [Node](https://nodejs.org/es/)
 
     ```shell
     node --version
     ```
 
-- [NPM](https://docs.npmjs.com/)
+-   [NPM](https://docs.npmjs.com/)
 
     ```shell
     npm install
     npm --version
     ```
 
-- [Gulp 4.0.0](https://gulpjs.com/)
+-   [Gulp 4.0.0](https://gulpjs.com/)
 
     ```shell
     npm install --global gulp-cli
