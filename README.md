@@ -17,6 +17,24 @@ By automating these tasks, developers can focus on their creative and productive
 
 ## 🧩 Content
 
+### Frontend and backend structure
+
+The tasks collect the necessary files from the `src` folder and generate a new `dist` folder containing the processed and optimized results.
+
+The website interface has a `frontend` (visible for all users to interact with) and a `backend` (accessible only to the client that manages the website). Both parts have the same folder and file structure, where the frontend files are located in the root of the project and the backend files inside the `admin` folder located in the root of the project.
+
+```shell
+📦 node_modules/
+    📂 /...
+📁 admin/
+    📁 src/
+    📁 dist/
+📁 src/
+📁 dist/
+```
+
+### Input and output structure
+
 The automated tasks in the `gulpfile.js` include several important functions:
 
 1. Concatenation of `CSS` files of external libraries from `node_modules` folder and compilation of partials `SASS` files, to generate a single minified file.
@@ -24,35 +42,9 @@ The automated tasks in the `gulpfile.js` include several important functions:
 3. Copying of fonts and minification of css icons, obtained from the online tool `Icomoon`.
 4. Copy and compression of `Images`, to improve website performance by reducing its size without compromising its visual quality.
 
-The tasks collect the necessary files from the `src` folder and generate a new `dist` folder containing the processed and optimized results.
-
-The website interface has a `frontend` (visible for all users to interact with) and a `backend` (accessible only to the client that manages the website). Both parts have the same folder and file structure, where the frontend files are located in the root of the project and the backend files inside the `admin` folder located in the root of the project.
-
-### Input structure folders
+#### Input folders and files
 
 ```shell
-📦 node_modules/
-    📂 /...
-📁 admin/
-    📁 src/
-        📁 sass/
-            📂 /...
-            📄 styles.sass
-        📁 js/
-            📂 /...
-            📄 scripts.js
-        📁 icomoon/
-            📁 icomoon-back/
-                📁 fonts/
-                    📂 /...
-                📄 fonts.css
-            📁 icomoon-social/
-                📁 fonts/
-                    📂 /...
-                📄 fonts.css
-        📁 images/
-            📂 /...
-    📄 index.html
 📁 src/
     📁 sass/
         📂 /...
@@ -61,54 +53,30 @@ The website interface has a `frontend` (visible for all users to interact with) 
         📂 /...
         📄 scripts.js
     📁 icomoon/
-        📁 icomoon-front/
-            📁 fonts/
-                📂 /...
-            📄 fonts.css
         📁 icomoon-social/
             📁 fonts/
                 📂 /...
             📄 fonts.css
+        📂 /...
     📁 images/
         📂 /...
 📄 index.html
 ```
 
-### Output structure folders
+#### Output folders and files
 
 ```shell
-📁 admin/
-    📁 dist/
-        📁 css/
-            📄 styles.min.css
-        📁 js/
-            📄 scripts.min.js
-        📁 icomoon/
-            📁 icomoon-back/
-                📁 fonts/
-                    📂 /...
-                📄 fonts.min.css
-            📁 icomoon-social/
-                📁 fonts/
-                    📂 /...
-                📄 fonts.min.css
-        📁 images/
-            📂 /...
-    📄 index.html
 📁 dist/
     📁 css/
         📄 styles.min.css
     📁 js/
         📄 scripts.min.js
     📁 icomoon/
-        📁 icomoon-front/
-            📁 fonts/
-                📂 /...
-            📄 fonts.min.css
         📁 icomoon-social/
             📁 fonts/
                 📂 /...
             📄 fonts.min.css
+        📂 /...
     📁 images/
         📂 /...
 📄 index.html
