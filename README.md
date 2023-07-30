@@ -11,7 +11,7 @@
 
 ## Description
 
-Gulp Compiler is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
+This repository is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
 
 ## Development interface
 
