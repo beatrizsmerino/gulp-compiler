@@ -85,18 +85,20 @@ dist/
         scripts.min.js
 ```
 
-#### Necessary files
-
-- `package.json`
-- `gulpfile.js`
-
-## How use
+## Required
 
 ### To use it is necessary have installed
 
 - [Node](https://nodejs.org/es/)
 - [NPM](https://docs.npmjs.com/)
 - [Gulp](https://gulpjs.com/)
+
+### Necessary files
+
+- `package.json`
+- `gulpfile.js`
+
+## How use
 
 ### If you already have node, npm and gulp
 
