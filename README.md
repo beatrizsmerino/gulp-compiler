@@ -33,7 +33,10 @@ The website interface has a `frontend` (visible for all users to interact with) 
 ```shell
 admin/
     src/
-        images/
+        sass/
+            styles.sass
+        js/
+            scripts.js
         icomoon/
             icomoon-back/
                 fonts/
@@ -41,12 +44,12 @@ admin/
             icomoon-social/
                 fonts/
                 fonts.css
-        sass/
-            styles.sass
-        js/
-            scripts.js
+        images/
 src/
-    images/
+    sass/
+        styles.sass
+    js/
+        scripts.js
     icomoon/
         icomoon-front/
             fonts/
@@ -54,10 +57,7 @@ src/
         icomoon-social/
             fonts/
             fonts.css
-    sass/
-        styles.sass
-    js/
-        scripts.js
+    images/
 ```
 
 ### Output structure folders
@@ -65,7 +65,10 @@ src/
 ```shell
 admin/
     dist/
-        images/
+        css/
+            styles.min.css
+        js/
+            scripts.min.js
         icomoon/
             icomoon-back/
                 fonts/
@@ -73,12 +76,12 @@ admin/
             icomoon-social/
                 fonts/
                 fonts.min.css
-        css/
-            styles.min.css
-        js/
-            scripts.min.js
+        images/
 dist/
-    images/
+    css/
+        styles.min.css
+    js/
+        scripts.min.js
     icomoon/
         icomoon-front/
             fonts/
@@ -86,10 +89,7 @@ dist/
         icomoon-social/
             fonts/
             fonts.min.css
-    css/
-        styles.min.css
-    js/
-        scripts.min.js
+    images/
 ```
 
 ## 🔑 Required
