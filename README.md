@@ -85,13 +85,13 @@ dist/
 
 ## Required
 
-### To use it is necessary have installed
+### Dependencies
 
 - [Node](https://nodejs.org/es/)
 - [NPM](https://docs.npmjs.com/)
 - [Gulp](https://gulpjs.com/)
 
-### Necessary files
+### Files
 
 - `package.json`
 - `gulpfile.js`
