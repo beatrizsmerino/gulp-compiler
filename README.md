@@ -98,7 +98,7 @@ dist/
 - `package.json`
 - `gulpfile.js`
 
-## How use
+## Commands
 
 ### If you already have node, npm and gulp
 
