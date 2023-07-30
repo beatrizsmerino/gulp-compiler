@@ -114,23 +114,53 @@ gulp
 
 ### Frontend and backend commands
 
-#### Front
+#### Build files
 
 ```shell
 gulp front-build
-gulp front-css
-gulp front-js
-gulp front-icon
-gulp front-img
 ```
-
-#### Back
 
 ```shell
 gulp back-build
+```
+
+#### Build CSS files
+
+```shell
+gulp front-css
+```
+
+```shell
 gulp back-css
+```
+
+#### Build JS files
+
+```shell
+gulp front-js
+```
+
+```shell
 gulp back-js
+```
+
+#### Build icon files
+
+```shell
+gulp front-icon
+```
+
+```shell
 gulp back-icon
+```
+
+#### Build image files
+
+```shell
+gulp front-img
+```
+
+```shell
 gulp back-img
 ```
 
