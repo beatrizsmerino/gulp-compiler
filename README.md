@@ -112,6 +112,18 @@ npm install
 gulp
 ```
 
+#### Create and run server
+
+```shell
+gulp serve
+```
+
+#### Watch for changes
+
+```shell
+gulp watch
+```
+
 ### Frontend and backend commands
 
 #### Build files
