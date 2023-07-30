@@ -98,17 +98,21 @@ dist/
 
 ## Commands
 
-### If you already have node, npm and gulp
+### Generic commands
+
+#### If you already have node, npm and gulp
 
 ```shell
 npm install
 ```
 
-### Tasks availables
+#### Tasks availables
 
 ```shell
 gulp
 ```
+
+### Frontend and backend commands
 
 #### Front
 
