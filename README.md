@@ -1,202 +1,180 @@
-![shieldsIO](https://img.shields.io/github/issues/beatrizsmerino/gulp-compiler)
-![shieldsIO](https://img.shields.io/github/forks/beatrizsmerino/gulp-compiler)
-![shieldsIO](https://img.shields.io/github/stars/beatrizsmerino/gulp-compiler)
+![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
+![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/gulp-compiler)
+![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/gulp-compiler)
+![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/gulp-compiler)
+![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/gulp-compiler)
+![GitHub watchers](https://img.shields.io/github/watchers/beatrizsmerino/gulp-compiler)
 
 # Gulp compiler
 
-Gulp Compiler is a basic code for automate the tasks of your development environment, compile `SASS` and `JS` with the task runner `Gulp`.
-
 ![Image of Gulp Compiler](README/images/gulp-logo.png)
 
-## Development interface
+## 🎯 Description
 
-Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
+This repository automates tasks in the development environment using the `Gulp` task runner and the `Javascript` programming language. Contains functions that make it easy to **create a local server**, **copy and paste** folders and files, **compile** and **compress** various types of files. In addition, it is specifically designed to be used in the folders containing the `frontend` and `backend` files of a web site.
 
-### Content
+By automating these tasks, developers can focus on their creative and productive work without worrying about repetitive manual operations. This makes it a complete and versatile solution to improve efficiency in the development process.
 
-The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
+## 🧩 Content
 
-#### Input structure folders
+### Frontend and backend structure
 
-```shell
-gulp-compiler
-    admin/
-        src/
-            images/
-            icomoon/
-                icomoon-back/
-                    **/*
-                icomoon-social/
-                    **/*
-            sass/
-                abstracts/
-                bases/
-                components/
-                layouts/
-                pages/
-                vendors/
-                themes/
-                styles.sass
-            js/
-                abstracts/
-                bases/
-                components/
-                layouts/
-                pages/
-                vendors/
-                themes/
-                scripts.js
-    src/
-        images/
-            **/*
-        icomoon/
-            icomoon-front/
-                **/*
-            icomoon-social/
-                **/*
-        sass/
-            abstracts/
-            bases/
-            components/
-            layouts/
-            pages/
-            vendors/
-            themes/
-            styles.sass
-        js/
-            abstracts/
-            bases/
-            components/
-            layouts/
-            pages/
-            vendors/
-            themes/
-            scripts.js
-```
+The tasks collect the necessary files from the `src` folder and generate a new `dist` folder containing the processed and optimized results.
 
-#### Output structure folders
+The website interface has a `frontend` (visible for all users to interact with) and a `backend` (accessible only to the client that manages the website). Both parts have the same folder and file structure, where the frontend files are located in the root of the project and the backend files inside the `admin` folder located in the root of the project.
 
 ```shell
-gulp-compiler
-    admin/
-        dist/
-            images/
-                **/*
-            icomoon/
-                icomoon-back/
-                    fonts/
-                    fonts.min.css
-                icomoon-social/
-                    fonts/
-                    fonts.min.css
-            css/
-                styles.min.css
-            js/
-                scripts.min.js
-    dist/
-        images/
-            **/*
-        icomoon/
-            icomoon-front/
-                fonts/
-                fonts.min.css
-            icomoon-social/
-                fonts/
-                fonts.min.css
-        css/
-            styles.min.css
-        js/
-            scripts.min.js
+📦 node_modules/
+    📂 /...
+📁 admin/
+    📁 src/
+    📁 dist/
+📁 src/
+📁 dist/
 ```
 
-#### Necessary files
+### Input and output structure
 
-- _package.json_: Configuration file
-- _gulpfile.js_: Specify possible tasks
+The automated tasks in the `gulpfile.js` include several important functions:
 
-## How use
+1. Concatenation of `CSS` files of external libraries from `node_modules` folder and compilation of partials `SASS` files, to generate a single minified file.
+2. Compilation of external libraries from `node_modules` folder and partials `JS` files into a single minified file.
+3. Copying of fonts and minification of css icons, obtained from the online tool `Icomoon`.
+4. Copy and compression of `Images`, to improve website performance by reducing its size without compromising its visual quality.
 
-### To use it is necessary have installed
+#### Input folders and files
+
+```shell
+📁 src/
+    📁 sass/
+        📂 /...
+        📄 styles.sass
+    📁 js/
+        📂 /...
+        📄 scripts.js
+    📁 icomoon/
+        📁 icomoon-social/
+            📁 fonts/
+                📂 /...
+            📄 fonts.css
+        📂 /...
+    📁 images/
+        📂 /...
+📄 index.html
+```
+
+#### Output folders and files
+
+```shell
+📁 dist/
+    📁 css/
+        📄 styles.min.css
+    📁 js/
+        📄 scripts.min.js
+    📁 icomoon/
+        📁 icomoon-social/
+            📁 fonts/
+                📂 /...
+            📄 fonts.min.css
+        📂 /...
+    📁 images/
+        📂 /...
+📄 index.html
+```
+
+## 🔑 Required
+
+### Dependencies
 
 - [Node](https://nodejs.org/es/)
-
-    ```shell
-    node --version
-    ```
-
 - [NPM](https://docs.npmjs.com/)
+- [Gulp](https://gulpjs.com/)
 
-    ```shell
-    npm install
-    npm --version
-    ```
+### Files
 
-- [Gulp 4.0.0](https://gulpjs.com/)
+- `package.json`
+- `gulpfile.js`
 
-    ```shell
-    npm install --global gulp-cli
-    npm install gulp
-    gulp --version
-    ```
+## 🚀 Commands
 
-### If you already have node, npm and gulp
+### Generic commands
 
-After installing everything you need, you must launch the command, for download the packages the 'devDependencies' of configuration file.
+#### Install dependencies
 
 ```shell
 npm install
 ```
 
-### Tasks availables
-
-You can start the following tasks using the command console while in the project folder.
+#### Build files, run server and watch changes
 
 ```shell
 gulp
 ```
 
-#### Front
+#### Create and run server
+
+```shell
+gulp serve
+```
+
+#### Watch for changes
+
+```shell
+gulp watch
+```
+
+### Frontend and backend commands
+
+#### Build files
 
 ```shell
 gulp front-build
+```
+
+```shell
+gulp back-build
+```
+
+#### Build CSS files
+
+```shell
 gulp front-css
+```
+
+```shell
+gulp back-css
+```
+
+#### Build JS files
+
+```shell
 gulp front-js
+```
+
+```shell
+gulp back-js
+```
+
+#### Build icon files
+
+```shell
 gulp front-icon
+```
+
+```shell
+gulp back-icon
+```
+
+#### Build image files
+
+```shell
 gulp front-img
 ```
 
 ```shell
-gulp front__sassCompile
-gulp front__cssCompile
-gulp front__jsCompile
-gulp front__cssIcomoonMainCopy
-gulp front__cssIcomoonMainMinify
-gulp front__cssIcomoonSocialCopy
-gulp front__cssIcomoonSocialMinify
-gulp front__imageMinify
-```
-
-#### Back
-
-```shell
-gulp back-build
-gulp back-css
-gulp back-js
-gulp back-icon
 gulp back-img
 ```
 
-```shell
-gulp back__sassCompile
-gulp back__cssCompile
-gulp back__jsCompile
-gulp back__cssIcomoonMainCopy
-gulp back__cssIcomoonMainMinify
-gulp back__cssIcomoonSocialCopy
-gulp back__cssIcomoonSocialMinify
-gulp back__imageMinify
-```
+## 🔗 References
 
-## Continue
-
-Here I leave a link [to continue](https://gulpjs.com/docs/en/getting-started/quick-start) you can add more task if you need.
+Here I leave a link [to continue](https://gulpjs.com/docs/en/getting-started/quick-start) you can add more tasks if you need.
