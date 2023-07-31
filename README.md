@@ -39,9 +39,11 @@ By automating these tasks, developers can focus on their creative and productive
 
 ### Dependencies
 
-- [Node](https://nodejs.org/es/)
-- [NPM](https://docs.npmjs.com/)
-- [Gulp](https://gulpjs.com/)
+You must have the following dependencies installed globally on your computer:
+
+- [Node 14](https://nodejs.org/es/)
+- [NPM 6](https://docs.npmjs.com/)
+- [Gulp 4](https://gulpjs.com/)
 
 ### Files
 
