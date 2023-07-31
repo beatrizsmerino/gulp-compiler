@@ -37,21 +37,6 @@ By automating these tasks, developers can focus on their creative and productive
 [![Babel](https://img.shields.io/badge/-babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=000000)](https://babeljs.io/)
 [![Icomoon](https://img.shields.io/badge/-Icomoon-02A8F3?style=for-the-badge&logo=icomoon&logoColor=white)](https://icomoon.io/app/#/select)
 
-## 🔑 Required
-
-### Dependencies
-
-You must have the following dependencies installed globally on your computer:
-
-- [Node 14](https://nodejs.org/es/)
-- [NPM 6](https://docs.npmjs.com/)
-- [Gulp 4](https://gulpjs.com/)
-
-### Files
-
-- `package.json`
-- `gulpfile.js`
-
 ## 🧩 Content
 
 ### Frontend and backend structure
