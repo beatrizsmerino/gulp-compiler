@@ -172,7 +172,7 @@ In the [gulpfile.js](gulpfile.js) of this proyect you can see the **gulp tasks**
 
 This version use `gulp.series()`, combines task functions and/or composed operations into larger operations that will be executed one after another, in sequential order.
 
-### 🔧 Run server and watch changes
+### Run server and watch changes
 
 This is the default gulp task
 
@@ -187,7 +187,7 @@ This command is able to:
 gulp
 ```
 
-### 💻 Run server
+### Run server
 
 This create a static server with browserSync package, serves the files from `dist` folder and opens by default the `index.html` file in any of these browsers: Chrome & Firefox.
 
@@ -195,7 +195,7 @@ This create a static server with browserSync package, serves the files from `dis
 gulp serve
 ```
 
-### 📂 Generate html, css and js
+### Generate html, css and js
 
 This command is able to:
 
@@ -206,7 +206,7 @@ This command is able to:
 gulp build
 ```
 
-### 📄 Generate html
+### Generate html
 
 This command is able to:
 
@@ -218,7 +218,7 @@ This command is able to:
 gulp html
 ```
 
-### 📄 Generate css
+### Generate css
 
 This command is able to:
 
@@ -230,7 +230,7 @@ This command is able to:
 gulp css
 ```
 
-### 📄 Generate js
+### Generate js
 
 This command is able to:
 
@@ -242,7 +242,7 @@ This command is able to:
 gulp js
 ```
 
-### 🔎 Watch changes
+### Watch changes
 
 This command is able to:
 
@@ -254,7 +254,7 @@ This command is able to:
 gulp watch
 ```
 
-## 🚀 Another version
+## Another version
 
 There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
 
