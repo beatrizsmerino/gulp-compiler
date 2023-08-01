@@ -24,8 +24,6 @@ More information: [Introduction to gulp](https://dolphinandmermaids.com/blog/gul
 
 ## 🧩 Content
 
-![Input/Output folders](README/images/input-output-folder.svg)
-
 The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and generate a new `dist` folder with the results.
 
 - Input structure folders
@@ -51,8 +49,6 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
     ```
 
 ## 🔑 Required
-
-![NPM scripts](README/images/first-steps.svg)
 
 > You can skip this section if you already have NODE, NPM and GULP.
 
@@ -146,8 +142,6 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 
 ## 🚀 NPM
 
-![NPM scripts](README/images/npm-scripts.svg)
-
 <details>
     <summary>
         <h3>
@@ -177,8 +171,6 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 <pre><code>npm run deploy</code></pre>
 
 ## 🚀 GULP
-
-![Gulp tasks](README/images/gulp-tasks.svg)
 
 In the [gulpfile.js](gulpfile.js) of this proyect you can see the **gulp tasks** developed to compile and compress the `SASS` and `JS`, copy and paste the `HTML` files, create a server and listen to the changes made to reload it ([Browsersync + Gulp.js](https://browsersync.io/docs/gulp))
 
