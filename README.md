@@ -148,21 +148,33 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 
 ![NPM scripts](README/images/npm-scripts.svg)
 
-### Project setup
+<details>
+    <summary>
+        <h3>
+            Project setup
+        </h3>
+    </summary>
+    <div>
+        <p>
+            After cloning this repository, you need to install the required NPM packages.
+        </p>
+    </div>
+</details>
+<pre><code>npm install</code></pre>
 
-After cloning this repository you need to install the required NPM packages.
-
-```shell
-npm install
-```
-
-### Deploy
-
-After development you can publish the content of `dist` folder in Github Pages (`gh-pages` branch)
-
-```shell
-npm run deploy
-```
+<details>
+    <summary>
+        <h3>
+            Deploy
+        </h3>
+    </summary>
+    <div>
+        <p>
+            After development, you can publish the content of the <code>dist</code> folder on Github Pages (<code>gh-pages</code> branch).
+        </p>
+    </div>
+</details>
+<pre><code>npm run deploy</code></pre>
 
 ## GULP
 
@@ -172,87 +184,107 @@ In the [gulpfile.js](gulpfile.js) of this proyect you can see the **gulp tasks**
 
 This version use `gulp.series()`, combines task functions and/or composed operations into larger operations that will be executed one after another, in sequential order.
 
-### Run server and watch changes
+<details>
+    <summary>
+        <h3>Run server and watch changes</h3>
+    </summary>
+    <div>
+        <p>This is the default gulp task</p>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Creates the <code>dist</code> folder if it does not exist.</li>
+            <li>Generate <code>html</code>, <code>css</code>, <code>js</code> on <code>dist</code> folder.</li>
+            <li>Watch the changes to the files in the <code>sass</code> and <code>js</code> folders inside the <code>src</code> folder.</li>
+            <li>Create a server and reloads if there are any changes in those files of <code>dist</code> folder.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp</code></pre>
 
-This is the default gulp task
+<details>
+    <summary>
+        <h3>Run server</h3>
+    </summary>
+    <div>
+        <p>This creates a static server with the browserSync package, serves the files from <code>dist</code> folder, and opens by default the <code>index.html</code> file in any of these browsers: Chrome & Firefox.</p>
+    </div>
+</details>
+<pre><code>gulp serve</code></pre>
 
-This command is able to:
+<details>
+    <summary>
+        <h3>Generate html, css, and js</h3>
+    </summary>
+    <div>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Creates the <code>dist</code> folder if it does not exist.</li>
+            <li>Generate <code>html</code>, <code>css</code>, <code>js</code> on <code>dist</code> folder.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp build</code></pre>
 
-1. Creates the `dist` folder if it does not exist.
-2. Generate `html`, `css`, `js` on `dist` folder.
-3. Watch the changes to the files in the `sass`, and `js` folders inside the `src` folder.
-4. Create a server and reloads if there are any changes in those files of `dist` folder.
+<details>
+    <summary>
+        <h3>Generate html</h3>
+    </summary>
+    <div>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Creates the <code>dist</code> folder if it does not exist.</li>
+            <li>Copies the <code>html</code> files from the <code>src</code> folder and pastes them into the <code>dist</code> folder.</li>
+            <li>Minify the <code>html</code> files. Collapse white space that contributes to text nodes in a document tree.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp html</code></pre>
 
-```shell
-gulp
-```
+<details>
+    <summary>
+        <h3>Generate css</h3>
+    </summary>
+    <div>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Creates the <code>dist</code> folder if it does not exist.</li>
+            <li>Compile the <code>styles.sass</code> file (with the import files of partials sass) located at <code>src/sass/</code>, add prefixes to css properties, compress the file, create and add a mapping for the debugger styles sass on the browser inspector, apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...</li>
+            <li>Create the <code>styles.min.css</code> file and export it to the <code>dist/css/</code> folder.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp css</code></pre>
 
-### Run server
+<details>
+    <summary>
+        <h3>Generate js</h3>
+    </summary>
+    <div>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Creates the <code>dist</code> folder if it does not exist.</li>
+            <li>Get a list of files from the <code>pathsFront</code> object.</li>
+            <li>Compile the files with Babel NPM package, compress it, and apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...</li>
+            <li>Export the <code>scripts.min.js</code> file to the <code>dist/js</code> folder.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp js</code></pre>
 
-This create a static server with browserSync package, serves the files from `dist` folder and opens by default the `index.html` file in any of these browsers: Chrome & Firefox.
-
-```shell
-gulp serve
-```
-
-### Generate html, css and js
-
-This command is able to:
-
-1. Creates the `dist` folder if it does not exist.
-2. Generate `html`, `css`, `js` on `dist` folder.
-
-```shell
-gulp build
-```
-
-### Generate html
-
-This command is able to:
-
-1. Creates the `dist` folder if it does not exist.
-2. Copies the `html` files from the `src` folder and pastes the `dist` folder.
-3. Minify the `html` files. Collapse white space that contributes to text nodes in a document tree.
-
-```shell
-gulp html
-```
-
-### Generate css
-
-This command is able to:
-
-1. Creates the `dist` folder if it does not exist.
-2. Compile the `styles.sass` file (with the import files of partials sass) located at `src/sass/`, add prefixes to properties css, compress the file, create and add a mapping for the debugger styles sass on the browser inspector, apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
-3. Create the `styles.min.css` file and export to `dist/css/` folder.
-
-```shell
-gulp css
-```
-
-### Generate js
-
-This command is able to:
-
-1. Creates the `dist` folder if it does not exist.
-2. Get list of files of `pathsFront` object, compile the files with Babel NPM package, compress it and apply a Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings)...
-3. Export the `scripts.min.js` file to `dist/js` folder.
-
-```shell
-gulp js
-```
-
-### Watch changes
-
-This command is able to:
-
-1. Create the server.
-2. Watch the changes to the files in the `html`, `sass` and `js` folders inside the `src` folder and run the tasks to re-generate the files inside the `dist` folder.
-3. Reloads the server if there are any changes to the `html`, `css` and `js` files inside the `dist` folder.
-
-```shell
-gulp watch
-```
+<details>
+    <summary>
+        <h3>Watch changes</h3>
+    </summary>
+    <div>
+        <p>This command is able to:</p>
+        <ol>
+            <li>Create the server.</li>
+            <li>Watch the changes to the files in the <code>html</code>, <code>sass</code>, and <code>js</code> folders inside the <code>src</code> folder and run the tasks to re-generate the files inside the <code>dist</code> folder.</li>
+            <li>Reloads the server if there are any changes to the <code>html</code>, <code>css</code>, and <code>js</code> files inside the <code>dist</code> folder.</li>
+        </ol>
+    </div>
+</details>
+<pre><code>gulp watch</code></pre>
 
 ## Another version
 
