@@ -1,7 +1,7 @@
 {
 	"version": "1.0.0",
 	"name": "gulp-compiler",
-	"description": "Gulp Compiler SASS and JS",
+	"description": "Tutorial made with the task runner Gulp to build HTML, CSS, JS, ICONS and IMAGES files.",
 	"author": "beatrizsmerino@gmail.com",
 	"license": "ISC",
 	"main": "index.js",
