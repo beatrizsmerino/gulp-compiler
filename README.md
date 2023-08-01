@@ -140,7 +140,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
     gulp --tasks
     ```
 
-## 🚀 NPM
+## 🚀 Commands: NPM
 
 <details>
     <summary>
@@ -170,7 +170,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 </details>
 <pre><code>npm run deploy</code></pre>
 
-## 🚀 GULP
+## 🚀 Commands: GULP
 
 In the [gulpfile.js](gulpfile.js) of this proyect you can see the **gulp tasks** developed to compile and compress the `SASS` and `JS`, copy and paste the `HTML` files, create a server and listen to the changes made to reload it ([Browsersync + Gulp.js](https://browsersync.io/docs/gulp))
 
