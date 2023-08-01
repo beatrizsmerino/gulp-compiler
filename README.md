@@ -9,12 +9,12 @@
 
 ![Image of Gulp Compiler](README/images/gulp-compiler.svg)
 
-## Description
+## 🎯 Description
 
 Gulp Compiler is a basic code for automate the tasks of your development environment with the task runner `Gulp`.
 This project has functions for create a **server**, **copy and paste** folders/files, **compile** and **compress** files and **watch** his changes.
 
-## Developed with
+## 🏗️ Developed with
 
 Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
 
@@ -22,7 +22,7 @@ Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript
 
 More information: [Introduction to gulp](https://dolphinandmermaids.com/blog/gulp-examples)
 
-## Content
+## 🧩 Content
 
 ![Input/Output folders](README/images/input-output-folder.svg)
 
@@ -50,7 +50,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
         index.html
     ```
 
-## Required
+## 🔑 Required
 
 ![NPM scripts](README/images/first-steps.svg)
 
@@ -118,7 +118,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
     npm list -g --depth=0
     ```
 
-## How use
+## 🚀 How use
 
 ![Image of Gulp Compiler](README/images/gulp-tasks-availables.jpg)
 
@@ -144,7 +144,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
     gulp --tasks
     ```
 
-## NPM
+## 🚀 NPM
 
 ![NPM scripts](README/images/npm-scripts.svg)
 
@@ -176,7 +176,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
 </details>
 <pre><code>npm run deploy</code></pre>
 
-## GULP
+## 🚀 GULP
 
 ![Gulp tasks](README/images/gulp-tasks.svg)
 
@@ -286,7 +286,7 @@ This version use `gulp.series()`, combines task functions and/or composed operat
 </details>
 <pre><code>gulp watch</code></pre>
 
-## Another version
+## 🔗 Another version
 
 There is a more complete version in the branch `feature/gulpfile-front-back`. [Go there](https://github.com/beatrizsmerino/gulp-compiler/tree/feature/gulpfile-front-back)
 
