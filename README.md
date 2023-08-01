@@ -14,7 +14,7 @@
 Gulp Compiler is a basic code for automate the tasks of your development environment with the task runner `Gulp`.
 This project has functions for create a **server**, **copy and paste** folders/files, **compile** and **compress** files and **watch** his changes.
 
-## Development interface
+## Developed with
 
 Is developed with [gulp](https://gulpjs.com/) 4.0.0 a task runner and javascript.
 
@@ -50,7 +50,7 @@ The `SASS` and `JS` compilation tasks pick up the files in the `src` folder and 
         index.html
     ```
 
-## First steps
+## Required
 
 ![NPM scripts](README/images/first-steps.svg)
 
