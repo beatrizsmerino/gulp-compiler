@@ -1,14 +1,15 @@
 {
-	"name": "gulp-compiler",
 	"version": "1.0.0",
-	"description": "Gulp Compiler SASS and JS",
+	"name": "gulp-compiler",
+	"description": "Tutorial made with the task runner Gulp to build HTML, CSS, JS, ICONS and IMAGES files.",
+	"author": "beatrizsmerino@gmail.com",
+	"license": "ISC",
 	"main": "index.js",
 	"scripts": {
 		"install:clean": "rm -rf node_modules package-lock.json",
-		"preinstall": "npm run install:clean && npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
+		"dependencies:fix": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"preinstall": "npm run install:clean && npm run dependencies:fix"
 	},
-	"author": "beatrizsmerino@gmail.com",
-	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "^7.22.9",
 		"@babel/preset-env": "^7.22.9",
@@ -34,7 +35,7 @@
 		"json5": ">=1.0.2"
 	},
 	"volta": {
-		"node": "14.19.3",
-		"npm": "6.14.17"
+		"node": "14.21.3",
+		"npm": "6.14.18"
 	}
 }
