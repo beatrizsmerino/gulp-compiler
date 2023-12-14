@@ -1,176 +1,260 @@
-'use strict';
+"use strict";
 
 
 
 // DEPENDENCIES
 // =================================================
-const gulp                = require('gulp'),
-      autoprefixer        = require('gulp-autoprefixer'),
-      browserSync         = require('browser-sync').create(),
-      reload              = browserSync.reload,
-      cleanCss            = require('gulp-clean-css'),
-      concat              = require('gulp-concat'),
-	  htmlmin             = require('gulp-htmlmin'),
-      lineEndingCorrector = require('gulp-line-ending-corrector'),
-      rename              = require('gulp-rename'),
-	  sass                = require('gulp-sass')(require('sass')),
-      srcMaps             = require('gulp-sourcemaps'),
-      uglify              = require('gulp-uglify'),
-      babel               = require('gulp-babel');
+const browserSync = require("browser-sync");
+const gulp = require("gulp");
+const gulpAutoprefixer = require("gulp-autoprefixer");
+const gulpBabel = require("gulp-babel");
+const gulpCleanCss = require("gulp-clean-css");
+const gulpConcat = require("gulp-concat");
+const gulpHtmlmin = require("gulp-htmlmin");
+const gulpLineEndingCorrector = require("gulp-line-ending-corrector");
+const gulpRename = require("gulp-rename");
+const gulpSass = require("gulp-sass")(require("sass"));
+const gulpSourcemaps = require("gulp-sourcemaps");
+const gulpUglify = require("gulp-uglify");
 
+const createBrowserSync = browserSync.create();
+const reloadBrowserSync = createBrowserSync.reload;
 
 
 // SETTINGS: FOLDER/FILE PATHS
 // =================================================
-let proyectName = 'gulp-compiler/';
+const paths = {
+	src: {
+		base: "src/",
+		sass: "src/sass/",
+		js: "src/js/",
+	},
+	dist: {
+		base: "dist/",
+		css: "dist/css/",
+		js: "dist/js/",
+	},
+	files: {
+		base: "**/*",
+		html: "*.html",
+		sass: "**/*.sass",
+		css: "**/*.css",
+		js: "**/*.js",
+	},
+};
 
-// Path src
-let pathSrc     = 'src/',
-    pathSrcSass = pathSrc + 'sass/',
-    pathSrcJs   = pathSrc + 'js/';
-
-// Path dist
-let pathDist    = 'dist/',
-    pathDistCss = pathDist + 'css/',
-    pathDistJs  = pathDist + 'js/';
-
-// Path Files
-let pathFiles     = "**/*",
-	pathFilesHtml = "*.html",
-	pathFilesSass = "**/*.sass",
-	pathFilesCss  = "**/*.css",
-	pathFilesJs   = "**/*.js";
-
-// Watch Files
-let watchFilesHtml = pathDist + pathFilesHtml,
-	watchFilesCss  = pathDistCss + pathFilesCss,
-	watchFilesJs   = pathDistJs + pathFilesJs;
-
-// Paths used to concat the files in a specific order.
-let filesJsCompile = [pathSrcJs + "scripts.js"];
-
-var filesCssCompile = [pathDistCss + "styles.min.css"];
+// FRONT
+// -------------------------------------------------
+const pathsFront = {
+	src: {
+		html: `${paths.src.base}${paths.files.html}`,
+		sass: `${paths.src.sass}styles.sass`,
+		js: [
+			`${paths.src.js}scripts.js`,
+		],
+	},
+	dist: {
+		html: paths.dist.base,
+		css: paths.dist.css,
+		js: paths.dist.js
+	},
+};
 
 
-
-// FUNTIONS USED IN THE TASKS
+// FUNCTIONS USED IN THE TASKS
 // =================================================
-function createServer() {
-	browserSync.init({
-		server: {
-			baseDir: "./dist",
-			browser: ["google-chrome", "firefox"],
-		},
-	});
-}
-
 function copyDirectory(directoryToCopy, directoryOutput) {
 	return gulp
-		.src(`${directoryToCopy}/**/*`)
+		.src(`${directoryToCopy}${paths.files.base}`)
 		.pipe(gulp.dest(directoryOutput));
-}
+};
 
 function copyFiles(filesToCopy, directoryOutput) {
 	return gulp
 		.src(filesToCopy)
 		.pipe(gulp.dest(directoryOutput));
-}
+};
 
+
+// FUNCTIONS & TASKS
+// =================================================
+function createServer() {
+	createBrowserSync.init({
+		server: {
+			baseDir: paths.dist.base,
+			browser: [
+				"google-chrome",
+				"firefox",
+			],
+		},
+	});
+};
+
+// HTML
+// -------------------------------------------------
 function htmlCopy() {
-	return copyFiles(pathSrc + pathFilesHtml, pathDist);
-}
+	return copyFiles(
+		pathsFront.src.html,
+		pathsFront.dist.html
+	);
+};
 
-function htmlMinfy() {
+function htmlMinify() {
 	return gulp
-		.src(pathDist + pathFilesHtml)
-		.pipe(htmlmin({ collapseWhitespace: true }))
-		.pipe(gulp.dest(pathDist));
-}
-
-function sassCompile() {
-    return gulp
-		.src([pathSrcSass + "styles.sass"])
+		.src(`${pathsFront.dist.html}${paths.files.html}`)
 		.pipe(
-			srcMaps.init({
+			gulpHtmlmin({
+				collapseWhitespace: true,
+			})
+		)
+		.pipe(gulp.dest(pathsFront.dist.html));
+};
+
+// CSS
+// -------------------------------------------------
+function sassCompile() {
+	return gulp
+		.src(pathsFront.src.sass)
+		.pipe(
+			gulpSourcemaps.init({
 				loadMaps: true,
 			})
 		)
 		.pipe(
-			sass({
+			gulpSass({
 				outputStyle: "compressed",
-			}).on("error", sass.logError)
+			}).on(
+				"error",
+				gulpSass.logError
+			)
 		)
 		.pipe(
-			autoprefixer({
-				versions: ["last 2 versions"],
+			gulpAutoprefixer({
+				versions: [
+					"last 2 versions",
+				],
 				cascade: false,
 			})
 		)
-		.pipe(cleanCss())
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(rename("styles.min.css"))
-		.pipe(gulp.dest(pathDistCss));
-}
+		.pipe(gulpCleanCss())
+		.pipe(gulpSourcemaps.write())
+		.pipe(gulpLineEndingCorrector())
+		.pipe(gulpRename("styles.min.css"))
+		.pipe(gulp.dest(pathsFront.dist.css));
+};
 
-function cssCompile() {
-	return gulp
-		.src(filesCssCompile)
-		.pipe(concat("styles.min.css"))
-		.pipe(cleanCss())
-		.pipe(srcMaps.write())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(pathDistCss))
-		.pipe(browserSync.stream());
-}
-
+// JS
+// -------------------------------------------------
 function jsCompile() {
-    return gulp
-		.src(filesJsCompile)
+	return gulp
+		.src(pathsFront.src.js)
 		.pipe(
-			babel({
-				presets: ["@babel/preset-env"],
+			gulpBabel({
+				presets: [
+					"@babel/preset-env",
+				],
 			})
 		)
-		.pipe(concat("scripts.min.js"))
-		.pipe(uglify())
-		.pipe(lineEndingCorrector())
-		.pipe(gulp.dest(pathDistJs));
-}
+		.pipe(gulpConcat("scripts.min.js"))
+		.pipe(gulpUglify())
+		.pipe(gulpLineEndingCorrector())
+		.pipe(gulp.dest(pathsFront.dist.js));
+};
 
+
+// WATCH
+// =================================================
 function watch() {
-    createServer();
-    
-	gulp.watch(pathSrc + pathFilesHtml, gulp.series(htmlCopy, htmlMinfy));
-	gulp.watch(pathSrcSass + pathFilesSass, gulp.series(sassCompile, cssCompile));
-	gulp.watch(pathSrcJs + pathFilesJs, jsCompile);
+	createServer();
 
-	gulp.watch([watchFilesHtml, watchFilesCss, watchFilesJs]).on(
-		"change",
-		reload
+	gulp.watch(
+		`${paths.src.base}${paths.files.html}`,
+		gulp.series(
+			htmlCopy,
+			htmlMinify
+		)
 	);
-}
 
+	gulp.watch(
+		`${paths.src.sass}${paths.files.sass}`,
+		sassCompile
+	);
+
+	gulp.watch(
+		`${paths.src.js}${paths.files.js}`,
+		jsCompile
+	);
+
+	gulp.watch(
+		[
+			`${paths.dist.base}${paths.files.html}`,
+			`${paths.dist.css}${paths.files.css}`,
+			`${paths.dist.js}${paths.files.js}`,
+		]
+	).on(
+		"change",
+		reloadBrowserSync
+	);
+};
 
 
 // EXPORTS
 // =================================================
-exports.createServer  = createServer;
-exports.htmlCopy      = htmlCopy;
-exports.htmlMinfy     = htmlMinfy;
-exports.sassCompile   = sassCompile;
-exports.cssCompile    = cssCompile;
-exports.jsCompile     = jsCompile;
-exports.watch         = watch;
-
+exports.createServer = createServer;
+exports.htmlCopy = htmlCopy;
+exports.htmlMinify = htmlMinify;
+exports.sassCompile = sassCompile;
+exports.jsCompile = jsCompile;
+exports.watch = watch;
 
 
 // TASKS
 // =================================================
-gulp.task("default", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile, watch));
-gulp.task("serve", gulp.series(createServer));
-gulp.task("build", gulp.series(htmlCopy, htmlMinfy, sassCompile, jsCompile));
-gulp.task("html", gulp.series(htmlCopy, htmlMinfy));
-gulp.task("css", gulp.series(sassCompile, cssCompile));
-gulp.task("js", gulp.series(jsCompile));
-gulp.task("watch", gulp.parallel(watch));
+gulp.task(
+	"default",
+	gulp.series(
+		htmlCopy,
+		htmlMinify,
+		sassCompile,
+		jsCompile,
+		watch
+	)
+);
+
+gulp.task(
+	"serve",
+	createServer
+);
+
+gulp.task(
+	"build",
+	gulp.series(
+		htmlCopy,
+		htmlMinify,
+		sassCompile,
+		jsCompile
+	)
+);
+
+gulp.task(
+	"html",
+	gulp.series(
+		htmlCopy,
+		htmlMinify
+	)
+);
+
+gulp.task(
+	"css",
+	sassCompile
+);
+
+gulp.task(
+	"js",
+	jsCompile
+);
+
+gulp.task(
+	"watch",
+	watch
+);
