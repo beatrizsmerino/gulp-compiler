@@ -31,5 +31,9 @@
 	},
 	"resolutions": {
 		"glob-parent": ">=5.1.2"
+	},
+	"engines": {
+		"node": "20.10.0",
+		"npm": "10.2.3"
 	}
 }
