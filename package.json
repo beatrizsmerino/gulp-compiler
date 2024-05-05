@@ -10,7 +10,7 @@
 		"preinstall": "npm run install:clean && npm install --ignore-scripts && npx npm-force-resolutions"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.24.3",
+		"@babel/core": "^7.24.5",
 		"@babel/preset-env": "^7.24.3",
 		"babel-core": "^6.26.3",
 		"babel-polyfill": "^6.26.0",
